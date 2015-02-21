@@ -1,1 +1,2 @@
 c:\users\елизавета\documents\visual studio 2013\Projects\FirstPartKursov\FirstPartKursov\bin\Debug\FirstPartKursov.exe.config
+C:\Users\anast_000\Desktop\hello\Kursov\FirstPartKursov\bin\Debug\FirstPartKursov.exe.config
