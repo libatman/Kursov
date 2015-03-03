@@ -47,17 +47,78 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ClassForms.cs" />
+    <Compile Include="Contacts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Contacts.Designer.cs">
+      <DependentUpon>Contacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataBase.Designer.cs">
+      <DependentUpon>DataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Documents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documents.Designer.cs">
+      <DependentUpon>Documents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputMessages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputMessages.Designer.cs">
+      <DependentUpon>InputMessages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NastroikiPochty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NastroikiPochty.Designer.cs">
+      <DependentUpon>NastroikiPochty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Otchety.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Otchety.Designer.cs">
+      <DependentUpon>Otchety.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MailClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="TheNewMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TheNewMessage.Designer.cs">
+      <DependentUpon>TheNewMessage.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Contacts.resx">
+      <DependentUpon>Contacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataBase.resx">
+      <DependentUpon>DataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Documents.resx">
+      <DependentUpon>Documents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputMessages.resx">
+      <DependentUpon>InputMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NastroikiPochty.resx">
+      <DependentUpon>NastroikiPochty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Otchety.resx">
+      <DependentUpon>Otchety.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -68,6 +129,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TheNewMessage.resx">
+      <DependentUpon>TheNewMessage.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
