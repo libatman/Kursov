@@ -15,5 +15,6 @@ namespace FirstPartKursov
         public static Otchety otchety = new Otchety();
         public static Documents doc = new Documents();
         public static StartForm sf = new StartForm();
+        public static NastroikiPochty np = new NastroikiPochty();
     }
 }

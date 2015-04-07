@@ -23,12 +23,6 @@ namespace FirstPartKursov
             this.Hide();
         }
 
-        private void всеToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            ClassForms.inputmessages.Show();
-            this.Hide();
-        }
-
         private void контактыToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             ClassForms.contacts.Show();
@@ -91,6 +85,12 @@ namespace FirstPartKursov
         private void главноеОкноToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClassForms.sf.Show();
+            this.Hide();
+        }
+
+        private void входящиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.inputmessages.Show();
             this.Hide();
         }
 

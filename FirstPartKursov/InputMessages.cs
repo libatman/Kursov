@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenPop.Mime;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,11 +24,6 @@ namespace FirstPartKursov
             this.Hide();
         }
 
-        private void всеToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            ClassForms.inputmessages.Show();
-            this.Hide();
-        }
 
         private void контактыToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -84,13 +80,69 @@ namespace FirstPartKursov
 
         private void почтаToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            NastroikiPochty np = new NastroikiPochty();
-            np.ShowDialog();
+            ClassForms.np.ShowDialog();
         }
 
         private void главноеОкноToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClassForms.sf.Show();
+            this.Hide();
+        }
+
+        List<string> list_message_output = new List<string>();
+        public List<OpenPop.Mime.Message> listmessages = new List<OpenPop.Mime.Message>();
+
+        private void InputMessages_Load(object sender, EventArgs e)
+        {
+            string result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
+            if (result == "Ok")
+            {
+                MessageBox.Show("Все сообщения скачаны успешно");
+            }
+            else
+            {
+                MessageBox.Show("При считывании сообщений произошли ошибки.");
+            }
+            int countMessages = listmessages.Count;
+            string text_mess = "";
+            for (int i = 0; i < countMessages; i++)
+            {
+                MessagePart mpPlain = listmessages[i].FindFirstPlainTextVersion();
+                if (mpPlain != null)
+                {
+                    Encoding enc = mpPlain.BodyEncoding;
+                    text_mess = enc.GetString(mpPlain.Body);
+                }
+                string[] array_t = text_mess.Split(' ');
+                char[] array = text_mess.ToCharArray();
+                list_message_output.Add((i + 1).ToString() + ", " + listmessages[i].Headers.From.DisplayName.ToString() + ", " + listmessages[i].Headers.From.MailAddress.Address + ", " + listmessages[i].Headers.DateSent.ToShortDateString() + ", " + listmessages[i].Headers.DateSent.ToShortTimeString());
+                listBox1.Items.Add(list_message_output[i]);
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        public TheMessage theMessage;
+        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int selectedIndex = listBox1.SelectedIndex;
+            list_message_output[selectedIndex] = (string)listBox1.SelectedItem;
+            if (list_message_output[listBox1.SelectedIndex][0] == '!')
+            {
+                list_message_output[listBox1.SelectedIndex] = list_message_output[listBox1.SelectedIndex].Remove(0, 1);
+            }
+            string[] array = list_message_output[listBox1.SelectedIndex].Split(',');
+            selectedIndex =Convert.ToInt32(array[0].Trim()) - 1;
+            theMessage = new TheMessage(listmessages[selectedIndex], selectedIndex);
+            this.Hide();
+            theMessage.ShowDialog();
+        }
+
+        private void входящиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.inputmessages.Show();
             this.Hide();
         }
 

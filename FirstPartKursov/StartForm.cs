@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace FirstPartKursov
 {
@@ -84,8 +86,45 @@ namespace FirstPartKursov
 
         private void почтаToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            NastroikiPochty np = new NastroikiPochty();
-            np.ShowDialog();
+            ClassForms.np.ShowDialog();
+        }
+        public Client client;
+        private void StartForm_Load(object sender, EventArgs e)
+        {
+            if (File.Exists("mailinfo.xml"))
+            {
+                ClassForms.sf.client = des(client);
+            }
+            else
+            {
+                ClassForms.sf.client = new Client();
+                ClassForms.np.ShowDialog();
+                ClassForms.sf.client.password = ClassForms.np.Password;
+                ClassForms.sf.client.login = ClassForms.np.Email.Split('@')[0];
+                ClassForms.sf.client.popserver = "pop." + ClassForms.np.Email.Split('@')[1];
+                ClassForms.sf.client.smtpserver = "smtp." + ClassForms.np.Email.Split('@')[1];
+                ser(ClassForms.sf.client);
+            }
+        }
+
+        private void ser(Client client)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Client));
+            FileStream f = new FileStream(@"mailinfo.xml", FileMode.OpenOrCreate);
+            using (StreamWriter sw = new StreamWriter(f))
+            {
+                serializer.Serialize(sw, client);
+            }
+        }
+
+        private Client des(Client client)
+        {
+            XmlSerializer deserializer = new XmlSerializer(typeof(Client));
+            TextReader reader = new StreamReader(@"mailinfo.xml");
+            object obj = deserializer.Deserialize(reader);
+            client = (Client)obj;
+            reader.Close();
+            return client;
         }
     }
 }
