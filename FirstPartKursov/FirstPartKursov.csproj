@@ -33,10 +33,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="OpenPop">
-      <HintPath>..\..\..\..\..\Downloads\OpenPop.NET 2.0.5\OpenPop.NET 2.0.5\binaries\signed (strong name)\OpenPop.dll</HintPath>
+      <HintPath>..\..\..\OpenPop.NET 2.0.5\binaries\signed (strong name)\OpenPop.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +59,7 @@
     <Compile Include="Contacts.Designer.cs">
       <DependentUpon>Contacts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Create_bd.cs" />
     <Compile Include="DataBase.cs">
       <SubType>Form</SubType>
     </Compile>

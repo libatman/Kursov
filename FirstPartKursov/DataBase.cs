@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,6 +94,72 @@ namespace FirstPartKursov
         {
             ClassForms.sf.Show();
             this.Hide();
+        }
+
+        private void DataBase_Load(object sender, EventArgs e)
+        {
+            create_bd bd = new create_bd();
+            //SQLiteConnection.CreateFile(@"D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite");
+            if(File.Exists(@"Data Source=D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite")!=true)
+            {
+                bd.table_create();
+                bd.table_insert();
+            }
+            SQLiteConnection sql = new SQLiteConnection(@"Data Source=D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite;Version=3");
+            SQLiteCommand sc;
+            sql.Open();//  ПОДКЛЮЧЕНИЕ ОТКРЫТО
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT * FROM office;";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView8.DataSource = dt;
+
+            sc.CommandText = @"SELECT * FROM manager;";
+            sdr = sc.ExecuteReader();
+            dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView2.DataSource = dt;
+
+            sc.CommandText = @"SELECT * FROM provider;";
+            sdr = sc.ExecuteReader();
+            dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView3.DataSource = dt;
+
+            sc.CommandText = @"SELECT * FROM goods;";
+            sdr = sc.ExecuteReader();
+            dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView4.DataSource = dt;
+
+            sc.CommandText = @"SELECT * FROM storage;";
+            sdr = sc.ExecuteReader();
+            dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView5.DataSource = dt;
+
+            sc.CommandText = @"SELECT * FROM ordering_goods;";
+            sdr = sc.ExecuteReader();
+            dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView6.DataSource = dt;
+
+            sc.CommandText = @"SELECT * FROM redistribution_goods;";
+            sdr = sc.ExecuteReader();
+            dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView7.DataSource = dt;
+
+            sc.CommandText = @"SELECT * FROM selling;";
+            sdr = sc.ExecuteReader();
+            dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView1.DataSource = dt;
+
+            sdr.Close();
+            sql.Close(); //ПОДКЛЮЧЕНИЕ ЗАКРЫТО
+
         }
     }
 }
