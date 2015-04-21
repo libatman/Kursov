@@ -4,7 +4,6 @@ using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace FirstPartKursov
 {
@@ -80,12 +79,18 @@ namespace FirstPartKursov
             sc.CommandText = "INSERT INTO 'office' ('id_office', 'address','email') VALUES (2, 'филатова6','anastasySher222@bk.ru');";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
+            sc.CommandText = "INSERT INTO 'office' ('id_office', 'address','email') VALUES (3, 'филатова9','nikolaiuhvarov@mail.ru');";
+            sc.ExecuteNonQuery();
+            sc = sql.CreateCommand();
             sc.CommandText = "INSERT INTO 'manager' ('id_manager', 'FIO','id_office') VALUES (1, 'Щербакова', 1);";
             sc.ExecuteNonQuery();
             sc.CommandText = "INSERT INTO 'manager' ('id_manager', 'FIO','id_office') VALUES (2, 'Семёнова', 2);";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
             sc.CommandText = "INSERT INTO 'provider' ('id_provider', 'name_provider','email_provider') VALUES (1, 'Hohner','anastasySher222@mail.ru');";
+            sc.ExecuteNonQuery();
+            sc = sql.CreateCommand();
+            sc.CommandText = "INSERT INTO 'provider' ('id_provider', 'name_provider','email_provider') VALUES (2, 'Lisa','liza.deer@yandex.ru');";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
             sc.CommandText = "insert into 'goods' ('id_goods', 'name_goods','surrency','price','id_provider') values (1, 'гитара','rub',4999,1);";
@@ -125,6 +130,7 @@ namespace FirstPartKursov
 
         }
 
+
         public void triggers()
         {
             SetConnection();
@@ -140,5 +146,50 @@ namespace FirstPartKursov
 
 
         }
+
+        public List<string> addresses_postav()
+        {
+            List<string> addresses_p = new List<string>();
+            using (SQLiteConnection connect = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3;New=False;Compress=True;"))
+            {
+                connect.Open();
+                using (SQLiteCommand fmd = connect.CreateCommand())
+                {
+                    fmd.CommandText = @"SELECT email_provider FROM provider";
+                    fmd.CommandType = CommandType.Text;
+                    SQLiteDataReader r = fmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        addresses_p.Add(Convert.ToString(r["email_provider"]));
+
+                    }
+                }
+            }
+            return addresses_p;
+
+        }
+
+        public List<string> addresses_filial()
+        {
+            List<string> addresses_a = new List<string>();
+            using (SQLiteConnection connect = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3;New=False;Compress=True;"))
+            {
+                connect.Open();
+                using (SQLiteCommand fmd = connect.CreateCommand())
+                {
+                    fmd.CommandText = @"SELECT email FROM office";
+                    fmd.CommandType = CommandType.Text;
+                    SQLiteDataReader r = fmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        addresses_a.Add(Convert.ToString(r["email"]));
+
+                    }
+                }
+            }
+            return addresses_a;
+
+        }
+
     }
 }

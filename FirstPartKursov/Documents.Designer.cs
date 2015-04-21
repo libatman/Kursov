@@ -243,6 +243,7 @@
             this.Name = "Documents";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Документы";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Documents_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

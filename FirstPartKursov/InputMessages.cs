@@ -6,7 +6,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FirstPartKursov
@@ -91,9 +90,12 @@ namespace FirstPartKursov
 
         List<string> list_message_output = new List<string>();
         public List<OpenPop.Mime.Message> listmessages = new List<OpenPop.Mime.Message>();
-
+        List<string> addresses_p; create_bd DataBase = new create_bd();
+        List<string> addresses_a;
         private void InputMessages_Load(object sender, EventArgs e)
         {
+            addresses_p = DataBase.addresses_postav();
+            addresses_a = DataBase.addresses_filial();
             string result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
             if (result == "Ok")
             {
@@ -104,20 +106,27 @@ namespace FirstPartKursov
                 MessageBox.Show("При считывании сообщений произошли ошибки.");
             }
             int countMessages = listmessages.Count;
-            string text_mess = "";
             for (int i = 0; i < countMessages; i++)
             {
-                MessagePart mpPlain = listmessages[i].FindFirstPlainTextVersion();
-                if (mpPlain != null)
-                {
-                    Encoding enc = mpPlain.BodyEncoding;
-                    text_mess = enc.GetString(mpPlain.Body);
-                }
-                string[] array_t = text_mess.Split(' ');
-                char[] array = text_mess.ToCharArray();
                 list_message_output.Add((i + 1).ToString() + ", " + listmessages[i].Headers.From.DisplayName.ToString() + ", " + listmessages[i].Headers.From.MailAddress.Address + ", " + listmessages[i].Headers.DateSent.ToShortDateString() + ", " + listmessages[i].Headers.DateSent.ToShortTimeString());
-                listBox1.Items.Add(list_message_output[i]);
+                for (int j = 0; j < addresses_p.Count; j++)
+                {
+                    if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_p[j])
+                    {
+                        listBox2.Items.Add(list_message_output[i]);
+                    }
+                }
+                for (int k = 0; k < addresses_a.Count; k++)
+                {
+                    if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_a[k])
+                    {
+                        listBox3.Items.Add(list_message_output[i]);
+                    }
+                }
+                    listBox1.Items.Add(list_message_output[i]);
             }
+
+            
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,6 +153,31 @@ namespace FirstPartKursov
         {
             ClassForms.inputmessages.Show();
             this.Hide();
+        }
+
+        private void InputMessages_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void listBox2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            //int selectedIndex = listBox2.SelectedIndex;
+            //list_message_output[selectedIndex] = (string)listBox2.SelectedItem;
+            //if (list_message_output[listBox2.SelectedIndex][0] == '!')
+            //{
+            //    list_message_output[listBox2.SelectedIndex] = list_message_output[listBox2.SelectedIndex].Remove(0, 1);
+            //}
+            //string[] array = list_message_output[listBox2.SelectedIndex].Split(',');
+            //selectedIndex = Convert.ToInt32(array[0].Trim()) - 1;
+            //theMessage = new TheMessage(listmessages[selectedIndex], selectedIndex);
+            //this.Hide();
+            //theMessage.ShowDialog();
+        }
+
+        private void listBox3_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
         }
 
     }
