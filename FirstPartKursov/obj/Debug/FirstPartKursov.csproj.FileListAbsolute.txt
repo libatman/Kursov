@@ -17,3 +17,24 @@ D:\универ\kursovaya\Kursov\FirstPartKursov\bin\Debug\OpenPop.dll
 D:\универ\kursovaya\Kursov\FirstPartKursov\obj\Debug\FirstPartKursov.exe
 D:\универ\kursovaya\Kursov\FirstPartKursov\obj\Debug\FirstPartKursov.pdb
 D:\универ\kursovaya\Kursov\FirstPartKursov\bin\Debug\System.Data.SQLite.xml
+F:\Kursov\FirstPartKursov\bin\Debug\FirstPartKursov.exe.config
+F:\Kursov\FirstPartKursov\obj\Debug\FirstPartKursov.exe
+F:\Kursov\FirstPartKursov\obj\Debug\FirstPartKursov.pdb
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\bin\Debug\FirstPartKursov.exe.config
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.exe
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.pdb
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\bin\Debug\FirstPartKursov.exe
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\bin\Debug\FirstPartKursov.pdb
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\bin\Debug\System.Data.SQLite.xml
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.csprojResolveAssemblyReference.cache
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.Contacts.resources
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.DataBase.resources
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.Documents.resources
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.InputMessages.resources
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.NastroikiPochty.resources
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.Otchety.resources
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.StartForm.resources
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.Properties.Resources.resources
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.TheMessage.resources
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.TheNewMessage.resources
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.csproj.GenerateResource.Cache

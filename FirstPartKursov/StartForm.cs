@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml.Serialization;
@@ -31,11 +30,6 @@ namespace FirstPartKursov
             this.Hide();
         }
 
-        private void всеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ClassForms.inputmessages.Show();
-            this.Hide();
-        }
 
         private void контактыToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -89,6 +83,8 @@ namespace FirstPartKursov
             ClassForms.np.ShowDialog();
         }
         public Client client;
+
+       
         private void StartForm_Load(object sender, EventArgs e)
         {
             if (File.Exists("mailinfo.xml"))
@@ -105,6 +101,11 @@ namespace FirstPartKursov
                 ClassForms.sf.client.smtpserver = "smtp." + ClassForms.np.Email.Split('@')[1];
                 ser(ClassForms.sf.client);
             }
+            Valuta v = new Valuta();
+
+            string html = v.download_site();
+            html.Trim();
+            label1.Text = v.get_valute(html);
         }
 
         private void ser(Client client)
@@ -125,6 +126,17 @@ namespace FirstPartKursov
             client = (Client)obj;
             reader.Close();
             return client;
+        }
+
+        private void входящиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.inputmessages.Show();
+            this.Hide();
+        }
+
+        private void StartForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

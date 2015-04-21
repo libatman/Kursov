@@ -32,10 +32,6 @@
             this.почтаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.написатьНовоеСообщениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.входящиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.всеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поставщикиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.филиалыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.другоеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.контактыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.бДToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,39 +87,10 @@
             // 
             // входящиеToolStripMenuItem
             // 
-            this.входящиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.всеToolStripMenuItem,
-            this.поставщикиToolStripMenuItem,
-            this.филиалыToolStripMenuItem,
-            this.другоеToolStripMenuItem});
             this.входящиеToolStripMenuItem.Name = "входящиеToolStripMenuItem";
             this.входящиеToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
             this.входящиеToolStripMenuItem.Text = "Входящие";
-            // 
-            // всеToolStripMenuItem
-            // 
-            this.всеToolStripMenuItem.Name = "всеToolStripMenuItem";
-            this.всеToolStripMenuItem.Size = new System.Drawing.Size(178, 28);
-            this.всеToolStripMenuItem.Text = "Все";
-            this.всеToolStripMenuItem.Click += new System.EventHandler(this.всеToolStripMenuItem_Click);
-            // 
-            // поставщикиToolStripMenuItem
-            // 
-            this.поставщикиToolStripMenuItem.Name = "поставщикиToolStripMenuItem";
-            this.поставщикиToolStripMenuItem.Size = new System.Drawing.Size(178, 28);
-            this.поставщикиToolStripMenuItem.Text = "Поставщики";
-            // 
-            // филиалыToolStripMenuItem
-            // 
-            this.филиалыToolStripMenuItem.Name = "филиалыToolStripMenuItem";
-            this.филиалыToolStripMenuItem.Size = new System.Drawing.Size(178, 28);
-            this.филиалыToolStripMenuItem.Text = "Филиалы";
-            // 
-            // другоеToolStripMenuItem
-            // 
-            this.другоеToolStripMenuItem.Name = "другоеToolStripMenuItem";
-            this.другоеToolStripMenuItem.Size = new System.Drawing.Size(178, 28);
-            this.другоеToolStripMenuItem.Text = "Другое";
+            this.входящиеToolStripMenuItem.Click += new System.EventHandler(this.входящиеToolStripMenuItem_Click);
             // 
             // контактыToolStripMenuItem
             // 
@@ -226,7 +193,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(348, 206);
+            this.label1.Location = new System.Drawing.Point(12, 182);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 19);
             this.label1.TabIndex = 1;
@@ -246,6 +213,7 @@
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главное окно";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StartForm_FormClosing);
             this.Load += new System.EventHandler(this.StartForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -260,10 +228,6 @@
         private System.Windows.Forms.ToolStripMenuItem почтаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem написатьНовоеСообщениеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem входящиеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem всеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem поставщикиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem филиалыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem другоеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem контактыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem продаваемостьТоваровToolStripMenuItem;

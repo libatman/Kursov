@@ -33,7 +33,6 @@
             this.почтаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.написатьНовоеСообщениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.входящиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.всеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.контактыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.бДToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,16 +46,19 @@
             this.бонусToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.почтаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.всеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.listBox3 = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -208,6 +210,11 @@
             this.почтаToolStripMenuItem1.Text = "Почта";
             this.почтаToolStripMenuItem1.Click += new System.EventHandler(this.почтаToolStripMenuItem1_Click_1);
             // 
+            // всеToolStripMenuItem
+            // 
+            this.всеToolStripMenuItem.Name = "всеToolStripMenuItem";
+            this.всеToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
@@ -224,8 +231,6 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(13, 48);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -240,48 +245,50 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(849, 551);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Все";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.listBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 70);
+            this.tabPage2.Size = new System.Drawing.Size(849, 551);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Поставщики";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 17;
+            this.listBox2.Location = new System.Drawing.Point(7, 7);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(836, 531);
+            this.listBox2.TabIndex = 0;
+            this.listBox2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox2_MouseDoubleClick);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.listBox3);
             this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(849, 551);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Филиалы";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
+            // listBox3
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 26);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(849, 551);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 26);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(849, 551);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.ItemHeight = 17;
+            this.listBox3.Location = new System.Drawing.Point(7, 4);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(836, 531);
+            this.listBox3.TabIndex = 0;
+            this.listBox3.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox3_MouseDoubleClick);
             // 
             // InputMessages
             // 
@@ -296,11 +303,14 @@
             this.Name = "InputMessages";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InputMessages";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InputMessages_FormClosing);
             this.Load += new System.EventHandler(this.InputMessages_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,7 +342,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBox3;
     }
 }

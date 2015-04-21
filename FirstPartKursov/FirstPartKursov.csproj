@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FirstPartKursov</RootNamespace>
     <AssemblyName>FirstPartKursov</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -111,6 +112,7 @@
     <Compile Include="TheNewMessage.Designer.cs">
       <DependentUpon>TheNewMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Valuta.cs" />
     <EmbeddedResource Include="Contacts.resx">
       <DependentUpon>Contacts.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +142,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="TheMessage.resx">
       <DependentUpon>TheMessage.cs</DependentUpon>

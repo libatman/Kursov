@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FirstPartKursov
@@ -92,6 +91,18 @@ namespace FirstPartKursov
         {
             ClassForms.inputmessages.Show();
             this.Hide();
+        }
+
+        private void Contacts_Load(object sender, EventArgs e)
+        {
+            comboBox1.Items.Add("Филиалы");
+            comboBox1.
+            comboBox1.Items.Add("Поставщики");
+        }
+
+        private void Contacts_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
     }

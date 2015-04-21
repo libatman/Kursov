@@ -7,7 +7,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FirstPartKursov
@@ -100,12 +99,12 @@ namespace FirstPartKursov
         {
             create_bd bd = new create_bd();
             //SQLiteConnection.CreateFile(@"D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite");
-            if(File.Exists(@"Data Source=D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite")!=true)
+            if(File.Exists(@"Data Source=bd_kursov.sqlite")!=true)
             {
                 bd.table_create();
                 bd.table_insert();
             }
-            SQLiteConnection sql = new SQLiteConnection(@"Data Source=D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite;Version=3");
+            SQLiteConnection sql = new SQLiteConnection(@"Data Source = bd_kursov.sqlite;Version=3");
             SQLiteCommand sc;
             sql.Open();//  ПОДКЛЮЧЕНИЕ ОТКРЫТО
             sc = sql.CreateCommand();
@@ -160,6 +159,11 @@ namespace FirstPartKursov
             sdr.Close();
             sql.Close(); //ПОДКЛЮЧЕНИЕ ЗАКРЫТО
 
+        }
+
+        private void DataBase_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
