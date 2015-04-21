@@ -17,11 +17,11 @@ namespace FirstPartKursov
         private DataTable DT = new DataTable();
         public void CreateBase()
         {
-            SQLiteConnection.CreateFile(@"D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite");
+            SQLiteConnection.CreateFile(@"bd_kursov.sqlite");
         }
         private void SetConnection()
         {
-            sql = new SQLiteConnection(@"Data Source=D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite;Version=3;New=False;Compress=True;");
+            sql = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3;New=False;Compress=True;");
         }
         public void ExecuteQuery(string txtQuery)// любой запрос.
         {
@@ -95,12 +95,13 @@ namespace FirstPartKursov
             sc.ExecuteNonQuery();
             sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (2, 1,0);";
             sc.ExecuteNonQuery();
+            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (3, 1,26);";
+            sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
             sc.CommandText = "INSERT INTO 'ordering_goods' ('id_ordering', 'amount_goods','id_goods','id_provider') VALUES (1,15,1,1);";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
-            sc.CommandText = "INSERT INTO 'redistribution_goods' ('id_redistribution', 'amount_goods','id_goods','id_storage_old','id_storage_new') VALUES (1,3,1,1,2);";
-            sc.ExecuteNonQuery();
+           //
             sc = sql.CreateCommand();
             sc.CommandText = "INSERT INTO 'selling' ('id_selling', 'date','amount','sum_of_sale','comment','number_of_disk','id_goods','id_manager') VALUES (1,'22/02/15',1,4999,'скидки нет',1,1,1);";
             sc.ExecuteNonQuery();
@@ -121,6 +122,22 @@ namespace FirstPartKursov
             sdr.Close();
             sql.Close();
             return dt;
+
+        }
+
+        public void triggers()
+        {
+            SetConnection();
+            sql.Open();
+            sc = sql.CreateCommand();
+            //триггер редактирует кол-во товара на складе storage при добавлении записи о продаже товара в таблице selling
+            sc.CommandText ="CREATE TRIGGER sale_good BEFORE INSERT ON selling BEGIN UPDATE storage SET amount_goods = amount_goods-new.amount WHERE id_goods=new.id_goods and id_office=(SELECT id_office from manager where new.id_manager=id_manager); END;";
+            sc.ExecuteNonQuery();
+            // триггер редактирует кол-во товара на складе при перераспределении  какого-либо товара в таблице redistribution_goods
+            sc.CommandText = "CREATE TRIGGER redistribution BEFORE INSERT ON redistribution_goods BEGIN UPDATE storage SET amount_goods = amount_goods+new.amount_goods WHERE id_goods=new.id_goods and id_office=new.id_storage_new; UPDATE storage SET amount_goods = amount_goods-new.amount_goods WHERE id_goods=new.id_goods and id_office=new.id_storage_old;  END;";
+            sc.ExecuteNonQuery();
+           
+
 
         }
     }

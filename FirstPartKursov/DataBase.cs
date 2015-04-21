@@ -100,20 +100,26 @@ namespace FirstPartKursov
         {
             create_bd bd = new create_bd();
             //SQLiteConnection.CreateFile(@"D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite");
-            if(File.Exists(@"Data Source=D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite")!=true)
+            if (File.Exists(@"Data Source=bd_kursov.sqlite") != true)
             {
-                bd.table_create();
+                bd.table_create(); 
+                bd.triggers();
                 bd.table_insert();
+               
             }
-            SQLiteConnection sql = new SQLiteConnection(@"Data Source=D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite;Version=3");
+            SQLiteConnection sql = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3");
             SQLiteCommand sc;
             sql.Open();//  ПОДКЛЮЧЕНИЕ ОТКРЫТО
+
             sc = sql.CreateCommand();
             sc.CommandText = @"SELECT * FROM office;";
             SQLiteDataReader sdr = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(sdr);
             dataGridView8.DataSource = dt;
+
+            //sc.CommandText = "INSERT INTO 'selling' ('id_selling', 'date','amount','sum_of_sale','comment','number_of_disk','id_goods','id_manager') VALUES (1,'22/02/15',1,4999,'скидки нет',1,1,1);";
+            //sc.ExecuteNonQuery();
 
             sc.CommandText = @"SELECT * FROM manager;";
             sdr = sc.ExecuteReader();
@@ -159,7 +165,9 @@ namespace FirstPartKursov
 
             sdr.Close();
             sql.Close(); //ПОДКЛЮЧЕНИЕ ЗАКРЫТО
-
+            int id = 8;
+            
+            //MessageBox.Show(bd.ordering_or_redistribution(1,id).ToString());
         }
     }
 }
