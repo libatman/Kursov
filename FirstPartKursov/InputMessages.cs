@@ -91,7 +91,7 @@ namespace FirstPartKursov
         }
 
         List<string> list_message_output = new List<string>();
-        public List<OpenPop.Mime.Message> listmessages = new List<OpenPop.Mime.Message>();
+        public List<OpenPop.Mime.Message> listmessages;
         public List<string> addresses_p; 
         create_bd DataBase = new create_bd();
         public List<string> addresses_a;
@@ -99,15 +99,6 @@ namespace FirstPartKursov
         {
             addresses_p = DataBase.addresses_postav();
             addresses_a = DataBase.addresses_filial();
-            string result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
-            if (result == "Ok")
-            {
-                MessageBox.Show("Все сообщения скачаны успешно");
-            }
-            else
-            {
-                MessageBox.Show("При считывании сообщений произошли ошибки.");
-            }
             int countMessages = listmessages.Count;
             for (int i = 0; i < countMessages; i++)
             {
@@ -184,22 +175,35 @@ namespace FirstPartKursov
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            InputMessages_Load();
-        }
-
-        private void InputMessages_Load()
-        {
-            
+            listmessages = new List<OpenPop.Mime.Message>();
+            fetchmess();
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-
+            string result = (string)e.UserState;
+            if (result == "Ok")
+            {
+                MessageBox.Show("Все сообщения скачаны успешно");
+            }
+            else
+            {
+                MessageBox.Show("При считывании сообщений произошли ошибки.");
+            }
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
+        }
+
+        string result;
+        private void fetchmess()
+        {
+            StartForm s = new StartForm();
+            s.Client_r();
+            result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
+            backgroundWorker1.ReportProgress(100, result);
         }
 
     }
