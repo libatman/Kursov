@@ -137,12 +137,12 @@ namespace FirstPartKursov
                 connect.Open();
                 using (SQLiteCommand fmd = connect.CreateCommand())
                 {
-                    fmd.CommandText = @"SELECT email_provider FROM provider";
+                    fmd.CommandText = @"SELECT name_provider, email_provider FROM provider";
                     fmd.CommandType = CommandType.Text;
                     SQLiteDataReader r = fmd.ExecuteReader();
                     while (r.Read())
                     {
-                        addresses_p.Add(Convert.ToString(r["email_provider"]));
+                        addresses_p.Add(Convert.ToString(r["name_provider"]) + "|" + Convert.ToString(r["email_provider"]));
 
                     }
                 }
@@ -159,12 +159,12 @@ namespace FirstPartKursov
                 connect.Open();
                 using (SQLiteCommand fmd = connect.CreateCommand())
                 {
-                    fmd.CommandText = @"SELECT email FROM office";
+                    fmd.CommandText = @"SELECT address, email FROM office";
                     fmd.CommandType = CommandType.Text;
                     SQLiteDataReader r = fmd.ExecuteReader();
                     while (r.Read())
                     {
-                        addresses_a.Add(Convert.ToString(r["email"]));
+                        addresses_a.Add(Convert.ToString(r["address"]) + "|" + Convert.ToString(r["email"]));
 
                     }
                 }

@@ -6,6 +6,7 @@ using System.Net.Mail;
 using OpenPop.Pop3;
 using OpenPop.Mime;
 using System.IO;
+using System.Threading;
 
 namespace FirstPartKursov
 {

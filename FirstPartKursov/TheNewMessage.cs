@@ -111,11 +111,11 @@ namespace FirstPartKursov
         {
             try
             {
-                theme = textBox1.Text;
+                theme = textBox2.Text;
                 body = richTextBox1.Text;
-                if (textBox2.Text.Contains(','))
+                if (textBox1.Text.Contains(','))
                 {
-                    addresses = textBox2.Text.Split(',');
+                    addresses = textBox1.Text.Split(',');
                     for (int i = 0; i < addresses.Count(); i++)
                     {
                         MailClass.SendMail_Click1(addresses[i], ClassForms.sf.client.login, textBox2.Text, richTextBox1.Text, ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, fileName);

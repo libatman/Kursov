@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FirstPartKursov
@@ -15,6 +16,7 @@ namespace FirstPartKursov
         public InputMessages()
         {
             InitializeComponent();
+            backgroundWorker1.RunWorkerAsync();
         }
 
         private void написатьНовоеСообщениеToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -90,8 +92,9 @@ namespace FirstPartKursov
 
         List<string> list_message_output = new List<string>();
         public List<OpenPop.Mime.Message> listmessages = new List<OpenPop.Mime.Message>();
-        List<string> addresses_p; create_bd DataBase = new create_bd();
-        List<string> addresses_a;
+        public List<string> addresses_p; 
+        create_bd DataBase = new create_bd();
+        public List<string> addresses_a;
         private void InputMessages_Load(object sender, EventArgs e)
         {
             addresses_p = DataBase.addresses_postav();
@@ -111,22 +114,21 @@ namespace FirstPartKursov
                 list_message_output.Add((i + 1).ToString() + ", " + listmessages[i].Headers.From.DisplayName.ToString() + ", " + listmessages[i].Headers.From.MailAddress.Address + ", " + listmessages[i].Headers.DateSent.ToShortDateString() + ", " + listmessages[i].Headers.DateSent.ToShortTimeString());
                 for (int j = 0; j < addresses_p.Count; j++)
                 {
-                    if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_p[j])
+                    if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_p[j].Split('|')[1])
                     {
                         listBox2.Items.Add(list_message_output[i]);
                     }
                 }
                 for (int k = 0; k < addresses_a.Count; k++)
                 {
-                    if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_a[k])
+                    if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_a[k].Split('|')[1])
                     {
                         listBox3.Items.Add(list_message_output[i]);
                     }
                 }
-                    listBox1.Items.Add(list_message_output[i]);
+                listBox1.Items.Add(list_message_output[i]);
             }
-
-            
+           
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,6 +178,26 @@ namespace FirstPartKursov
         }
 
         private void listBox3_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            InputMessages_Load();
+        }
+
+        private void InputMessages_Load()
+        {
+            
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
         }

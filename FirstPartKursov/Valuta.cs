@@ -17,16 +17,16 @@ namespace FirstPartKursov
 
         public string download_site()
         {
-
-            HttpWebRequest req;
-            HttpWebResponse resp;
-            StreamReader sr;
-            string content;
-            req = (HttpWebRequest)WebRequest.Create("http://www.cbr.ru/scripts/XML_daily.asp");
-            resp = (HttpWebResponse)req.GetResponse();
-            sr = new StreamReader(resp.GetResponseStream(), Encoding.GetEncoding("windows-1251"));
-            content = sr.ReadToEnd();
-            sr.Close();
+            string content = "";
+                HttpWebRequest req;
+                HttpWebResponse resp;
+                StreamReader sr;
+                
+                req = (HttpWebRequest)WebRequest.Create("http://www.cbr.ru/scripts/XML_daily.asp");
+                resp = (HttpWebResponse)req.GetResponse();
+                sr = new StreamReader(resp.GetResponseStream(), Encoding.GetEncoding("windows-1251"));
+                content = sr.ReadToEnd();
+                sr.Close();
             return content;
 
 
