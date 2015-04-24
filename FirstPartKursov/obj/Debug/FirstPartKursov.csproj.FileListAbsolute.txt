@@ -38,3 +38,6 @@ C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKurso
 C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.TheMessage.resources
 C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.TheNewMessage.resources
 C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\obj\Debug\FirstPartKursov.csproj.GenerateResource.Cache
+D:\универ\kursovaya\Kursov\FirstPartKursov\obj\Debug\Interop.LCC11.dll
+D:\универ\kursovaya\Kursov\FirstPartKursov\obj\Debug\FirstPartKursov.csproj.ResolveComReference.cache
+D:\универ\kursovaya\Kursov\FirstPartKursov\bin\Debug\Interop.LCC11.dll

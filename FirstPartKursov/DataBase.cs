@@ -99,25 +99,22 @@ namespace FirstPartKursov
         {
             create_bd bd = new create_bd();
             //SQLiteConnection.CreateFile(@"D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite");
-<<<<<<< HEAD
-            if (File.Exists(@"Data Source=bd_kursov.sqlite") != true)
-=======
+
             if(File.Exists(@"Data Source=bd_kursov.sqlite")!=true)
->>>>>>> 0107a568babf8fd20f4a72ad5454309c58d8820c
+
             {
                 bd.table_create(); 
                 bd.triggers();
                 bd.table_insert();
                
             }
-<<<<<<< HEAD
+
             SQLiteConnection sql = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3");
-=======
-            SQLiteConnection sql = new SQLiteConnection(@"Data Source = bd_kursov.sqlite;Version=3");
->>>>>>> 0107a568babf8fd20f4a72ad5454309c58d8820c
+
             SQLiteCommand sc;
             sql.Open();//  ПОДКЛЮЧЕНИЕ ОТКРЫТО
-
+            check_table check = new check_table();
+            check.read_selling();
             sc = sql.CreateCommand();
             sc.CommandText = @"SELECT * FROM office;";
             SQLiteDataReader sdr = sc.ExecuteReader();
@@ -175,11 +172,13 @@ namespace FirstPartKursov
             int id = 8;
             
             //MessageBox.Show(bd.ordering_or_redistribution(1,id).ToString());
+            
         }
 
         private void DataBase_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
+
     }
 }

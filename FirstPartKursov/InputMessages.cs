@@ -90,8 +90,9 @@ namespace FirstPartKursov
 
         List<string> list_message_output = new List<string>();
         public List<OpenPop.Mime.Message> listmessages = new List<OpenPop.Mime.Message>();
-        List<string> addresses_p; create_bd DataBase = new create_bd();
-        List<string> addresses_a;
+        public List<string> addresses_p;
+        create_bd DataBase = new create_bd();
+        public List<string> addresses_a;
         private void InputMessages_Load(object sender, EventArgs e)
         {
             addresses_p = DataBase.addresses_postav();
@@ -111,22 +112,22 @@ namespace FirstPartKursov
                 list_message_output.Add((i + 1).ToString() + ", " + listmessages[i].Headers.From.DisplayName.ToString() + ", " + listmessages[i].Headers.From.MailAddress.Address + ", " + listmessages[i].Headers.DateSent.ToShortDateString() + ", " + listmessages[i].Headers.DateSent.ToShortTimeString());
                 for (int j = 0; j < addresses_p.Count; j++)
                 {
-                    if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_p[j])
+                    if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_p[j].Split('|')[1])
                     {
                         listBox2.Items.Add(list_message_output[i]);
                     }
                 }
                 for (int k = 0; k < addresses_a.Count; k++)
                 {
-                    if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_a[k])
+                    if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_a[k].Split('|')[1])
                     {
                         listBox3.Items.Add(list_message_output[i]);
                     }
                 }
-                    listBox1.Items.Add(list_message_output[i]);
+                listBox1.Items.Add(list_message_output[i]);
             }
 
-            
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -143,7 +144,7 @@ namespace FirstPartKursov
                 list_message_output[listBox1.SelectedIndex] = list_message_output[listBox1.SelectedIndex].Remove(0, 1);
             }
             string[] array = list_message_output[listBox1.SelectedIndex].Split(',');
-            selectedIndex =Convert.ToInt32(array[0].Trim()) - 1;
+            selectedIndex = Convert.ToInt32(array[0].Trim()) - 1;
             theMessage = new TheMessage(listmessages[selectedIndex], selectedIndex);
             this.Hide();
             theMessage.ShowDialog();

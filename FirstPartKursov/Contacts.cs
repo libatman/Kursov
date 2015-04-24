@@ -92,18 +92,96 @@ namespace FirstPartKursov
             ClassForms.inputmessages.Show();
             this.Hide();
         }
-
+        ListBox myListGroups;
         private void Contacts_Load(object sender, EventArgs e)
         {
             comboBox1.Items.Add("Филиалы");
-            comboBox1.
             comboBox1.Items.Add("Поставщики");
+            myListGroups = new ListBox(); //антипаттерн, который я потом опишу в записке : зачем я начала создавать это программно?
+            myListGroups.Location = new Point(60, 100);
+            myListGroups.Size = new Size(760, 540);
+            myListGroups.HorizontalScrollbar = true;
+            Controls.Add(myListGroups);
+            myListGroups.Hide();
         }
 
         private void Contacts_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
+        List<string> addresses_p;
+        List<string> addresses_f;
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 0)
+            {
+                myListGroups.Items.Clear();
+                myListGroups.Show();
+                addresses_f = new create_bd().addresses_filial();
+                for (int i = 0; i < addresses_f.Count; i++)
+                {
+                    myListGroups.Items.Add((i + 1).ToString() + ". " + addresses_f[i].Split('|')[0] + ": " + addresses_f[i].Split('|')[1]);
+                }
+
+            }
+            else
+            {
+                myListGroups.Items.Clear();
+                myListGroups.Show();
+                addresses_p = new create_bd().addresses_postav();
+                for (int i = 0; i < addresses_p.Count; i++)
+                {
+                    myListGroups.Items.Add((i + 1).ToString() + ". " + addresses_p[i].Split('|')[0] + ": " + addresses_p[i].Split('|')[1]);
+                }
+            }
+        }
+
+        private void label1_MouseEnter(object sender, EventArgs e)
+        {
+            Label l = (Label)sender;
+            l.BackColor = Color.LightBlue;
+        }
+
+        private void label1_MouseLeave(object sender, EventArgs e)
+        {
+            Label l = (Label)sender;
+            l.BackColor = Color.WhiteSmoke;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            if (comboBox1.SelectedIndex == 0)
+            {
+                for (int i = 0; i < addresses_f.Count; i++)
+                {
+                    if (i != addresses_f.Count - 1)
+                    {
+                        ClassForms.newmess.textBox1.Text += addresses_f[i].Split('|')[1] + ",";
+                    }
+                    else
+                    {
+                        ClassForms.newmess.textBox1.Text += addresses_f[i].Split('|')[1];
+                    }
+                }
+            }
+            else
+            {
+                for (int j = 0; j < addresses_p.Count; j++)
+                {
+                    if (j != addresses_p.Count - 1)
+                    {
+                        ClassForms.newmess.textBox1.Text += addresses_p[j].Split('|')[1] + ",";
+                    }
+                    else
+                    {
+                        ClassForms.newmess.textBox1.Text += addresses_p[j].Split('|')[1];
+                    }
+                }
+            }
+            ClassForms.newmess.Show();
+        }
 
     }
 }
+

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
+//using Excel = Microsoft.Office.Interop.Excel;
 
 namespace FirstPartKursov
 {
@@ -43,10 +43,10 @@ namespace FirstPartKursov
 
         private void продаваемостьТоваровToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Excel.Application excelapp = new Excel.Application();
-            excelapp.SheetsInNewWorkbook = 1;
-            excelapp.Workbooks.Add(Type.Missing);
-            excelapp.Visible = true;
+        //    Excel.Application excelapp = new Excel.Application();
+        //    excelapp.SheetsInNewWorkbook = 1;
+        //    excelapp.Workbooks.Add(Type.Missing);
+        //    excelapp.Visible = true;
 
         }
 
