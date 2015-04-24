@@ -155,10 +155,5 @@ namespace FirstPartKursov
             }
 
         }
-
-        private void TheMessage_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

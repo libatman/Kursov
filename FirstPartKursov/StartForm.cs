@@ -16,6 +16,7 @@ namespace FirstPartKursov
         public StartForm()
         {
             InitializeComponent();
+            backgroundWorker1.RunWorkerAsync();
         }
 
         private void бДToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,8 +85,7 @@ namespace FirstPartKursov
         }
         public Client client;
 
-       
-        private void StartForm_Load(object sender, EventArgs e)
+        public void Client_r ()
         {
             if (File.Exists("mailinfo.xml"))
             {
@@ -101,14 +101,14 @@ namespace FirstPartKursov
                 ClassForms.sf.client.smtpserver = "smtp." + ClassForms.np.Email.Split('@')[1];
                 ser(ClassForms.sf.client);
             }
-            Valuta v = new Valuta();
-
-            string html = v.download_site();
-            html.Trim();
-            label1.Text = v.get_valute(html);
+        }
+        Valuta v;
+        public void StartForm_Load(object sender, EventArgs e)
+        {
+            Client_r();
         }
 
-        private void ser(Client client)
+        public void ser(Client client)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Client));
             FileStream f = new FileStream(@"mailinfo.xml", FileMode.OpenOrCreate);
@@ -118,7 +118,7 @@ namespace FirstPartKursov
             }
         }
 
-        private Client des(Client client)
+        public Client des(Client client)
         {
             XmlSerializer deserializer = new XmlSerializer(typeof(Client));
             TextReader reader = new StreamReader(@"mailinfo.xml");
@@ -137,6 +137,33 @@ namespace FirstPartKursov
         private void StartForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+        string result;
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                v = new Valuta();
+                string html = v.download_site();
+                html.Trim();
+                result = v.get_valute(html);
+                backgroundWorker1.ReportProgress(100, result);
+            }
+            catch (Exception ex)
+            {
+                result = "Error";
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            string result = (string)e.UserState;
+            label1.Text = result;
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
         }
     }
 }
