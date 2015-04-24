@@ -131,10 +131,6 @@ namespace FirstPartKursov
         {
             int selectedIndex = listBox1.SelectedIndex;
             list_message_output[selectedIndex] = (string)listBox1.SelectedItem;
-            if (list_message_output[listBox1.SelectedIndex][0] == '!')
-            {
-                list_message_output[listBox1.SelectedIndex] = list_message_output[listBox1.SelectedIndex].Remove(0, 1);
-            }
             string[] array = list_message_output[listBox1.SelectedIndex].Split(',');
             selectedIndex =Convert.ToInt32(array[0].Trim()) - 1;
             theMessage = new TheMessage(listmessages[selectedIndex], selectedIndex);
@@ -204,6 +200,47 @@ namespace FirstPartKursov
             s.Client_r();
             result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
             backgroundWorker1.ReportProgress(100, result);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            listmessages.Clear();
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+            listBox3.Items.Clear();
+            list_message_output.Clear();
+            
+            result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
+            if (result == "Ok")
+            {
+                MessageBox.Show("Обновлено!");
+            }
+            else
+            {
+                MessageBox.Show("При считывании сообщений произошли ошибки.");
+            }
+
+
+            int countMessages = listmessages.Count;
+            for (int i = 0; i < countMessages; i++)
+            {
+                list_message_output.Add((i + 1).ToString() + ", " + listmessages[i].Headers.From.DisplayName.ToString() + ", " + listmessages[i].Headers.From.MailAddress.Address + ", " + listmessages[i].Headers.DateSent.ToShortDateString() + ", " + listmessages[i].Headers.DateSent.ToShortTimeString());
+                for (int j = 0; j < addresses_p.Count; j++)
+                {
+                    if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_p[j].Split('|')[1])
+                    {
+                        listBox2.Items.Add(list_message_output[i]);
+                    }
+                }
+                for (int k = 0; k < addresses_a.Count; k++)
+                {
+                    if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_a[k].Split('|')[1])
+                    {
+                        listBox3.Items.Add(list_message_output[i]);
+                    }
+                }
+                listBox1.Items.Add(list_message_output[i]);
+            }
         }
 
     }
