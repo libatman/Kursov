@@ -98,11 +98,11 @@ namespace FirstPartKursov
             comboBox1.Items.Add("Филиалы");
             comboBox1.Items.Add("Поставщики");
             myListGroups = new ListBox(); //антипаттерн, который я потом опишу в записке : зачем я начала создавать это программно?
-<<<<<<< HEAD
+
             myListGroups.Location = new Point(60, 100);
-=======
+
             myListGroups.Location = new Point(20, 60);
->>>>>>> 6f463dc8db7c577b1f18eec6ed85015bb771b5fc
+
             myListGroups.Size = new Size(760, 540);
             myListGroups.HorizontalScrollbar = true;
             Controls.Add(myListGroups);
@@ -124,15 +124,10 @@ namespace FirstPartKursov
                 addresses_f = new create_bd().addresses_filial();
                 for (int i = 0; i < addresses_f.Count; i++)
                 {
-<<<<<<< HEAD
+
                     myListGroups.Items.Add((i + 1).ToString() + ". " + addresses_f[i].Split('|')[0] + ": " + addresses_f[i].Split('|')[1]);
                 }
 
-=======
-                    myListGroups.Items.Add((i+1).ToString() + ". " + addresses_f[i].Split('|')[0] + ": " + addresses_f[i].Split('|')[1]);
-                }
-                
->>>>>>> 6f463dc8db7c577b1f18eec6ed85015bb771b5fc
             }
             else
             {
@@ -141,11 +136,11 @@ namespace FirstPartKursov
                 addresses_p = new create_bd().addresses_postav();
                 for (int i = 0; i < addresses_p.Count; i++)
                 {
-<<<<<<< HEAD
+
                     myListGroups.Items.Add((i + 1).ToString() + ". " + addresses_p[i].Split('|')[0] + ": " + addresses_p[i].Split('|')[1]);
-=======
+
                     myListGroups.Items.Add((i+1).ToString() + ". " + addresses_p[i].Split('|')[0] + ": " + addresses_p[i].Split('|')[1]);
->>>>>>> 6f463dc8db7c577b1f18eec6ed85015bb771b5fc
+
                 }
             }
         }
@@ -167,11 +162,10 @@ namespace FirstPartKursov
             this.Hide();
             if (comboBox1.SelectedIndex == 0)
             {
-<<<<<<< HEAD
-                for (int i = 0; i < addresses_f.Count; i++)
-=======
+
+
                 for  (int i = 0; i < addresses_f.Count; i++)
->>>>>>> 6f463dc8db7c577b1f18eec6ed85015bb771b5fc
+
                 {
                     if (i != addresses_f.Count - 1)
                     {

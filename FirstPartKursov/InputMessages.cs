@@ -91,15 +91,15 @@ namespace FirstPartKursov
         }
 
         List<string> list_message_output = new List<string>();
-<<<<<<< HEAD
+
         public List<OpenPop.Mime.Message> listmessages = new List<OpenPop.Mime.Message>();
         public List<string> addresses_p;
-=======
-        public List<OpenPop.Mime.Message> listmessages;
-        public List<string> addresses_p; 
->>>>>>> 6f463dc8db7c577b1f18eec6ed85015bb771b5fc
+
+        //public List<OpenPop.Mime.Message> listmessages;
+        //public List<string> addresses_p; 
         create_bd DataBase = new create_bd();
         public List<string> addresses_a;
+
         private void InputMessages_Load(object sender, EventArgs e)
         {
             addresses_p = DataBase.addresses_postav();
@@ -124,12 +124,6 @@ namespace FirstPartKursov
                 }
                 listBox1.Items.Add(list_message_output[i]);
             }
-<<<<<<< HEAD
-
-
-=======
-           
->>>>>>> 6f463dc8db7c577b1f18eec6ed85015bb771b5fc
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
