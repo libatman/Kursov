@@ -203,8 +203,16 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+<<<<<<< HEAD
             this.comboBox1.Location = new System.Drawing.Point(12, 38);
             this.comboBox1.Location = new System.Drawing.Point(20, 34);
+=======
+
+            this.comboBox1.Location = new System.Drawing.Point(12, 38);
+
+            this.comboBox1.Location = new System.Drawing.Point(20, 34);
+
+>>>>>>> dd198776baae0586653ca5a67b7bbdeb9a6e6a88
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(187, 23);
             this.comboBox1.TabIndex = 2;
@@ -214,16 +222,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
+<<<<<<< HEAD
+=======
+
+>>>>>>> dd198776baae0586653ca5a67b7bbdeb9a6e6a88
             this.label1.Location = new System.Drawing.Point(224, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Отправить сообщение группе";
+<<<<<<< HEAD
+=======
+
+>>>>>>> dd198776baae0586653ca5a67b7bbdeb9a6e6a88
             this.label1.Location = new System.Drawing.Point(243, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(235, 19);
             this.label1.TabIndex = 3;
             this.label1.Text = "Отправить сообщение группе...";
+<<<<<<< HEAD
+=======
+
+>>>>>>> dd198776baae0586653ca5a67b7bbdeb9a6e6a88
             this.label1.Click += new System.EventHandler(this.label1_Click);
             this.label1.MouseEnter += new System.EventHandler(this.label1_MouseEnter);
             this.label1.MouseLeave += new System.EventHandler(this.label1_MouseLeave);

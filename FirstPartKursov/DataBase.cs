@@ -106,6 +106,7 @@ namespace FirstPartKursov
                 bd.table_create(); 
                 bd.triggers();
                 bd.table_insert();
+                MessageBox.Show("база данных создана"); 
                
             }
 
@@ -169,8 +170,8 @@ namespace FirstPartKursov
 
             sdr.Close();
             sql.Close(); //ПОДКЛЮЧЕНИЕ ЗАКРЫТО
-            int id = 8;
-            
+
+                       
             //MessageBox.Show(bd.ordering_or_redistribution(1,id).ToString());
             
         }
