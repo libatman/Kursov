@@ -22,7 +22,7 @@ namespace FirstPartKursov
         public void createDocument_order(List<string> goods, string filialAddress, string nameProvider)
         {
             var doc = new Document();
-            PdfWriter.GetInstance(doc, new FileStream(@"D:\Курсач\Document_Order.pdf", FileMode.Create));
+            PdfWriter.GetInstance(doc, new FileStream(@"Document_Order.pdf", FileMode.Create));
             doc.Open();
             BaseFont baseFont = BaseFont.CreateFont(@"arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 
@@ -175,7 +175,7 @@ namespace FirstPartKursov
             paragraphBoss.TextContent.Add(new SimpleText(document_Command, "Генеральный директор: _____________________________ Щербакова А.А."));
             document_Command.Content.Add(paragraphBoss);
 
-            document_Command.SaveTo(@"D:\Курсач\Document_Command.odt");
+            document_Command.SaveTo(@"Document_Command.odt");
 
         }
 
@@ -184,7 +184,7 @@ namespace FirstPartKursov
            
 
             var doc = new Document();
-            PdfWriter.GetInstance(doc, new FileStream(@"D:\Курсач\Document_Invoice.pdf", FileMode.Create));
+            PdfWriter.GetInstance(doc, new FileStream(@"Document_Invoice.pdf", FileMode.Create));
             doc.Open();
             BaseFont baseFont = BaseFont.CreateFont(@"arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 
