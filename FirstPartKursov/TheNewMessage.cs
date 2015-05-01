@@ -67,13 +67,13 @@ namespace FirstPartKursov
 
         private void перераспределениеТоваровToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClassForms.doc.Show();
+            ClassForms.doc_red.Show();
             this.Hide();
         }
 
         private void заказТоваровToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClassForms.doc.Show();
+            ClassForms.doc_order.Show();
             this.Hide();
         }
 
@@ -183,6 +183,11 @@ namespace FirstPartKursov
             {
                 mylistatt.Items.Add(items_f[i]);
             }
+        }
+
+        private void TheNewMessage_Load(object sender, EventArgs e)
+        {
+
         }
         
     }

@@ -134,6 +134,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "TheMessage";
             this.Text = "TheMessage";
+            this.Load += new System.EventHandler(this.TheMessage_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 

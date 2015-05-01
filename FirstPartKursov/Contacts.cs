@@ -60,13 +60,13 @@ namespace FirstPartKursov
 
         private void перераспределениеТоваровToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ClassForms.doc.Show();
+            ClassForms.doc_red.Show();
             this.Hide();
         }
 
         private void заказТоваровToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ClassForms.doc.Show();
+            ClassForms.doc_order.Show();
             this.Hide();
         }
 
@@ -98,6 +98,7 @@ namespace FirstPartKursov
             comboBox1.Items.Add("Филиалы");
             comboBox1.Items.Add("Поставщики");
             myListGroups = new ListBox(); //антипаттерн, который я потом опишу в записке : зачем я начала создавать это программно?
+            myListGroups.Location = new Point(60, 100);
             myListGroups.Location = new Point(20, 60);
             myListGroups.Size = new Size(760, 540);
             myListGroups.HorizontalScrollbar = true;
@@ -120,18 +121,17 @@ namespace FirstPartKursov
                 addresses_f = new create_bd().addresses_filial();
                 for (int i = 0; i < addresses_f.Count; i++)
                 {
-                    myListGroups.Items.Add((i+1).ToString() + ". " + addresses_f[i].Split('|')[0] + ": " + addresses_f[i].Split('|')[1]);
+                    myListGroups.Items.Add((i + 1).ToString() + ". " + addresses_f[i].Split('|')[0] + ": " + addresses_f[i].Split('|')[1]);
                 }
-                
             }
             else
             {
                 myListGroups.Items.Clear();
                 myListGroups.Show();
-                addresses_p = new create_bd().addresses_postav();
+                addresses_p = new create_bd().addresses_providers();
                 for (int i = 0; i < addresses_p.Count; i++)
                 {
-                    myListGroups.Items.Add((i+1).ToString() + ". " + addresses_p[i].Split('|')[0] + ": " + addresses_p[i].Split('|')[1]);
+                    myListGroups.Items.Add((i + 1).ToString() + ". " + addresses_p[i].Split('|')[0] + ": " + addresses_p[i].Split('|')[1]);
                 }
             }
         }
@@ -153,7 +153,7 @@ namespace FirstPartKursov
             this.Hide();
             if (comboBox1.SelectedIndex == 0)
             {
-                for  (int i = 0; i < addresses_f.Count; i++)
+                for (int i = 0; i < addresses_f.Count; i++)
                 {
                     if (i != addresses_f.Count - 1)
                     {
@@ -184,3 +184,4 @@ namespace FirstPartKursov
 
     }
 }
+

@@ -9,12 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FirstPartKursov</RootNamespace>
     <AssemblyName>FirstPartKursov</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -33,18 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OpenPop">
-      <HintPath>..\..\..\OpenPop.NET 2.0.5\binaries\signed (strong name)\OpenPop.dll</HintPath>
+    <Reference Include="AODL">
+      <HintPath>dll\AODL.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>dll\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenPop, Version=2.0.5.0, Culture=neutral, PublicKeyToken=bebb5741791313cd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\OpenPop.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -52,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="check_table.cs" />
     <Compile Include="ClassForms.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Contacts.cs">
@@ -60,6 +67,7 @@
     <Compile Include="Contacts.Designer.cs">
       <DependentUpon>Contacts.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateDocument.cs" />
     <Compile Include="Create_bd.cs" />
     <Compile Include="DataBase.cs">
       <SubType>Form</SubType>
@@ -67,11 +75,17 @@
     <Compile Include="DataBase.Designer.cs">
       <DependentUpon>DataBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Documents.cs">
+    <Compile Include="Document_Order.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Documents.Designer.cs">
-      <DependentUpon>Documents.cs</DependentUpon>
+    <Compile Include="Document_Order.Designer.cs">
+      <DependentUpon>Document_Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document_Redistribution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document_Redistribution.Designer.cs">
+      <DependentUpon>Document_Redistribution.cs</DependentUpon>
     </Compile>
     <Compile Include="InputMessages.cs">
       <SubType>Form</SubType>
@@ -119,8 +133,11 @@
     <EmbeddedResource Include="DataBase.resx">
       <DependentUpon>DataBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Documents.resx">
-      <DependentUpon>Documents.cs</DependentUpon>
+    <EmbeddedResource Include="Document_Order.resx">
+      <DependentUpon>Document_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document_Redistribution.resx">
+      <DependentUpon>Document_Redistribution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputMessages.resx">
       <DependentUpon>InputMessages.cs</DependentUpon>
@@ -162,6 +179,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="LCC11">
+      <Guid>{EDCD5812-6A06-43C3-AFAC-46EF5D14E22C}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

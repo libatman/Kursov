@@ -12,7 +12,8 @@ namespace FirstPartKursov
         public static Contacts contacts = new Contacts();
         public static DataBase db = new DataBase();
         public static Otchety otchety = new Otchety();
-        public static Documents doc = new Documents();
+        public static Document_Order doc_order = new Document_Order();
+        public static Document_Redistribution doc_red = new Document_Redistribution();
         public static StartForm sf = new StartForm();
         public static NastroikiPochty np = new NastroikiPochty();
     }

@@ -64,13 +64,13 @@ namespace FirstPartKursov
 
         private void перераспределениеТоваровToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ClassForms.doc.Show();
+            ClassForms.doc_red.Show();
             this.Hide();
         }
 
         private void заказТоваровToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ClassForms.doc.Show();
+            ClassForms.doc_order.Show();
             this.Hide();
         }
 
@@ -91,13 +91,13 @@ namespace FirstPartKursov
         }
 
         List<string> list_message_output = new List<string>();
-        public List<OpenPop.Mime.Message> listmessages;
-        public List<string> addresses_p; 
+        public List<OpenPop.Mime.Message> listmessages = new List<OpenPop.Mime.Message>();
+        public List<string> addresses_p;
         create_bd DataBase = new create_bd();
         public List<string> addresses_a;
         private void InputMessages_Load(object sender, EventArgs e)
         {
-            addresses_p = DataBase.addresses_postav();
+            addresses_p = DataBase.addresses_providers();
             addresses_a = DataBase.addresses_filial();
             int countMessages = listmessages.Count;
             for (int i = 0; i < countMessages; i++)
@@ -119,12 +119,10 @@ namespace FirstPartKursov
                 }
                 listBox1.Items.Add(list_message_output[i]);
             }
-           
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
         public TheMessage theMessage;
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -132,7 +130,7 @@ namespace FirstPartKursov
             int selectedIndex = listBox1.SelectedIndex;
             list_message_output[selectedIndex] = (string)listBox1.SelectedItem;
             string[] array = list_message_output[listBox1.SelectedIndex].Split(',');
-            selectedIndex =Convert.ToInt32(array[0].Trim()) - 1;
+            selectedIndex = Convert.ToInt32(array[0].Trim()) - 1;
             theMessage = new TheMessage(listmessages[selectedIndex], selectedIndex);
             this.Hide();
             theMessage.ShowDialog();
