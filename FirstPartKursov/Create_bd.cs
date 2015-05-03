@@ -151,13 +151,14 @@ namespace FirstPartKursov
             //триггер редактирует кол-во товара на складе storage при добавлении записи о продаже товара в таблице selling
             sc.CommandText = "CREATE TRIGGER sale_good BEFORE INSERT ON selling BEGIN UPDATE storage SET amount_goods = amount_goods-new.amount WHERE id_goods=new.id_goods and id_office=(SELECT id_office from manager where new.id_manager=id_manager); END;";
             sc.ExecuteNonQuery();
-            // триггер редактирует кол-во товара на складе при перераспределении какого-либо товара в таблице redistribution_goods
-            sc.CommandText = "CREATE TRIGGER redistribution BEFORE INSERT ON redistribution_goods BEGIN UPDATE storage SET amount_goods = amount_goods+new.amount_goods WHERE id_goods=new.id_goods and id_storage=new.id_storage_new; UPDATE storage SET amount_goods = amount_goods-new.amount_goods WHERE id_goods=new.id_goods and id_storage=new.id_storage_old; END;";
+            // триггер редактирует кол-во товара на складе при перераспределении  какого-либо товара в таблице redistribution_goods
+            sc.CommandText = "CREATE TRIGGER redistribution BEFORE INSERT ON redistribution_goods BEGIN UPDATE storage SET amount_goods = amount_goods+new.amount_goods WHERE id_goods=new.id_goods and id_storage=new.id_storage_new; UPDATE storage SET amount_goods = amount_goods-new.amount_goods WHERE id_goods=new.id_goods and id_storage=new.id_storage_old;  END;";
             sc.ExecuteNonQuery();
 
             // триггер редактирует кол-во товара на складе при заказе какого-либо товара в таблице ordering_goods
             sc.CommandText = "CREATE TRIGGER ordering BEFORE INSERT ON ordering_goods BEGIN UPDATE storage SET amount_goods = amount_goods+new.amount_goods WHERE id_goods=new.id_goods and id_office=new.id_storage_in; END;";
             sc.ExecuteNonQuery();
+           
 
 
         }
