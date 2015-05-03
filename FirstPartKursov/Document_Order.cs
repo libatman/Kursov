@@ -107,13 +107,16 @@ namespace FirstPartKursov
                 }
             }
             createDocument.createDocument_order(goodsChecked, comboBox2.SelectedItem.ToString(), comboBox1.SelectedItem.ToString());
+            List<string> filename = new List<string>();
+            filename.Add(@"Document_Order.pdf");
+            MailClass.SendMail_Click1(comboBox1.SelectedItem.ToString().Split('|')[1], ClassForms.sf.client.login, "Документ-заявка на товар", "", ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, filename);
             MessageBox.Show("Done!");
         }
 
         List<string> providers;
         List<string> filials;
         List<string> goods;
-        create_bd db = new create_bd();
+        Create_bd db = new Create_bd();
 
         private void Document_Order_Load(object sender, EventArgs e)
         {
@@ -121,7 +124,7 @@ namespace FirstPartKursov
             filials = db.addresses_filial();
             for (int i = 0; i < providers.Count; i++)
             {
-                comboBox1.Items.Add("Имя: " + providers[i].Split('|')[0] + ". Email: " + providers[i].Split('|')[1]);
+                comboBox1.Items.Add(providers[i].Split('|')[0] + "|" + providers[i].Split('|')[1]);
             }
             for (int j = 0; j < filials.Count; j++)
             {

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace FirstPartKursov
 {
-    class create_bd
+    class Create_bd
     {
         private SQLiteConnection sql;
         private SQLiteCommand sc;
@@ -97,11 +97,22 @@ namespace FirstPartKursov
             sc.CommandText = "insert into 'goods' ( 'name_goods','currency','price','id_provider') values ( 'гитара','rub',4999,1);";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
-            sc.CommandText = "INSERT INTO 'storage' ('id_storage', 'id_office', 'id_goods','amount_goods') VALUES (1, 1,1);";
+            sc.CommandText = "insert into 'goods' ( 'name_goods','currency','price','id_provider') values ( 'Саксофон','rub',10999,2);";
             sc.ExecuteNonQuery();
-            sc.CommandText = "INSERT INTO 'storage' ('id_storage', 'id_office', 'id_goods','amount_goods') VALUES (2, 1,0);";
+            sc = sql.CreateCommand();
+            sc.CommandText = "insert into 'goods' ( 'name_goods','currency','price','id_provider') values ( 'Барабан','usd',100,2);";
             sc.ExecuteNonQuery();
-            sc.CommandText = "INSERT INTO 'storage' ('id_storage', 'id_office', 'id_goods','amount_goods') VALUES (3, 1,1);";
+            sc = sql.CreateCommand();
+            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (1, 3,21);";
+            sc.ExecuteNonQuery();
+            sc = sql.CreateCommand();
+            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (2, 2,80);";
+            sc.ExecuteNonQuery();
+            sc = sql.CreateCommand();
+            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (3, 1,31);";
+            sc.ExecuteNonQuery();
+            sc = sql.CreateCommand();
+            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (3, 2,38);";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
             //sc.CommandText = "INSERT INTO 'ordering_goods' ( 'amount_goods','id_goods','id_provider') VALUES (15,1,1);";
@@ -219,8 +230,8 @@ namespace FirstPartKursov
 
         public List<string> goods_storage(int id_off)
         {
-            List<string> goods = new List<string>(); 
-
+            List<string> goods = new List<string>();
+            int id_goods_sp = 0; int amount_goods_sp=0;
             
             using (SQLiteConnection connect = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3;New=False;Compress=True;"))
             {
@@ -233,7 +244,23 @@ namespace FirstPartKursov
                     SQLiteDataReader r = fmd.ExecuteReader();
                     while (r.Read())
                     {
-                       
+                        id_goods_sp = Convert.ToInt32(r["id_goods"]);
+                        amount_goods_sp = Convert.ToInt32(r["amount_goods"]);
+                        using (SQLiteConnection connect2 = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3;New=False;Compress=True;"))
+                        {
+                            connect2.Open();
+                            //id_office', 'id_goods','amount_goods
+                            using (SQLiteCommand fmd2 = connect.CreateCommand())
+                            {
+                                fmd2.CommandText = @"SELECT name_goods, currency, price FROM goods WHERE id_goods=" + id_goods_sp + ";";
+                                fmd2.CommandType = CommandType.Text;
+                                SQLiteDataReader r2 = fmd2.ExecuteReader();
+                                while (r2.Read())
+                                {
+                                    goods.Add(Convert.ToString(r2["name_goods"]) + "|" + "шт" + "|" + Convert.ToString(amount_goods_sp) + "|" + Convert.ToString(r2["currency"]) + "|" + Convert.ToString(r2["price"]));
+                                }
+                            }
+                        }
                        
                     }
                 }

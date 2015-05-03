@@ -91,18 +91,12 @@ namespace FirstPartKursov
         }
 
         List<string> list_message_output = new List<string>();
-<<<<<<< HEAD
-        public List<OpenPop.Mime.Message> listmessages = new List<OpenPop.Mime.Message>();
-        public List<string> addresses_p;
-=======
-
         public List<OpenPop.Mime.Message> listmessages = new List<OpenPop.Mime.Message>();
         public List<string> addresses_p;
 
         //public List<OpenPop.Mime.Message> listmessages;
         //public List<string> addresses_p; 
->>>>>>> dd198776baae0586653ca5a67b7bbdeb9a6e6a88
-        create_bd DataBase = new create_bd();
+        Create_bd DataBase = new Create_bd();
         public List<string> addresses_a;
 
         private void InputMessages_Load(object sender, EventArgs e)

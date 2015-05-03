@@ -97,7 +97,7 @@ namespace FirstPartKursov
 
         private void DataBase_Load(object sender, EventArgs e)
         {
-            create_bd bd = new create_bd();
+            Create_bd bd = new Create_bd();
             //SQLiteConnection.CreateFile(@"D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite");
 
             if(File.Exists(@"Data Source=bd_kursov.sqlite")!=true)

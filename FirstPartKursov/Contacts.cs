@@ -98,16 +98,8 @@ namespace FirstPartKursov
             comboBox1.Items.Add("Филиалы");
             comboBox1.Items.Add("Поставщики");
             myListGroups = new ListBox(); //антипаттерн, который я потом опишу в записке : зачем я начала создавать это программно?
-<<<<<<< HEAD
             myListGroups.Location = new Point(60, 100);
-            myListGroups.Location = new Point(20, 60);
-=======
-
-            myListGroups.Location = new Point(60, 100);
-
-            myListGroups.Location = new Point(20, 60);
-
->>>>>>> dd198776baae0586653ca5a67b7bbdeb9a6e6a88
+            //myListGroups.Location = new Point(20, 60);
             myListGroups.Size = new Size(760, 540);
             myListGroups.HorizontalScrollbar = true;
             Controls.Add(myListGroups);
@@ -126,35 +118,20 @@ namespace FirstPartKursov
             {
                 myListGroups.Items.Clear();
                 myListGroups.Show();
-                addresses_f = new create_bd().addresses_filial();
+                addresses_f = new Create_bd().addresses_filial();
                 for (int i = 0; i < addresses_f.Count; i++)
                 {
-<<<<<<< HEAD
                     myListGroups.Items.Add((i + 1).ToString() + ". " + addresses_f[i].Split('|')[0] + ": " + addresses_f[i].Split('|')[1]);
                 }
-=======
-
-                    myListGroups.Items.Add((i + 1).ToString() + ". " + addresses_f[i].Split('|')[0] + ": " + addresses_f[i].Split('|')[1]);
-                }
-
->>>>>>> dd198776baae0586653ca5a67b7bbdeb9a6e6a88
             }
             else
             {
                 myListGroups.Items.Clear();
                 myListGroups.Show();
-                addresses_p = new create_bd().addresses_providers();
+                addresses_p = new Create_bd().addresses_providers();
                 for (int i = 0; i < addresses_p.Count; i++)
                 {
-<<<<<<< HEAD
                     myListGroups.Items.Add((i + 1).ToString() + ". " + addresses_p[i].Split('|')[0] + ": " + addresses_p[i].Split('|')[1]);
-=======
-
-                    myListGroups.Items.Add((i + 1).ToString() + ". " + addresses_p[i].Split('|')[0] + ": " + addresses_p[i].Split('|')[1]);
-
-                    myListGroups.Items.Add((i+1).ToString() + ". " + addresses_p[i].Split('|')[0] + ": " + addresses_p[i].Split('|')[1]);
-
->>>>>>> dd198776baae0586653ca5a67b7bbdeb9a6e6a88
                 }
             }
         }
@@ -176,14 +153,7 @@ namespace FirstPartKursov
             this.Hide();
             if (comboBox1.SelectedIndex == 0)
             {
-<<<<<<< HEAD
                 for (int i = 0; i < addresses_f.Count; i++)
-=======
-
-
-                for  (int i = 0; i < addresses_f.Count; i++)
-
->>>>>>> dd198776baae0586653ca5a67b7bbdeb9a6e6a88
                 {
                     if (i != addresses_f.Count - 1)
                     {

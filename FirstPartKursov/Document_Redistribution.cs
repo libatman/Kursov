@@ -100,7 +100,7 @@ namespace FirstPartKursov
         {
             e.KeyChar = (char)0;
         }
-        create_bd db = new create_bd();
+        Create_bd db = new Create_bd();
         List<string> filials;
         List<string> goods;
         private void Document_Redistribution_Load(object sender, EventArgs e)
@@ -117,10 +117,11 @@ namespace FirstPartKursov
         {
             checkedListBox1.Items.Clear();
             int id_prov = comboBox1.SelectedIndex + 1;
-            goods = db.goods(id_prov);
+            goods = db.goods_storage(id_prov);
+            
             for (int i = 0; i < goods.Count; i++)
             {
-                checkedListBox1.Items.Add("Наименование: " + goods[i].Split('|')[0] + ". Валюта: " + goods[i].Split('|')[1] + ". Стоимость: " + goods[i].Split('|')[2]);
+                checkedListBox1.Items.Add(goods[i]);
             }
         }
     }
