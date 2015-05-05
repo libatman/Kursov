@@ -22,7 +22,7 @@ namespace FirstPartKursov
         public void createDocument_order(List<string> goods, string filialAddress, string nameProvider)
         {
             var doc = new Document();
-            PdfWriter.GetInstance(doc, new FileStream(@"Document_Order.pdf", FileMode.Create));
+            PdfWriter.GetInstance(doc, new FileStream(@"Document_Order." + DateTime.Now.ToShortDateString() + ".pdf", FileMode.Create));
             doc.Open();
             BaseFont baseFont = BaseFont.CreateFont(@"arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 
@@ -34,9 +34,10 @@ namespace FirstPartKursov
            
             iTextSharp.text.Phrase phraseWayOfGet = new Phrase("Средство доставки: Курьер", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL));
             iTextSharp.text.Phrase phraseAmountAndGet = new Phrase("Счет и доставка в: филиал магазина музыкальных инструментов \"Анастасия\": " + filialAddress, new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL));
+            
             iTextSharp.text.Phrase phraseDate = new Phrase("Дата заказа: ", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL));
             iTextSharp.text.Phrase phraseSignProvider = new Phrase("Поставщик: _____________________________ Заказчик___________________________", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL));
-
+           
             iTextSharp.text.Paragraph paragraph1 = new iTextSharp.text.Paragraph(phraseNameShop);
             paragraph1.Alignment = Element.ALIGN_RIGHT;
             iTextSharp.text.Paragraph paragraph2 = new iTextSharp.text.Paragraph(phraseAddressOffice);
@@ -52,6 +53,7 @@ namespace FirstPartKursov
             paragraph9.Alignment = Element.ALIGN_BOTTOM;
             iTextSharp.text.Paragraph paragraph10 = new iTextSharp.text.Paragraph(phraseSignProvider);
             paragraph10.Alignment = Element.ALIGN_RIGHT;
+        
            
             doc.Add(paragraph1);
             doc.Add(paragraph2);
@@ -61,7 +63,7 @@ namespace FirstPartKursov
             doc.Add(paragraph7);
             doc.Add(paragraph8);
 
-            PdfPTable table = new PdfPTable(4);
+            PdfPTable table = new PdfPTable(6);
 
             PdfPCell cell = new PdfPCell(new Phrase("№", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
             cell.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -75,31 +77,67 @@ namespace FirstPartKursov
             cellCurrency.HorizontalAlignment = Element.ALIGN_CENTER;
             table.AddCell(cellCurrency);
 
-            PdfPCell cellPrice = new PdfPCell(new Phrase("Стоимость", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+            PdfPCell cellPrice = new PdfPCell(new Phrase("Цена", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
             cellPrice.HorizontalAlignment = Element.ALIGN_CENTER;
             table.AddCell(cellPrice);
 
+            PdfPCell cellAmount = new PdfPCell(new Phrase("Количество, шт", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+            cellAmount.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(cellAmount);
+
+            PdfPCell cellGeneralPrice = new PdfPCell(new Phrase("Стоимость, руб", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+            cellGeneralPrice.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(cellGeneralPrice);
+
             PdfPCell cellNumber;
             PdfPCell cellNameGood;
-            PdfPCell cellAmountGood;
+            PdfPCell cellCurrencyGood;
             PdfPCell cellPriceGood;
+            PdfPCell cellAmountGood;
+            PdfPCell cellGeneralPriceGood;
+            double generalAmount=0;
+            double generalgeneralAmount = 0;
             for (int i = 0; i < goods.Count; i++)
             {
+                generalAmount = 0;
                 cellNumber = new PdfPCell(new Phrase((i + 1).ToString(), new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
                 cellNumber.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(cellNumber);
                 cellNameGood = new PdfPCell(new Phrase(goods[i].Split('|')[0], new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
                 cellNameGood.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(cellNameGood);
-                cellAmountGood = new PdfPCell(new Phrase(goods[i].Split('|')[1], new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
-                cellAmountGood.HorizontalAlignment = Element.ALIGN_CENTER;
-                table.AddCell(cellAmountGood);
+                cellCurrencyGood = new PdfPCell(new Phrase(goods[i].Split('|')[1], new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+                cellCurrencyGood.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(cellCurrencyGood);
                 cellPriceGood = new PdfPCell(new Phrase(goods[i].Split('|')[2], new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
                 cellPriceGood.HorizontalAlignment = Element.ALIGN_CENTER;
+                if (goods[i].Split('|')[1].ToString().ToUpper().Equals("RUB"))
+                {
+                    generalAmount += Convert.ToInt32(goods[i].Split('|')[2]);
+                }
+                else if (goods[i].Split('|')[1].ToString().ToUpper().Equals("EUR"))
+                {
+                    generalAmount += Convert.ToInt32(goods[i].Split('|')[2]) * Valuta.euro;
+                }
+                else if (goods[i].Split('|')[1].ToString().ToUpper().Equals("USD"))
+                {
+                    generalAmount += Convert.ToInt32(goods[i].Split('|')[2]) * Valuta.usd;
+                }
                 table.AddCell(cellPriceGood);
+                cellAmountGood = new PdfPCell(new Phrase("15", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+                cellAmountGood.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(cellAmountGood);
+                generalAmount = generalAmount * 15;
+                cellGeneralPriceGood = new PdfPCell(new Phrase(generalAmount.ToString(), new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+                cellGeneralPriceGood.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(cellGeneralPriceGood);
+                generalgeneralAmount += generalAmount;
             }
             table.SpacingBefore = 15;
             doc.Add(table);
+            iTextSharp.text.Phrase phraseGeneralAmount = new Phrase("Общая стоимость заказа: " + generalgeneralAmount.ToString(), new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL));
+            iTextSharp.text.Paragraph paragraph11 = new iTextSharp.text.Paragraph(phraseGeneralAmount);
+            doc.Add(paragraph11);
             doc.Add(paragraph9);
             doc.Add(paragraph10);
             doc.Close();
@@ -155,7 +193,7 @@ namespace FirstPartKursov
             {
 
                 paragraphFirst = ParagraphBuilder.CreateStandardTextParagraph(document_Command);
-                paragraphFirst.TextContent.Add(new SimpleText(document_Command, "1." + (i + 1).ToString() + ". " + goods[i].Split(',')[0] + ". Количество: " + goods[i].Split(',')[1] + " шт."));
+                paragraphFirst.TextContent.Add(new SimpleText(document_Command, "1." + (i + 1).ToString() + ". " + goods[i].Split('|')[0] + ". Количество: " + goods[i].Split('|')[2] + " шт."));
                 document_Command.Content.Add(paragraphFirst);
                 
             }
@@ -175,7 +213,7 @@ namespace FirstPartKursov
             paragraphBoss.TextContent.Add(new SimpleText(document_Command, "Генеральный директор: _____________________________ Щербакова А.А."));
             document_Command.Content.Add(paragraphBoss);
 
-            document_Command.SaveTo(@"Document_Command.odt");
+            document_Command.SaveTo(@"Document_Command." + DateTime.Now.ToShortDateString() + ".odt");
 
         }
 
@@ -184,7 +222,7 @@ namespace FirstPartKursov
            
 
             var doc = new Document();
-            PdfWriter.GetInstance(doc, new FileStream(@"Document_Invoice.pdf", FileMode.Create));
+            PdfWriter.GetInstance(doc, new FileStream(@"Document_Invoice." + DateTime.Now.ToShortDateString() + ".pdf", FileMode.Create));
             doc.Open();
             BaseFont baseFont = BaseFont.CreateFont(@"arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 
@@ -216,7 +254,7 @@ namespace FirstPartKursov
             doc.Add(paragraphBossFrom);
 
 
-            PdfPTable table = new PdfPTable(6);
+            PdfPTable table = new PdfPTable(7);
 
             PdfPCell cell = new PdfPCell(new Phrase("№", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
             cell.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -234,38 +272,47 @@ namespace FirstPartKursov
             cellAmount.HorizontalAlignment = Element.ALIGN_CENTER;
             table.AddCell(cellAmount);
 
-            PdfPCell cellPrice = new PdfPCell(new Phrase("Цена, руб.", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+            PdfPCell cellPrice = new PdfPCell(new Phrase("Валюта", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
             cellPrice.HorizontalAlignment = Element.ALIGN_CENTER;
             table.AddCell(cellPrice);
 
-            PdfPCell cellPriceAmount = new PdfPCell(new Phrase("Сумма, руб.", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+            PdfPCell cellPriceAmount = new PdfPCell(new Phrase("Цена", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
             cellPriceAmount.HorizontalAlignment = Element.ALIGN_CENTER;
             table.AddCell(cellPriceAmount);
+
+            PdfPCell cellPriceGeneral = new PdfPCell(new Phrase("Сумма", new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+            cellPriceGeneral.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(cellPriceGeneral);
 
             PdfPCell cellNumber;
             PdfPCell cellNameGood;
             PdfPCell cellEIGood;
             PdfPCell cellAmountGood;
             PdfPCell cellPriceGood;
+            PdfPCell cellValuta;
             PdfPCell cellPriceAmountGood;
+
             for (int i = 0; i < goods.Count; i++)
             {
                 cellNumber = new PdfPCell(new Phrase((i + 1).ToString(), new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
                 cellNumber.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(cellNumber);
-                cellNameGood = new PdfPCell(new Phrase(goods[i].Split(',')[0], new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+                cellNameGood = new PdfPCell(new Phrase(goods[i].Split('|')[0], new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
                 cellNameGood.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(cellNameGood);
-                cellEIGood = new PdfPCell(new Phrase(goods[i].Split(',')[1], new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+                cellEIGood = new PdfPCell(new Phrase(goods[i].Split('|')[1], new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
                 cellEIGood.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(cellEIGood);
-                cellAmountGood = new PdfPCell(new Phrase(goods[i].Split(',')[2], new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+                cellAmountGood = new PdfPCell(new Phrase(goods[i].Split('|')[2], new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
                 cellAmountGood.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(cellAmountGood);
-                cellPriceGood = new PdfPCell(new Phrase(goods[i].Split(',')[3], new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+                cellValuta = new PdfPCell(new Phrase(goods[i].Split('|')[3], new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+                cellValuta.HorizontalAlignment = Element.ALIGN_CENTER;
+                table.AddCell(cellValuta);
+                cellPriceGood = new PdfPCell(new Phrase(goods[i].Split('|')[4], new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
                 cellPriceGood.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(cellPriceGood);
-                cellPriceAmountGood = new PdfPCell(new Phrase((Convert.ToInt32(goods[i].Split(',')[2])*Convert.ToInt32(goods[i].Split(',')[3])).ToString(), new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
+                cellPriceAmountGood = new PdfPCell(new Phrase((Convert.ToInt32(goods[i].Split('|')[2])*Convert.ToInt32(goods[i].Split('|')[4])).ToString(), new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.NORMAL)));
                 cellPriceAmountGood.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(cellPriceAmountGood);
             }

@@ -77,7 +77,7 @@ namespace FirstPartKursov
             sc.CommandText = "INSERT INTO 'office' ( 'address','email') VALUES ( 'филатова4','anastasySher222@bk.ru');";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
-            sc.CommandText = "INSERT INTO 'office' ( 'address','email') VALUES ('филатова6','anastasySher222@bk.ru');";
+            sc.CommandText = "INSERT INTO 'office' ( 'address','email') VALUES ( 'филатова6','liza.deer@yandex.ru');";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
             sc.CommandText = "INSERT INTO 'office' ( 'address','email') VALUES ( 'филатова9','nikolaiuhvarov@mail.ru');";
@@ -112,7 +112,7 @@ namespace FirstPartKursov
             sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (3, 1,31);";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
-            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (3, 2,38);";
+            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (4, 2,38);";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
             //sc.CommandText = "INSERT INTO 'ordering_goods' ( 'amount_goods','id_goods','id_provider') VALUES (15,1,1);";

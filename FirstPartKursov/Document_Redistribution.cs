@@ -108,8 +108,8 @@ namespace FirstPartKursov
             filials = db.addresses_filial();
             for (int i = 0; i < filials.Count; i++)
             {
-                comboBox1.Items.Add(filials[i].Split('|')[0]);
-                comboBox2.Items.Add(filials[i].Split('|')[0]);
+                comboBox1.Items.Add(filials[i].Split('|')[0] + "|" + filials[i].Split('|')[1]);
+                comboBox2.Items.Add(filials[i].Split('|')[0] + "|" + filials[i].Split('|')[1]);
             }
         }
 
@@ -123,6 +123,25 @@ namespace FirstPartKursov
             {
                 checkedListBox1.Items.Add(goods[i]);
             }
+        }
+        List<string> goodsChecked = new List<string>();
+        CreateDocument createDocument = new CreateDocument();
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
+            {
+                if (checkedListBox1.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    goodsChecked.Add(goods[i]);
+                }
+            }
+            createDocument.createDocument_Command(goodsChecked, comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString());
+            createDocument.createDocument_Invoice(goodsChecked, comboBox2.SelectedIndex + 1);
+            List<string> filename = new List<string>();
+            filename.Add(@"Document_Command." + DateTime.Now.ToShortDateString() + ".odt");
+            filename.Add(@"Document_Invoice." + DateTime.Now.ToShortDateString() + ".pdf");
+            MailClass.SendMail_Click1(comboBox2.SelectedItem.ToString().Split('|')[1], ClassForms.sf.client.login, "Перераспределение товаров", "", ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, filename);
+            MessageBox.Show("Done!");
         }
     }
 }

@@ -12,8 +12,8 @@ namespace FirstPartKursov
 {
     class Valuta
     {
-        public string usd;
-        public string euro;
+        public static double usd;
+        public static double euro;
 
         public string download_site()
         {
@@ -65,6 +65,10 @@ namespace FirstPartKursov
                 //    }
                 //}
             }
+            valute = valute.Replace("\r\n", "|");
+            usd = Convert.ToDouble(valute.Split('|')[1]);
+            euro = Convert.ToDouble(valute.Split('|')[3]);
+            valute = valute.TrimEnd('|');
             return valute;
            }
                 

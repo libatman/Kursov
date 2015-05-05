@@ -36,7 +36,7 @@ namespace FirstPartKursov
 
             Excel.Application ObjWorkExcel = new Excel.Application();
             // Напиши свой путь на файл, что лежит в папке проекта :)
-            Excel.Workbook ObjWorkBook = ObjWorkExcel.Workbooks.Open(@"D:\универ\hello\Новая папка\Kursov\FirstPartKursov\bin\Debug\a1.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            Excel.Workbook ObjWorkBook = ObjWorkExcel.Workbooks.Open(@"C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\a1.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             Excel.Worksheet ObjWorkSheet = (Excel.Worksheet)ObjWorkBook.Sheets[1];
             var lastCell = ObjWorkSheet.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell);
             string[,] list = new string[lastCell.Column, lastCell.Row];

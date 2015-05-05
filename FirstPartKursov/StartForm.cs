@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml.Serialization;
@@ -93,6 +94,7 @@ namespace FirstPartKursov
             }
             else
             {
+                bool check = false;
                 ClassForms.sf.client = new Client();
                 ClassForms.np.ShowDialog();
                 ClassForms.sf.client.password = ClassForms.np.Password;
@@ -147,6 +149,7 @@ namespace FirstPartKursov
                 string html = v.download_site();
                 html.Trim();
                 result = v.get_valute(html);
+                Thread.Sleep(500);
                 backgroundWorker1.ReportProgress(100, result);
             }
             catch (Exception ex)
