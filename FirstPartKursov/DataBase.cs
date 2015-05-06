@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FirstPartKursov
@@ -16,6 +17,7 @@ namespace FirstPartKursov
         public DataBase()
         {
             InitializeComponent();
+            backgroundWorker1.RunWorkerAsync();
         }
 
         private void написатьНовоеСообщениеToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -179,6 +181,35 @@ namespace FirstPartKursov
         private void DataBase_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+        Valuta v;
+        string result;
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                v = new Valuta();
+                string html = v.download_site();
+                html.Trim();
+                result = v.get_valute(html);
+                Thread.Sleep(500);
+                backgroundWorker1.ReportProgress(100, result);
+            }
+            catch (Exception ex)
+            {
+                result = "Error";
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            string result = (string)e.UserState;
+            label1.Text = result;
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
         }
 
     }

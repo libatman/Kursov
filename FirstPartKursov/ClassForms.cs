@@ -15,6 +15,5 @@ namespace FirstPartKursov
         public static Document_Order doc_order = new Document_Order();
         public static Document_Redistribution doc_red = new Document_Redistribution();
         public static StartForm sf = new StartForm();
-        public static NastroikiPochty np = new NastroikiPochty();
     }
 }

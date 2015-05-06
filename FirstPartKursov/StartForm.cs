@@ -17,7 +17,7 @@ namespace FirstPartKursov
         public StartForm()
         {
             InitializeComponent();
-            backgroundWorker1.RunWorkerAsync();
+            
         }
 
         private void бДToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,10 +82,10 @@ namespace FirstPartKursov
 
         private void почтаToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ClassForms.np.ShowDialog();
+            NastroikiPochty np = new NastroikiPochty();
+            np.ShowDialog();
         }
         public Client client;
-
         public void Client_r ()
         {
             if (File.Exists("mailinfo.xml"))
@@ -94,17 +94,17 @@ namespace FirstPartKursov
             }
             else
             {
-                bool check = false;
                 ClassForms.sf.client = new Client();
-                ClassForms.np.ShowDialog();
-                ClassForms.sf.client.password = ClassForms.np.Password;
-                ClassForms.sf.client.login = ClassForms.np.Email.Split('@')[0];
-                ClassForms.sf.client.popserver = "pop." + ClassForms.np.Email.Split('@')[1];
-                ClassForms.sf.client.smtpserver = "smtp." + ClassForms.np.Email.Split('@')[1];
+                NastroikiPochty np = new NastroikiPochty();
+                np.ShowDialog();
+                ClassForms.sf.client.password = np.Password;
+                ClassForms.sf.client.login = np.Email.Split('@')[0];
+                ClassForms.sf.client.popserver = "pop." + np.Email.Split('@')[1];
+                ClassForms.sf.client.smtpserver = "smtp." + np.Email.Split('@')[1];
                 ser(ClassForms.sf.client);
             }
         }
-        Valuta v;
+       
         public void StartForm_Load(object sender, EventArgs e)
         {
             Client_r();
@@ -140,33 +140,7 @@ namespace FirstPartKursov
         {
             Application.Exit();
         }
-        string result;
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-            try
-            {
-                v = new Valuta();
-                string html = v.download_site();
-                html.Trim();
-                result = v.get_valute(html);
-                Thread.Sleep(500);
-                backgroundWorker1.ReportProgress(100, result);
-            }
-            catch (Exception ex)
-            {
-                result = "Error";
-            }
-        }
-
-        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            string result = (string)e.UserState;
-            label1.Text = result;
-        }
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-
-        }
+       
+        
     }
 }

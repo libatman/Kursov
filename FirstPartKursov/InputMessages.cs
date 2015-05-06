@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -81,7 +82,8 @@ namespace FirstPartKursov
 
         private void почтаToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            ClassForms.np.ShowDialog();
+            NastroikiPochty np = new NastroikiPochty();
+            np.ShowDialog();
         }
 
         private void главноеОкноToolStripMenuItem_Click(object sender, EventArgs e)
@@ -199,9 +201,16 @@ namespace FirstPartKursov
         private void fetchmess()
         {
             StartForm s = new StartForm();
-            s.Client_r();
-            result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
-            backgroundWorker1.ReportProgress(100, result);
+            if (File.Exists("mailinfo.xml"))
+            {
+                ClassForms.sf.client = ClassForms.sf.des(ClassForms.sf.client);
+                result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
+                backgroundWorker1.ReportProgress(100, result);
+            }
+            else
+            {
+                
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -41,11 +41,12 @@ namespace FirstPartKursov
                 password = value;
             }
         }
+        public bool t = false;
         private void button1_Click(object sender, EventArgs e)
         {
             Email = textBox1.Text;
             Password = textBox2.Text;
-
+            
             try
             {
                 using (Pop3Client client = new Pop3Client())
@@ -58,6 +59,7 @@ namespace FirstPartKursov
             {
                 MessageBox.Show("Error!");
             }
+            t = true;
             this.Close();
 
         }

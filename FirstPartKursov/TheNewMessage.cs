@@ -84,7 +84,8 @@ namespace FirstPartKursov
 
         private void почтаToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ClassForms.np.ShowDialog();
+            NastroikiPochty np = new NastroikiPochty();
+            np.ShowDialog();
         }
 
         private void вернутьсяНаГлавнуюСтраницуToolStripMenuItem_Click(object sender, EventArgs e)
