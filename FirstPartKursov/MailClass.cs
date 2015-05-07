@@ -64,26 +64,30 @@ namespace FirstPartKursov
                     {
                         var att = message.FindAllAttachments();
                         MessagePart mpPlain = message.FindFirstPlainTextVersion();
+                        string mpTheme = message.Headers.Subject.ToString();
                         if (mpPlain != null)
                         {
                             Encoding enc = mpPlain.BodyEncoding;
                             text = enc.GetString(mpPlain.Body);
                         }
+                        text += " " + mpTheme;
                         string[] text_ot = text.Split(' ');
+                        bool check = false;
                         for (int i = 0; i < text_ot.Count(); i++)
                         {
-                            if (text_ot[i] == "товар" || text_ot[i] == "поставщик" || text_ot[i] == "менеджер")
+                            if (text_ot[i].ToLower() == "отчет" || text_ot[i].ToLower() == "продажах" || text_ot[i].ToLower() == "продаже")
                             {
                                 foreach (var ado in att)
                                 {
-                                    ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(@"C:\Users\Елизавета\Documents\Курсовая\Отчеты о продаже", ado.FileName)));
+                                    ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(@"Отчеты о продажах", ado.FileName)));
+                                    check = true;
                                 }
                             }
                             else
                             {
                                 foreach (var ado in att)
                                 {
-                                    ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(@"C:\Users\Елизавета\Documents\Курсовая\Неопределенные документы", ado.FileName)));
+                                    ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(@"Неопределенные документы", ado.FileName)));
                                 }
                             }
                         }
