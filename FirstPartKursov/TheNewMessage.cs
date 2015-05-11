@@ -128,6 +128,7 @@ namespace FirstPartKursov
                 }
                 MessageBox.Show("Ваше сообщение отправлено!");
                 fresh();
+
             }
             catch
             {

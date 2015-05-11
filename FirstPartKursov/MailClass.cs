@@ -42,6 +42,9 @@ namespace FirstPartKursov
             {
                 clientSMTP.Send(message);
             }
+            ClassForms.sf.label1.Text += Environment.NewLine + "Отправлено сообщение: ";
+            ClassForms.sf.label1.Text += emailreceiver + ".";
+            ClassForms.sf.label1.Refresh();
         }
         //функция скачивания сообщения с сервера
         public static string FetchAllMessages(string hostname, int port, bool useSsl, string username, string password, List<Message> allMessages)
@@ -60,7 +63,22 @@ namespace FirstPartKursov
                     {
                         allMessages.Add(client.GetMessage(i));
                     }
-                    foreach (Message message in allMessages)
+                }
+                return result = "Ok";
+            }
+            catch (Exception ex)
+            {
+                return result = "Fail";
+            }
+        }
+
+
+        public static void downloadAttachments(List<Message> allMessages)
+        {
+            try
+            {
+                string text = "";
+                foreach (Message message in allMessages)
                     {
                         var att = message.FindAllAttachments();
                         MessagePart mpPlain = message.FindFirstPlainTextVersion();
@@ -79,7 +97,7 @@ namespace FirstPartKursov
                             {
                                 foreach (var ado in att)
                                 {
-                                    ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(@"Отчеты о продажах", ado.FileName)));
+                                    ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(ClassForms.sf.filePath.filepathUser + "Отчеты о продажах", ado.FileName)));
                                     check = true;
                                 }
                             }
@@ -87,18 +105,16 @@ namespace FirstPartKursov
                             {
                                 foreach (var ado in att)
                                 {
-                                    ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(@"Неопределенные документы", ado.FileName)));
+                                    ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(ClassForms.sf.filePath.filepathUser + "Неопределенные документы", ado.FileName)));
                                 }
                             }
                         }
                     }
 
                 }
-                return result = "Ok";
-            }
             catch (Exception ex)
             {
-                return result = "Fail";
+                
             }
         }
 

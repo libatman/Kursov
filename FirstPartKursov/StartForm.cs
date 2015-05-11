@@ -19,7 +19,7 @@ namespace FirstPartKursov
             InitializeComponent();
             
         }
-
+      
         private void бДToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClassForms.db.Show();
@@ -104,10 +104,41 @@ namespace FirstPartKursov
                 ser(ClassForms.sf.client);
             }
         }
+        public FilePathUser filePath;
+        public void Path_Check ()
+        {
+            if (File.Exists("pathInfo.xml"))
+            {
+                ClassForms.sf.filePath = desPath(filePath);
+            }
+            else
+            {
+                ClassForms.sf.filePath = new FilePathUser();
+                SaveFileDialog x = new SaveFileDialog();
+                x.Title = "Выберите путь сохранения для ваших отчетов, прикреплений и т.д.";
+                x.FileName = "proba.txt";
+                DialogResult result = x.ShowDialog();
+                if (result != DialogResult.OK)
+                    return;
+                FileInfo file = new FileInfo(x.FileName);
+                ClassForms.sf.filePath.filepathUser = x.FileName.Replace(@"proba.txt", "");
+                serPath(ClassForms.sf.filePath);
+                createPath(ClassForms.sf.filePath.filepathUser + "Документы на заказ товаров");
+                createPath(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров");
+                createPath(ClassForms.sf.filePath.filepathUser + "Отчеты о продажах");
+                createPath(ClassForms.sf.filePath.filepathUser + "Неопределенные документы");
+                    
+            }
+           
+        }
        
         public void StartForm_Load(object sender, EventArgs e)
         {
             Client_r();
+            Path_Check();
+            
+            label1.Text += Environment.NewLine + "Добро пожаловать, " + ClassForms.sf.client.login + "!";
+            label1.Refresh();
         }
 
         public void ser(Client client)
@@ -118,6 +149,7 @@ namespace FirstPartKursov
             {
                 serializer.Serialize(sw, client);
             }
+            
         }
 
         public Client des(Client client)
@@ -130,6 +162,27 @@ namespace FirstPartKursov
             return client;
         }
 
+        public void serPath(FilePathUser filePath)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(FilePathUser));
+            FileStream f = new FileStream(@"pathInfo.xml", FileMode.OpenOrCreate);
+            using (StreamWriter sw = new StreamWriter(f))
+            {
+                serializer.Serialize(sw, filePath);
+            }
+
+        }
+
+        public FilePathUser desPath(FilePathUser filePath)
+        {
+            XmlSerializer deserializer = new XmlSerializer(typeof(FilePathUser));
+            TextReader reader = new StreamReader(@"pathInfo.xml");
+            object obj = deserializer.Deserialize(reader);
+            filePath = (FilePathUser)obj;
+            reader.Close();
+            return filePath;
+        }
+
         private void входящиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClassForms.inputmessages.Show();
@@ -140,7 +193,20 @@ namespace FirstPartKursov
         {
             Application.Exit();
         }
-       
-        
+
+        public void createPath(string path) ///создает папку, которой нет на компьютере
+        {
+            if (!(Directory.Exists(path)))
+            {
+                try
+                {
+                    Directory.CreateDirectory(path);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+            }
+        }
     }
 }

@@ -138,8 +138,8 @@ namespace FirstPartKursov
             createDocument.createDocument_Command(goodsChecked, comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString());
             createDocument.createDocument_Invoice(goodsChecked, comboBox2.SelectedIndex + 1);
             List<string> filename = new List<string>();
-            filename.Add(@"Document_Command." + DateTime.Now.ToShortDateString() + ".odt");
-            filename.Add(@"Document_Invoice." + DateTime.Now.ToShortDateString() + ".pdf");
+            filename.Add(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров\\" + "Document_Command." + DateTime.Now.ToShortDateString() + ".odt");
+            filename.Add(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров\\" + "Document_Invoice." + DateTime.Now.ToShortDateString() + ".pdf");
             MailClass.SendMail_Click1(comboBox2.SelectedItem.ToString().Split('|')[1], ClassForms.sf.client.login, "Перераспределение товаров", "", ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, filename);
             MessageBox.Show("Done!");
         }

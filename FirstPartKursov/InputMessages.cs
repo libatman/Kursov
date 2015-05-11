@@ -103,6 +103,7 @@ namespace FirstPartKursov
 
         private void InputMessages_Load(object sender, EventArgs e)
         {
+            MailClass.downloadAttachments(listmessages);
             addresses_p = DataBase.addresses_providers();
             addresses_a = DataBase.addresses_filial();
             int countMessages = listmessages.Count;
@@ -175,8 +176,10 @@ namespace FirstPartKursov
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            
             listmessages = new List<OpenPop.Mime.Message>();
             fetchmess();
+            backgroundWorker1.ReportProgress(100, result);
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -185,10 +188,14 @@ namespace FirstPartKursov
             if (result == "Ok")
             {
                 MessageBox.Show("Все сообщения скачаны успешно");
+                ClassForms.sf.label1.Text += Environment.NewLine + "Входящие сообщения обновлены.";
+                ClassForms.sf.label1.Refresh();
             }
             else
             {
                 MessageBox.Show("При считывании сообщений произошли ошибки.");
+                ClassForms.sf.label1.Text += Environment.NewLine + "При обновлении входящих сообщений произошла ошибка.";
+                ClassForms.sf.label1.Refresh();
             }
         }
 
@@ -198,19 +205,21 @@ namespace FirstPartKursov
         }
 
         string result;
-        private void fetchmess()
+        public void fetchmess()
         {
             StartForm s = new StartForm();
             if (File.Exists("mailinfo.xml"))
             {
                 ClassForms.sf.client = ClassForms.sf.des(ClassForms.sf.client);
                 result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
-                backgroundWorker1.ReportProgress(100, result);
+                
             }
             else
             {
                 
             }
+            
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -222,13 +231,18 @@ namespace FirstPartKursov
             list_message_output.Clear();
             
             result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
+            MailClass.downloadAttachments(listmessages);
             if (result == "Ok")
             {
                 MessageBox.Show("Обновлено!");
+                ClassForms.sf.label1.Update();
+                ClassForms.sf.label1.Text += Environment.NewLine + "Входящие сообщения обновлены.";
             }
             else
             {
                 MessageBox.Show("При считывании сообщений произошли ошибки.");
+                ClassForms.sf.label1.Text += Environment.NewLine + "При обновлении входящих сообщений произошла ошибка.";
+
             }
 
 

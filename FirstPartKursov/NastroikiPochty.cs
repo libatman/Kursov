@@ -68,5 +68,15 @@ namespace FirstPartKursov
         {
 
         }
+
+        public void rewriteMailInfoXML(string Email, string Password)
+        {
+            ClassForms.sf.client.password = Password;
+            ClassForms.sf.client.login = Email.Split('@')[0];
+            ClassForms.sf.client.popserver = "pop." + Email.Split('@')[1];
+            ClassForms.sf.client.smtpserver = "smtp." + Email.Split('@')[1];
+            ClassForms.sf.ser(ClassForms.sf.client);
+            ClassForms.inputmessages.fetchmess();
+        }
     }
 }

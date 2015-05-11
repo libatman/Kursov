@@ -193,11 +193,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 182);
+            this.label1.Location = new System.Drawing.Point(12, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 19);
+            this.label1.Size = new System.Drawing.Size(0, 19);
             this.label1.TabIndex = 1;
-            this.label1.Text = "ИНФОРМАЦИЯ";
             // 
             // StartForm
             // 
@@ -239,7 +238,7 @@
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem почтаToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem документыToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label1; ///для оповещения человека о происходящем
         private System.Windows.Forms.ToolStripMenuItem перераспределениеТоваровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem заказТоваровToolStripMenuItem;
     }

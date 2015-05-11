@@ -108,9 +108,10 @@ namespace FirstPartKursov
             }
             createDocument.createDocument_order(goodsChecked, comboBox2.SelectedItem.ToString(), comboBox1.SelectedItem.ToString());
             List<string> filename = new List<string>();
-            filename.Add(@"Document_Order." + DateTime.Now.ToShortDateString() + ".pdf");
+            filename.Add(ClassForms.sf.filePath.filepathUser + "Документы на заказ товаров\\" + "Document_Order." + DateTime.Now.ToShortDateString() + ".pdf");
             MailClass.SendMail_Click1(comboBox1.SelectedItem.ToString().Split('|')[1], ClassForms.sf.client.login, "Документ-заявка на товар", "", ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, filename);
             MessageBox.Show("Done!");
+            
         }
 
         List<string> providers;

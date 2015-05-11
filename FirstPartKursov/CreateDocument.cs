@@ -22,7 +22,7 @@ namespace FirstPartKursov
         public void createDocument_order(List<string> goods, string filialAddress, string nameProvider)
         {
             var doc = new Document();
-            PdfWriter.GetInstance(doc, new FileStream(@"Document_Order." + DateTime.Now.ToShortDateString() + ".pdf", FileMode.Create));
+            PdfWriter.GetInstance(doc, new FileStream(ClassForms.sf.filePath.filepathUser + "Документы на заказ товаров\\" + "Document_Order." + DateTime.Now.ToShortDateString() + ".pdf", FileMode.Create));
             doc.Open();
             BaseFont baseFont = BaseFont.CreateFont(@"arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 
@@ -140,6 +140,8 @@ namespace FirstPartKursov
             doc.Add(paragraph11);
             doc.Add(paragraph9);
             doc.Add(paragraph10);
+            ClassForms.sf.label1.Text += Environment.NewLine + "Сформирован и отправлен документ-заявки на товар от: " + DateTime.Now.ToShortDateString() +  "." + " Кому: " + nameProvider;
+            ClassForms.sf.label1.Refresh();
             doc.Close();
         }
 
@@ -212,8 +214,9 @@ namespace FirstPartKursov
             AODL.Document.Content.Text.Paragraph paragraphBoss = ParagraphBuilder.CreateStandardTextParagraph(document_Command);
             paragraphBoss.TextContent.Add(new SimpleText(document_Command, "Генеральный директор: _____________________________ Щербакова А.А."));
             document_Command.Content.Add(paragraphBoss);
-
-            document_Command.SaveTo(@"Document_Command." + DateTime.Now.ToShortDateString() + ".odt");
+            ClassForms.sf.label1.Text += Environment.NewLine + "Сформирован и отправлен приказ генеральному директору о перераспределении товаров от: " + DateTime.Now.ToShortDateString() + ".";
+            ClassForms.sf.label1.Refresh();
+            document_Command.SaveTo(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров\\" + "Document_Command." + DateTime.Now.ToShortDateString() + ".odt");
 
         }
 
@@ -222,7 +225,7 @@ namespace FirstPartKursov
            
 
             var doc = new Document();
-            PdfWriter.GetInstance(doc, new FileStream(@"Document_Invoice." + DateTime.Now.ToShortDateString() + ".pdf", FileMode.Create));
+            PdfWriter.GetInstance(doc, new FileStream(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров\\" + "Document_Invoice." + DateTime.Now.ToShortDateString() + ".pdf", FileMode.Create));
             doc.Open();
             BaseFont baseFont = BaseFont.CreateFont(@"arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 
@@ -321,7 +324,8 @@ namespace FirstPartKursov
             doc.Add(paragraphGive);
             doc.Add(paragraphGet);
 
-
+            ClassForms.sf.label1.Text += Environment.NewLine + "Сформирована и отправлена накладная с товарами на распределение от: " + DateTime.Now.ToShortDateString() + "." + " В склад №: " + numberStorage.ToString();
+            ClassForms.sf.label1.Refresh();
             doc.Close();
 
 
