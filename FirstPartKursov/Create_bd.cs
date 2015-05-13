@@ -61,7 +61,7 @@ namespace FirstPartKursov
             sc.CommandText = "create table redistribution_goods(id_redistribution INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, amount_goods INTEGER NOT NULL, id_goods INTEGER NOT NULL,id_storage_old INTEGER NOT NULL,id_storage_new INTEGER NOT NULL, FOREIGN KEY(id_goods) REFERENCES goods (id_goods),FOREIGN KEY(id_storage_old) REFERENCES storage(id_office),FOREIGN KEY(id_storage_new) REFERENCES storage(id_office))";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
-            sc.CommandText = "create table selling(id_selling INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, date TEXT NOT NULL,amount INTEGER NOT NULL,sum_of_sale INTEGER NOT NULL,comment TEXT ,number_of_disk INTEGER NOT NULL, id_goods INTEGER NOT NULL,id_manager INTEGER NOT NULL, FOREIGN KEY(id_goods) REFERENCES goods(id_goods),FOREIGN KEY(id_manager) REFERENCES manager(id_manager))";
+            sc.CommandText = "create table selling(id_selling INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,day INTEGER NOT NULL, month TEXT NOT NULL,year INTEGER NOT NULL, amount INTEGER NOT NULL,sum_of_sale INTEGER NOT NULL,comment TEXT ,number_of_disk INTEGER NOT NULL, id_goods INTEGER NOT NULL,id_manager INTEGER NOT NULL, FOREIGN KEY(id_goods) REFERENCES goods(id_goods),FOREIGN KEY(id_manager) REFERENCES manager(id_manager))";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
             sc.CommandText = "create table info(main_email TEXT NOT NULL)";
@@ -149,14 +149,6 @@ namespace FirstPartKursov
             sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (4, 2,38);";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
-            //sc.CommandText = "INSERT INTO 'ordering_goods' ( 'amount_goods','id_goods','id_provider') VALUES (15,1,1);";
-            //sc.ExecuteNonQuery();
-            //sc = sql.CreateCommand();
-           //
-            //sc = sql.CreateCommand();
-            //sc.CommandText = "INSERT INTO 'selling' ('date','amount','sum_of_sale','comment','number_of_disk','id_goods','id_manager') VALUES ('22/02/15',1,4999,'скидки нет',1,1,1);";
-            //sc.ExecuteNonQuery();
-            sc = sql.CreateCommand();
             sc.CommandText = "INSERT INTO 'info' ('main_email') VALUES ('ofis_tsentralnyy@mail.ru');";
             sc.ExecuteNonQuery();
             sql.Close();
@@ -190,7 +182,7 @@ namespace FirstPartKursov
             sc.ExecuteNonQuery();
 
             // триггер редактирует кол-во товара на складе при заказе какого-либо товара в таблице ordering_goods
-            sc.CommandText = "CREATE TRIGGER ordering BEFORE INSERT ON ordering_goods BEGIN UPDATE storage SET amount_goods = amount_goods+new.amount_goods WHERE id_goods=new.id_goods and id_office=new.id_storage_in; END;";
+            sc.CommandText = "CREATE TRIGGER ordering BEFORE INSERT ON ordering_goods BEGIN UPDATE storage SET amount_goods = amount_goods+new.amount_goods WHERE id_goods=new.id_goods and id_storage=new.id_storage_in; END;";
             sc.ExecuteNonQuery();
            
 

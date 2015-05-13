@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 namespace FirstPartKursov
 {
@@ -80,6 +81,9 @@ namespace FirstPartKursov
         private void бонусToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //запуск программы Альматеи
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName = @"idz-guitar.exe";
+            p.Start();
         }
 
         private void почтаToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -190,6 +194,12 @@ namespace FirstPartKursov
         private void TheNewMessage_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void отчетыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.otchety.Show();
+            this.Hide();
         }
         
     }

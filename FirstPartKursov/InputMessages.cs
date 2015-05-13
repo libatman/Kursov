@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace FirstPartKursov
@@ -78,6 +79,9 @@ namespace FirstPartKursov
         private void бонусToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             //запуск программы Альматеи
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName = @"idz-guitar.exe";
+            p.Start();
         }
 
         private void почтаToolStripMenuItem1_Click_1(object sender, EventArgs e)
