@@ -67,7 +67,7 @@
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.AliceBlue;
-            this.menuStrip1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.menuStrip1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.главноеОкноToolStripMenuItem,
@@ -79,7 +79,7 @@
             this.настройкиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(882, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(882, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -96,9 +96,9 @@
             this.написатьНовоеСообщениеToolStripMenuItem,
             this.входящиеToolStripMenuItem,
             this.контактыToolStripMenuItem});
-            this.почтаToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.почтаToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.почтаToolStripMenuItem.Name = "почтаToolStripMenuItem";
-            this.почтаToolStripMenuItem.Size = new System.Drawing.Size(69, 27);
+            this.почтаToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.почтаToolStripMenuItem.Text = "Почта";
             // 
             // написатьНовоеСообщениеToolStripMenuItem
@@ -316,10 +316,10 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "InputMessages";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "InputMessages";
+            this.Text = "Входящие сообщения";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InputMessages_FormClosing);
             this.Load += new System.EventHandler(this.InputMessages_Load);
             this.menuStrip1.ResumeLayout(false);

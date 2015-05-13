@@ -22,12 +22,6 @@ namespace FirstPartKursov
             this.Hide();
         }
 
-        private void всеToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            ClassForms.inputmessages.Show();
-            this.Hide();
-        }
-
         private void контактыToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             ClassForms.contacts.Show();
@@ -147,6 +141,12 @@ namespace FirstPartKursov
             {
                 checkedListBox1.Items.Add("Наименование: " + goods[i].Split('|')[0] + ". Валюта: " + goods[i].Split('|')[1] + ". Стоимость: " + goods[i].Split('|')[2]);
             }
+        }
+
+        private void входящиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.inputmessages.Show();
+            this.Hide();
         }
     }
 }

@@ -29,11 +29,6 @@ namespace FirstPartKursov
             this.Hide();
         }
 
-        private void всеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ClassForms.inputmessages.Show();
-            this.Hide();
-        }
 
         private void контактыToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -190,6 +185,12 @@ namespace FirstPartKursov
         private void TheNewMessage_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void входящиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.inputmessages.Show();
+            this.Hide();
         }
         
     }

@@ -9,7 +9,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using System.Threading.Tasks;
 namespace FirstPartKursov
 {
-    class check_table
+    class Check_table
     {
         public void sell_goods()
         {

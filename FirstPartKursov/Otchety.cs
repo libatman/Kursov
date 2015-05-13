@@ -29,11 +29,6 @@ namespace FirstPartKursov
             this.Hide();
         }
 
-        private void всеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ClassForms.inputmessages.Show();
-            this.Hide();
-        }
 
         private void контактыToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -94,6 +89,12 @@ namespace FirstPartKursov
         private void Otchety_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void входящиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.inputmessages.Show();
+            this.Hide();
         }
         
     }

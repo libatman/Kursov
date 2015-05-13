@@ -103,6 +103,11 @@ namespace FirstPartKursov
 
         private void InputMessages_Load(object sender, EventArgs e)
         {
+            if (checkFileMail)
+            {
+                listmessages = new List<OpenPop.Mime.Message>();
+                fetchmess();
+            }
             MailClass.downloadAttachments(listmessages);
             addresses_p = DataBase.addresses_providers();
             addresses_a = DataBase.addresses_filial();
@@ -173,29 +178,39 @@ namespace FirstPartKursov
         {
 
         }
-
+        bool checkFileMail = false;
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            
-            listmessages = new List<OpenPop.Mime.Message>();
-            fetchmess();
-            backgroundWorker1.ReportProgress(100, result);
+            if (File.Exists("@mailinfo.xml"))
+            {
+                listmessages = new List<OpenPop.Mime.Message>();
+                fetchmess();
+                backgroundWorker1.ReportProgress(100, result);
+                
+            }
+            else
+            {
+                checkFileMail = true;
+            }
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            string result = (string)e.UserState;
-            if (result == "Ok")
+            if (File.Exists("@mailinfo.xml"))
             {
-                MessageBox.Show("Все сообщения скачаны успешно");
-                ClassForms.sf.label1.Text += Environment.NewLine + "Входящие сообщения обновлены.";
-                ClassForms.sf.label1.Refresh();
-            }
-            else
-            {
-                MessageBox.Show("При считывании сообщений произошли ошибки.");
-                ClassForms.sf.label1.Text += Environment.NewLine + "При обновлении входящих сообщений произошла ошибка.";
-                ClassForms.sf.label1.Refresh();
+                string result = (string)e.UserState;
+                if (result == "Ok")
+                {
+                    MessageBox.Show("Все сообщения скачаны успешно");
+                    ClassForms.sf.label1.Text += Environment.NewLine + "Входящие сообщения обновлены.";
+                    ClassForms.sf.label1.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("При считывании сообщений произошли ошибки.");
+                    ClassForms.sf.label1.Text += Environment.NewLine + "При обновлении входящих сообщений произошла ошибка.";
+                    ClassForms.sf.label1.Refresh();
+                }
             }
         }
 

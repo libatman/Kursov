@@ -68,7 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="check_table.cs" />
+    <Compile Include="Check_table.cs" />
     <Compile Include="ClassForms.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Contacts.cs">

@@ -26,12 +26,6 @@ namespace FirstPartKursov
             this.Hide();
         }
 
-        private void всеToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            ClassForms.inputmessages.Show();
-            this.Hide();
-        }
-
         private void контактыToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             ClassForms.contacts.Show();
@@ -116,7 +110,7 @@ namespace FirstPartKursov
 
             SQLiteCommand sc;
             sql.Open();//  ПОДКЛЮЧЕНИЕ ОТКРЫТО
-            check_table check = new check_table();
+            Check_table check = new Check_table();
             check.read_selling();
             sc = sql.CreateCommand();
             sc.CommandText = @"SELECT * FROM office;";
@@ -210,6 +204,12 @@ namespace FirstPartKursov
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
+        }
+
+        private void входящиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.inputmessages.Show();
+            this.Hide();
         }
 
     }
