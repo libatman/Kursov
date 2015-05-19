@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace FirstPartKursov
 {
@@ -83,6 +84,9 @@ namespace FirstPartKursov
         private void бонусToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //запуск программы Альматеи
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName = @"idz-guitar.exe";
+            p.Start();
         }
 
         private void почтаToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -96,7 +100,7 @@ namespace FirstPartKursov
             Application.Exit();
         }
 
-        private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void comboBox_filialsFROM_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = (char)0;
         }
@@ -108,40 +112,54 @@ namespace FirstPartKursov
             filials = db.addresses_filial();
             for (int i = 0; i < filials.Count; i++)
             {
-                comboBox1.Items.Add(filials[i].Split('|')[0] + "|" + filials[i].Split('|')[1]);
-                comboBox2.Items.Add(filials[i].Split('|')[0] + "|" + filials[i].Split('|')[1]);
+                comboBox_filialsFROM.Items.Add(filials[i].Split('|')[0] + "|" + filials[i].Split('|')[1]);
+                comboBox_filialsTO.Items.Add(filials[i].Split('|')[0] + "|" + filials[i].Split('|')[1]);
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox_filialsFROM_SelectedIndexChanged(object sender, EventArgs e)
         {
-            checkedListBox1.Items.Clear();
-            int id_prov = comboBox1.SelectedIndex + 1;
+            checkedListBox_goods.Items.Clear();
+            int id_prov = comboBox_filialsFROM.SelectedIndex + 1;
             goods = db.goods_storage(id_prov);
             
             for (int i = 0; i < goods.Count; i++)
             {
-                checkedListBox1.Items.Add(goods[i]);
+                checkedListBox_goods.Items.Add(goods[i]);
             }
         }
         List<string> goodsChecked = new List<string>();
         CreateDocument createDocument = new CreateDocument();
-        private void button1_Click(object sender, EventArgs e)
+        private void button_toSend_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < checkedListBox1.Items.Count; i++)
+            for (int i = 0; i < checkedListBox_goods.Items.Count; i++)
             {
-                if (checkedListBox1.GetItemCheckState(i) == CheckState.Checked)
+                if (checkedListBox_goods.GetItemCheckState(i) == CheckState.Checked)
                 {
                     goodsChecked.Add(goods[i]);
                 }
             }
-            createDocument.createDocument_Command(goodsChecked, comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString());
-            createDocument.createDocument_Invoice(goodsChecked, comboBox2.SelectedIndex + 1);
-            List<string> filename = new List<string>();
-            filename.Add(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров\\" + "Document_Command." + DateTime.Now.ToShortDateString() + ".odt");
-            filename.Add(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров\\" + "Document_Invoice." + DateTime.Now.ToShortDateString() + ".pdf");
-            MailClass.SendMail_Click1(comboBox2.SelectedItem.ToString().Split('|')[1], ClassForms.sf.client.login, "Перераспределение товаров", "", ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, filename);
-            MessageBox.Show("Done!");
+            if (goodsChecked.Count > 0 && comboBox_filialsFROM.SelectedIndex >= 0 && comboBox_filialsTO.SelectedIndex >= 0)
+            {
+                createDocument.createDocument_Command(goodsChecked, comboBox_filialsFROM.SelectedItem.ToString(), comboBox_filialsTO.SelectedItem.ToString());
+                createDocument.createDocument_Invoice(goodsChecked, comboBox_filialsTO.SelectedIndex + 1);
+                List<string> filename = new List<string>();
+                filename.Add(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров\\" + "Document_Command." + DateTime.Now.ToShortDateString() + ".odt");
+                filename.Add(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров\\" + "Document_Invoice." + DateTime.Now.ToShortDateString() + ".pdf");
+                MailClass.SendMail_Click1(comboBox_filialsTO.SelectedItem.ToString().Split('|')[1], ClassForms.sf.client.login, "Перераспределение товаров", "", ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, filename);
+                MessageBox.Show("Отправлено!");
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали все данные для заполнения документа. Пожлауйста, проверьте Ваши действия.");
+            }
+            
+        }
+
+        private void отчетыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.otchety.Show();
+            this.Hide();
         }
     }
 }

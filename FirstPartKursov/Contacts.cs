@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace FirstPartKursov
 {
@@ -73,6 +74,9 @@ namespace FirstPartKursov
         private void бонусToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             //запуск программы Альматеи
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName = @"idz-guitar.exe";
+            p.Start();
         }
 
         private void почтаToolStripMenuItem1_Click_1(object sender, EventArgs e)
@@ -95,11 +99,10 @@ namespace FirstPartKursov
         ListBox myListGroups;
         private void Contacts_Load(object sender, EventArgs e)
         {
-            comboBox1.Items.Add("Филиалы");
-            comboBox1.Items.Add("Поставщики");
+            comboBox_Groups.Items.Add("Филиалы");
+            comboBox_Groups.Items.Add("Поставщики");
             myListGroups = new ListBox(); //антипаттерн, который я потом опишу в записке : зачем я начала создавать это программно?
             myListGroups.Location = new Point(60, 100);
-            //myListGroups.Location = new Point(20, 60);
             myListGroups.Size = new Size(760, 540);
             myListGroups.HorizontalScrollbar = true;
             Controls.Add(myListGroups);
@@ -112,9 +115,9 @@ namespace FirstPartKursov
         }
         List<string> addresses_p;
         List<string> addresses_f;
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox_Groups_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == 0)
+            if (comboBox_Groups.SelectedIndex == 0)
             {
                 myListGroups.Items.Clear();
                 myListGroups.Show();
@@ -136,32 +139,32 @@ namespace FirstPartKursov
             }
         }
 
-        private void label1_MouseEnter(object sender, EventArgs e)
+        private void label_toSendMessagesGroup_MouseEnter(object sender, EventArgs e)
         {
             Label l = (Label)sender;
             l.BackColor = Color.LightBlue;
         }
 
-        private void label1_MouseLeave(object sender, EventArgs e)
+        private void label1_toSendMessagesGroup_MouseLeave(object sender, EventArgs e)
         {
             Label l = (Label)sender;
             l.BackColor = Color.WhiteSmoke;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label1_toSendMessagesGroup_Click(object sender, EventArgs e)
         {
             this.Hide();
-            if (comboBox1.SelectedIndex == 0)
+            if (comboBox_Groups.SelectedIndex == 0)
             {
                 for (int i = 0; i < addresses_f.Count; i++)
                 {
                     if (i != addresses_f.Count - 1)
                     {
-                        ClassForms.newmess.textBox1.Text += addresses_f[i].Split('|')[1] + ",";
+                        ClassForms.newmess.textBox_Who.Text += addresses_f[i].Split('|')[1] + ",";
                     }
                     else
                     {
-                        ClassForms.newmess.textBox1.Text += addresses_f[i].Split('|')[1];
+                        ClassForms.newmess.textBox_Who.Text += addresses_f[i].Split('|')[1];
                     }
                 }
             }
@@ -171,15 +174,21 @@ namespace FirstPartKursov
                 {
                     if (j != addresses_p.Count - 1)
                     {
-                        ClassForms.newmess.textBox1.Text += addresses_p[j].Split('|')[1] + ",";
+                        ClassForms.newmess.textBox_Who.Text += addresses_p[j].Split('|')[1] + ",";
                     }
                     else
                     {
-                        ClassForms.newmess.textBox1.Text += addresses_p[j].Split('|')[1];
+                        ClassForms.newmess.textBox_Who.Text += addresses_p[j].Split('|')[1];
                     }
                 }
             }
             ClassForms.newmess.Show();
+        }
+
+        private void отчетыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.otchety.Show();
+            this.Hide();
         }
 
     }

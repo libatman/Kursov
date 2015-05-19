@@ -57,7 +57,7 @@ namespace FirstPartKursov
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error!");
+                MessageBox.Show("Проверьте входные данные");
             }
             t = true;
             this.Close();

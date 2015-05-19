@@ -36,10 +36,6 @@
             this.контактыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.бДToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продаваемостьТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.популярностьПоставщиковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продаваемостьПоФилиаламToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.результативностьМенеджеровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.документыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.перераспределениеТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заказТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,14 +43,13 @@
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.почтаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox_filialsFROM = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.comboBox_filialsTO = new System.Windows.Forms.ComboBox();
+            this.checkedListBox_goods = new System.Windows.Forms.CheckedListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.button_toSend = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,42 +120,10 @@
             // 
             // отчетыToolStripMenuItem
             // 
-            this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.продаваемостьТоваровToolStripMenuItem,
-            this.популярностьПоставщиковToolStripMenuItem,
-            this.продаваемостьПоФилиаламToolStripMenuItem,
-            this.результативностьМенеджеровToolStripMenuItem});
             this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
             this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.отчетыToolStripMenuItem.Text = "Отчеты";
-            // 
-            // продаваемостьТоваровToolStripMenuItem
-            // 
-            this.продаваемостьТоваровToolStripMenuItem.Name = "продаваемостьТоваровToolStripMenuItem";
-            this.продаваемостьТоваровToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.продаваемостьТоваровToolStripMenuItem.Text = "Продаваемость товаров";
-            this.продаваемостьТоваровToolStripMenuItem.Click += new System.EventHandler(this.продаваемостьТоваровToolStripMenuItem_Click);
-            // 
-            // популярностьПоставщиковToolStripMenuItem
-            // 
-            this.популярностьПоставщиковToolStripMenuItem.Name = "популярностьПоставщиковToolStripMenuItem";
-            this.популярностьПоставщиковToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.популярностьПоставщиковToolStripMenuItem.Text = "Популярность поставщиков";
-            this.популярностьПоставщиковToolStripMenuItem.Click += new System.EventHandler(this.популярностьПоставщиковToolStripMenuItem_Click);
-            // 
-            // продаваемостьПоФилиаламToolStripMenuItem
-            // 
-            this.продаваемостьПоФилиаламToolStripMenuItem.Name = "продаваемостьПоФилиаламToolStripMenuItem";
-            this.продаваемостьПоФилиаламToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.продаваемостьПоФилиаламToolStripMenuItem.Text = "Продаваемость по филиалам";
-            this.продаваемостьПоФилиаламToolStripMenuItem.Click += new System.EventHandler(this.продаваемостьПоФилиаламToolStripMenuItem_Click);
-            // 
-            // результативностьМенеджеровToolStripMenuItem
-            // 
-            this.результативностьМенеджеровToolStripMenuItem.Name = "результативностьМенеджеровToolStripMenuItem";
-            this.результативностьМенеджеровToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.результативностьМенеджеровToolStripMenuItem.Text = "Результативность менеджеров";
-            this.результативностьМенеджеровToolStripMenuItem.Click += new System.EventHandler(this.результативностьМенеджеровToolStripMenuItem_Click);
+            this.отчетыToolStripMenuItem.Click += new System.EventHandler(this.отчетыToolStripMenuItem_Click);
             // 
             // документыToolStripMenuItem
             // 
@@ -216,21 +179,20 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Сформировать документы на перераспределение товаров:";
             // 
-            // comboBox1
+            // comboBox_filialsFROM
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(134, 90);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(180, 25);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.Text = "Выбрать филиал...";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            this.comboBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox1_KeyPress);
+            this.comboBox_filialsFROM.FormattingEnabled = true;
+            this.comboBox_filialsFROM.Location = new System.Drawing.Point(134, 90);
+            this.comboBox_filialsFROM.Name = "comboBox_filialsFROM";
+            this.comboBox_filialsFROM.Size = new System.Drawing.Size(180, 25);
+            this.comboBox_filialsFROM.TabIndex = 4;
+            this.comboBox_filialsFROM.Text = "Выбрать филиал...";
+            this.comboBox_filialsFROM.SelectedIndexChanged += new System.EventHandler(this.comboBox_filialsFROM_SelectedIndexChanged);
+            this.comboBox_filialsFROM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox_filialsFROM_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(12, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 19);
@@ -240,30 +202,29 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(386, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 19);
             this.label3.TabIndex = 6;
             this.label3.Text = "Куда:";
             // 
-            // comboBox2
+            // comboBox_filialsTO
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(477, 86);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(182, 25);
-            this.comboBox2.TabIndex = 7;
-            this.comboBox2.Text = "Выбрать филиал...";
-            this.comboBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox1_KeyPress);
+            this.comboBox_filialsTO.FormattingEnabled = true;
+            this.comboBox_filialsTO.Location = new System.Drawing.Point(477, 86);
+            this.comboBox_filialsTO.Name = "comboBox_filialsTO";
+            this.comboBox_filialsTO.Size = new System.Drawing.Size(182, 25);
+            this.comboBox_filialsTO.TabIndex = 7;
+            this.comboBox_filialsTO.Text = "Выбрать филиал...";
+            this.comboBox_filialsTO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox_filialsFROM_KeyPress);
             // 
-            // checkedListBox1
+            // checkedListBox_goods
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(16, 154);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(861, 382);
-            this.checkedListBox1.TabIndex = 8;
+            this.checkedListBox_goods.FormattingEnabled = true;
+            this.checkedListBox_goods.Location = new System.Drawing.Point(16, 154);
+            this.checkedListBox_goods.Name = "checkedListBox_goods";
+            this.checkedListBox_goods.Size = new System.Drawing.Size(861, 436);
+            this.checkedListBox_goods.TabIndex = 8;
             // 
             // label4
             // 
@@ -274,26 +235,15 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Товар на складе филиала : ";
             // 
-            // button1
+            // button_toSend
             // 
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(659, 543);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(217, 34);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Отправить документы";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(16, 46);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(445, 19);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Сформировать документы на перераспределение товаров:";
+            this.button_toSend.Location = new System.Drawing.Point(660, 595);
+            this.button_toSend.Name = "button_toSend";
+            this.button_toSend.Size = new System.Drawing.Size(217, 34);
+            this.button_toSend.TabIndex = 10;
+            this.button_toSend.Text = "Отправить документы";
+            this.button_toSend.UseVisualStyleBackColor = true;
+            this.button_toSend.Click += new System.EventHandler(this.button_toSend_Click);
             // 
             // Document_Redistribution
             // 
@@ -301,22 +251,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(882, 641);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_toSend);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.checkedListBox_goods);
+            this.Controls.Add(this.comboBox_filialsTO);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBox_filialsFROM);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Document_Redistribution";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Перераспределение товаров";
+            this.Text = "Документ на перераспределение товаров";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Document_Redistribution_FormClosing);
             this.Load += new System.EventHandler(this.Document_Redistribution_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -336,10 +284,6 @@
         private System.Windows.Forms.ToolStripMenuItem контактыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem бДToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem продаваемостьТоваровToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem популярностьПоставщиковToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem продаваемостьПоФилиаламToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem результативностьМенеджеровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem документыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem перераспределениеТоваровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem заказТоваровToolStripMenuItem;
@@ -347,14 +291,13 @@
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem почтаToolStripMenuItem1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox_filialsFROM;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.ComboBox comboBox_filialsTO;
+        private System.Windows.Forms.CheckedListBox checkedListBox_goods;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button_toSend;
 
     }
 }

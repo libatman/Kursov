@@ -36,18 +36,14 @@
             this.контактыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.бДToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продаваемостьТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.популярностьПоставщиковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продаваемостьПоФилиаламToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.результативностьМенеджеровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.документыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.перераспределениеТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заказТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.бонусToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.почтаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox_Groups = new System.Windows.Forms.ComboBox();
+            this.label_toSendMessagesGroup = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,42 +114,10 @@
             // 
             // отчетыToolStripMenuItem
             // 
-            this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.продаваемостьТоваровToolStripMenuItem,
-            this.популярностьПоставщиковToolStripMenuItem,
-            this.продаваемостьПоФилиаламToolStripMenuItem,
-            this.результативностьМенеджеровToolStripMenuItem});
             this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
             this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.отчетыToolStripMenuItem.Text = "Отчеты";
-            // 
-            // продаваемостьТоваровToolStripMenuItem
-            // 
-            this.продаваемостьТоваровToolStripMenuItem.Name = "продаваемостьТоваровToolStripMenuItem";
-            this.продаваемостьТоваровToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.продаваемостьТоваровToolStripMenuItem.Text = "Продаваемость товаров";
-            this.продаваемостьТоваровToolStripMenuItem.Click += new System.EventHandler(this.продаваемостьТоваровToolStripMenuItem_Click_1);
-            // 
-            // популярностьПоставщиковToolStripMenuItem
-            // 
-            this.популярностьПоставщиковToolStripMenuItem.Name = "популярностьПоставщиковToolStripMenuItem";
-            this.популярностьПоставщиковToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.популярностьПоставщиковToolStripMenuItem.Text = "Популярность поставщиков";
-            this.популярностьПоставщиковToolStripMenuItem.Click += new System.EventHandler(this.популярностьПоставщиковToolStripMenuItem_Click_1);
-            // 
-            // продаваемостьПоФилиаламToolStripMenuItem
-            // 
-            this.продаваемостьПоФилиаламToolStripMenuItem.Name = "продаваемостьПоФилиаламToolStripMenuItem";
-            this.продаваемостьПоФилиаламToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.продаваемостьПоФилиаламToolStripMenuItem.Text = "Продаваемость по филиалам";
-            this.продаваемостьПоФилиаламToolStripMenuItem.Click += new System.EventHandler(this.продаваемостьПоФилиаламToolStripMenuItem_Click_1);
-            // 
-            // результативностьМенеджеровToolStripMenuItem
-            // 
-            this.результативностьМенеджеровToolStripMenuItem.Name = "результативностьМенеджеровToolStripMenuItem";
-            this.результативностьМенеджеровToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.результативностьМенеджеровToolStripMenuItem.Text = "Результативность менеджеров";
-            this.результативностьМенеджеровToolStripMenuItem.Click += new System.EventHandler(this.результативностьМенеджеровToolStripMenuItem_Click_1);
+            this.отчетыToolStripMenuItem.Click += new System.EventHandler(this.отчетыToolStripMenuItem_Click);
             // 
             // документыToolStripMenuItem
             // 
@@ -200,27 +164,27 @@
             this.почтаToolStripMenuItem1.Text = "Почта";
             this.почтаToolStripMenuItem1.Click += new System.EventHandler(this.почтаToolStripMenuItem1_Click_1);
             // 
-            // comboBox1
+            // comboBox_Groups
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(20, 34);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 25);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.Text = "Просмотреть группу";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox_Groups.FormattingEnabled = true;
+            this.comboBox_Groups.Location = new System.Drawing.Point(20, 34);
+            this.comboBox_Groups.Name = "comboBox_Groups";
+            this.comboBox_Groups.Size = new System.Drawing.Size(187, 25);
+            this.comboBox_Groups.TabIndex = 2;
+            this.comboBox_Groups.Text = "Просмотреть группу";
+            this.comboBox_Groups.SelectedIndexChanged += new System.EventHandler(this.comboBox_Groups_SelectedIndexChanged);
             // 
-            // label1
+            // label_toSendMessagesGroup
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(224, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Отправить сообщение группе";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            this.label1.MouseEnter += new System.EventHandler(this.label1_MouseEnter);
-            this.label1.MouseLeave += new System.EventHandler(this.label1_MouseLeave);
+            this.label_toSendMessagesGroup.AutoSize = true;
+            this.label_toSendMessagesGroup.Location = new System.Drawing.Point(224, 41);
+            this.label_toSendMessagesGroup.Name = "label_toSendMessagesGroup";
+            this.label_toSendMessagesGroup.Size = new System.Drawing.Size(223, 19);
+            this.label_toSendMessagesGroup.TabIndex = 3;
+            this.label_toSendMessagesGroup.Text = "Отправить сообщение группе";
+            this.label_toSendMessagesGroup.Click += new System.EventHandler(this.label1_toSendMessagesGroup_Click);
+            this.label_toSendMessagesGroup.MouseEnter += new System.EventHandler(this.label_toSendMessagesGroup_MouseEnter);
+            this.label_toSendMessagesGroup.MouseLeave += new System.EventHandler(this.label1_toSendMessagesGroup_MouseLeave);
             // 
             // Contacts
             // 
@@ -228,8 +192,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(882, 641);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label_toSendMessagesGroup);
+            this.Controls.Add(this.comboBox_Groups);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -254,10 +218,6 @@
         private System.Windows.Forms.ToolStripMenuItem контактыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem бДToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem продаваемостьТоваровToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem популярностьПоставщиковToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem продаваемостьПоФилиаламToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem результативностьМенеджеровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem документыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem перераспределениеТоваровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem заказТоваровToolStripMenuItem;
@@ -265,7 +225,7 @@
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem почтаToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem главноеОкноToolStripMenuItem;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox_Groups;
+        private System.Windows.Forms.Label label_toSendMessagesGroup;
     }
 }

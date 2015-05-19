@@ -28,49 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_Answer = new System.Windows.Forms.Button();
+            this.label_From = new System.Windows.Forms.Label();
+            this.button_Back = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label_Body = new System.Windows.Forms.Label();
+            this.label_Subject = new System.Windows.Forms.Label();
+            this.textBox_Body = new System.Windows.Forms.TextBox();
+            this.textBox_Subject = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button2
+            // button_Answer
             // 
-            this.button2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(683, 634);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(187, 35);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Ответить";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button_Answer.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button_Answer.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Answer.Location = new System.Drawing.Point(683, 594);
+            this.button_Answer.Name = "button_Answer";
+            this.button_Answer.Size = new System.Drawing.Size(187, 35);
+            this.button_Answer.TabIndex = 15;
+            this.button_Answer.Text = "Ответить";
+            this.button_Answer.UseVisualStyleBackColor = false;
+            this.button_Answer.Click += new System.EventHandler(this.button_Answer_Click);
             // 
-            // label4
+            // label_From
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(33, 58);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 19);
-            this.label4.TabIndex = 14;
-            this.label4.Text = ".";
+            this.label_From.AutoSize = true;
+            this.label_From.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_From.Location = new System.Drawing.Point(33, 58);
+            this.label_From.Name = "label_From";
+            this.label_From.Size = new System.Drawing.Size(13, 19);
+            this.label_From.TabIndex = 14;
+            this.label_From.Text = ".";
             // 
-            // button1
+            // button_Back
             // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(754, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 40);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Назад";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button_Back.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button_Back.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Back.Location = new System.Drawing.Point(763, 20);
+            this.button_Back.Name = "button_Back";
+            this.button_Back.Size = new System.Drawing.Size(116, 40);
+            this.button_Back.TabIndex = 13;
+            this.button_Back.Text = "Назад";
+            this.button_Back.UseVisualStyleBackColor = false;
+            this.button_Back.Click += new System.EventHandler(this.button_Back_Click);
             // 
             // label3
             // 
@@ -82,63 +82,62 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Отправитель: ";
             // 
-            // label2
+            // label_Body
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(252, 143);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 20);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Сообщение:";
+            this.label_Body.AutoSize = true;
+            this.label_Body.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Body.Location = new System.Drawing.Point(252, 143);
+            this.label_Body.Name = "label_Body";
+            this.label_Body.Size = new System.Drawing.Size(108, 20);
+            this.label_Body.TabIndex = 11;
+            this.label_Body.Text = "Сообщение:";
             // 
-            // label1
+            // label_Subject
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(252, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Тема:";
+            this.label_Subject.AutoSize = true;
+            this.label_Subject.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Subject.Location = new System.Drawing.Point(252, 85);
+            this.label_Subject.Name = "label_Subject";
+            this.label_Subject.Size = new System.Drawing.Size(51, 20);
+            this.label_Subject.TabIndex = 10;
+            this.label_Subject.Text = "Тема:";
             // 
-            // textBox2
+            // textBox_Body
             // 
-            this.textBox2.Location = new System.Drawing.Point(256, 170);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(614, 458);
-            this.textBox2.TabIndex = 9;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.textBox_Body.Location = new System.Drawing.Point(256, 170);
+            this.textBox_Body.Multiline = true;
+            this.textBox_Body.Name = "textBox_Body";
+            this.textBox_Body.Size = new System.Drawing.Size(614, 408);
+            this.textBox_Body.TabIndex = 9;
+            this.textBox_Body.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
-            // textBox1
+            // textBox_Subject
             // 
-            this.textBox1.Location = new System.Drawing.Point(256, 112);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(614, 23);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.textBox_Subject.Location = new System.Drawing.Point(256, 112);
+            this.textBox_Subject.Name = "textBox_Subject";
+            this.textBox_Subject.Size = new System.Drawing.Size(614, 23);
+            this.textBox_Subject.TabIndex = 8;
+            this.textBox_Subject.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // TheMessage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(882, 681);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(882, 641);
+            this.Controls.Add(this.button_Answer);
+            this.Controls.Add(this.label_From);
+            this.Controls.Add(this.button_Back);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label_Body);
+            this.Controls.Add(this.label_Subject);
+            this.Controls.Add(this.textBox_Body);
+            this.Controls.Add(this.textBox_Subject);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "TheMessage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Сообщение";
-            this.Load += new System.EventHandler(this.TheMessage_Load_1);
+            this.Load += new System.EventHandler(this.TheMessage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,13 +145,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_Answer;
+        private System.Windows.Forms.Label label_From;
+        private System.Windows.Forms.Button button_Back;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label_Body;
+        private System.Windows.Forms.Label label_Subject;
+        private System.Windows.Forms.TextBox textBox_Body;
+        private System.Windows.Forms.TextBox textBox_Subject;
     }
 }

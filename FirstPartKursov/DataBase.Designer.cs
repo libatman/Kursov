@@ -36,10 +36,6 @@
             this.контактыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.бДToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продаваемостьТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.популярностьПоставщиковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продаваемостьПоФилиаламToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.результативностьМенеджеровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.документыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.перераспределениеТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заказТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -153,42 +149,10 @@
             // 
             // отчетыToolStripMenuItem
             // 
-            this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.продаваемостьТоваровToolStripMenuItem,
-            this.популярностьПоставщиковToolStripMenuItem,
-            this.продаваемостьПоФилиаламToolStripMenuItem,
-            this.результативностьМенеджеровToolStripMenuItem});
             this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
             this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.отчетыToolStripMenuItem.Text = "Отчеты";
-            // 
-            // продаваемостьТоваровToolStripMenuItem
-            // 
-            this.продаваемостьТоваровToolStripMenuItem.Name = "продаваемостьТоваровToolStripMenuItem";
-            this.продаваемостьТоваровToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.продаваемостьТоваровToolStripMenuItem.Text = "Продаваемость товаров";
-            this.продаваемостьТоваровToolStripMenuItem.Click += new System.EventHandler(this.продаваемостьТоваровToolStripMenuItem_Click_1);
-            // 
-            // популярностьПоставщиковToolStripMenuItem
-            // 
-            this.популярностьПоставщиковToolStripMenuItem.Name = "популярностьПоставщиковToolStripMenuItem";
-            this.популярностьПоставщиковToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.популярностьПоставщиковToolStripMenuItem.Text = "Популярность поставщиков";
-            this.популярностьПоставщиковToolStripMenuItem.Click += new System.EventHandler(this.популярностьПоставщиковToolStripMenuItem_Click_1);
-            // 
-            // продаваемостьПоФилиаламToolStripMenuItem
-            // 
-            this.продаваемостьПоФилиаламToolStripMenuItem.Name = "продаваемостьПоФилиаламToolStripMenuItem";
-            this.продаваемостьПоФилиаламToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.продаваемостьПоФилиаламToolStripMenuItem.Text = "Продаваемость по филиалам";
-            this.продаваемостьПоФилиаламToolStripMenuItem.Click += new System.EventHandler(this.продаваемостьПоФилиаламToolStripMenuItem_Click_1);
-            // 
-            // результативностьМенеджеровToolStripMenuItem
-            // 
-            this.результативностьМенеджеровToolStripMenuItem.Name = "результативностьМенеджеровToolStripMenuItem";
-            this.результативностьМенеджеровToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.результативностьМенеджеровToolStripMenuItem.Text = "Результативность менеджеров";
-            this.результативностьМенеджеровToolStripMenuItem.Click += new System.EventHandler(this.результативностьМенеджеровToolStripMenuItem_Click_1);
+            this.отчетыToolStripMenuItem.Click += new System.EventHandler(this.отчетыToolStripMenuItem_Click);
             // 
             // документыToolStripMenuItem
             // 
@@ -245,22 +209,21 @@
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
-            this.tabControl1.Location = new System.Drawing.Point(0, 38);
+            this.tabControl1.Location = new System.Drawing.Point(0, 45);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(883, 537);
+            this.tabControl1.Size = new System.Drawing.Size(883, 545);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dataGridView8);
-            this.tabPage1.ForeColor = System.Drawing.Color.Black;
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(875, 507);
+            this.tabPage1.Size = new System.Drawing.Size(875, 515);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Филиалы";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -271,7 +234,7 @@
             this.dataGridView8.Location = new System.Drawing.Point(3, 34);
             this.dataGridView8.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView8.Name = "dataGridView8";
-            this.dataGridView8.Size = new System.Drawing.Size(868, 436);
+            this.dataGridView8.Size = new System.Drawing.Size(862, 436);
             this.dataGridView8.TabIndex = 1;
             // 
             // tabPage2
@@ -281,7 +244,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(875, 507);
+            this.tabPage2.Size = new System.Drawing.Size(875, 455);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Менеджеры";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -302,7 +265,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(875, 507);
+            this.tabPage3.Size = new System.Drawing.Size(875, 455);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Поставщики";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -323,7 +286,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Size = new System.Drawing.Size(875, 507);
+            this.tabPage4.Size = new System.Drawing.Size(875, 455);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Товары";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -344,7 +307,7 @@
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage5.Size = new System.Drawing.Size(875, 507);
+            this.tabPage5.Size = new System.Drawing.Size(875, 455);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Склады";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -365,7 +328,7 @@
             this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage6.Size = new System.Drawing.Size(875, 507);
+            this.tabPage6.Size = new System.Drawing.Size(875, 455);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Заказ товаров";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -386,7 +349,7 @@
             this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage7.Size = new System.Drawing.Size(875, 507);
+            this.tabPage7.Size = new System.Drawing.Size(875, 455);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Перераспределение товаров";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -407,7 +370,7 @@
             this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage8.Size = new System.Drawing.Size(875, 507);
+            this.tabPage8.Size = new System.Drawing.Size(875, 455);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Продажи";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -432,7 +395,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 612);
+            this.label1.Location = new System.Drawing.Point(37, 612);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 19);
             this.label1.TabIndex = 3;
@@ -488,10 +451,6 @@
         private System.Windows.Forms.ToolStripMenuItem контактыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem бДToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem продаваемостьТоваровToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem популярностьПоставщиковToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem продаваемостьПоФилиаламToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem результативностьМенеджеровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem документыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem перераспределениеТоваровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem заказТоваровToolStripMenuItem;

@@ -37,10 +37,6 @@
             this.контактыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.бДToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продаваемостьТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.популярностьПоставщиковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продаваемостьПоФилиаламToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.результативностьМенеджеровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.документыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.перераспределениеТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заказТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,17 +44,17 @@
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.почтаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.всеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.listBox_allmess = new System.Windows.Forms.ListBox();
+            this.tabControlMessages = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBox_providers = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.listBox_filials = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabControlMessages.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -86,7 +82,7 @@
             // главноеОкноToolStripMenuItem
             // 
             this.главноеОкноToolStripMenuItem.Name = "главноеОкноToolStripMenuItem";
-            this.главноеОкноToolStripMenuItem.Size = new System.Drawing.Size(117, 27);
+            this.главноеОкноToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
             this.главноеОкноToolStripMenuItem.Text = "Главное окно";
             this.главноеОкноToolStripMenuItem.Click += new System.EventHandler(this.главноеОкноToolStripMenuItem_Click);
             // 
@@ -104,69 +100,36 @@
             // написатьНовоеСообщениеToolStripMenuItem
             // 
             this.написатьНовоеСообщениеToolStripMenuItem.Name = "написатьНовоеСообщениеToolStripMenuItem";
-            this.написатьНовоеСообщениеToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
+            this.написатьНовоеСообщениеToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
             this.написатьНовоеСообщениеToolStripMenuItem.Text = "Написать новое сообщение";
             this.написатьНовоеСообщениеToolStripMenuItem.Click += new System.EventHandler(this.написатьНовоеСообщениеToolStripMenuItem_Click_1);
             // 
             // входящиеToolStripMenuItem
             // 
             this.входящиеToolStripMenuItem.Name = "входящиеToolStripMenuItem";
-            this.входящиеToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
+            this.входящиеToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
             this.входящиеToolStripMenuItem.Text = "Входящие";
             this.входящиеToolStripMenuItem.Click += new System.EventHandler(this.входящиеToolStripMenuItem_Click);
             // 
             // контактыToolStripMenuItem
             // 
             this.контактыToolStripMenuItem.Name = "контактыToolStripMenuItem";
-            this.контактыToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
+            this.контактыToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
             this.контактыToolStripMenuItem.Text = "Контакты";
             this.контактыToolStripMenuItem.Click += new System.EventHandler(this.контактыToolStripMenuItem_Click_1);
             // 
             // бДToolStripMenuItem
             // 
             this.бДToolStripMenuItem.Name = "бДToolStripMenuItem";
-            this.бДToolStripMenuItem.Size = new System.Drawing.Size(42, 27);
+            this.бДToolStripMenuItem.Size = new System.Drawing.Size(41, 24);
             this.бДToolStripMenuItem.Text = "БД";
             this.бДToolStripMenuItem.Click += new System.EventHandler(this.бДToolStripMenuItem_Click_1);
             // 
             // отчетыToolStripMenuItem
             // 
-            this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.продаваемостьТоваровToolStripMenuItem,
-            this.популярностьПоставщиковToolStripMenuItem,
-            this.продаваемостьПоФилиаламToolStripMenuItem,
-            this.результативностьМенеджеровToolStripMenuItem});
             this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
-            this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(74, 27);
+            this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.отчетыToolStripMenuItem.Text = "Отчеты";
-            // 
-            // продаваемостьТоваровToolStripMenuItem
-            // 
-            this.продаваемостьТоваровToolStripMenuItem.Name = "продаваемостьТоваровToolStripMenuItem";
-            this.продаваемостьТоваровToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
-            this.продаваемостьТоваровToolStripMenuItem.Text = "Продаваемость товаров";
-            this.продаваемостьТоваровToolStripMenuItem.Click += new System.EventHandler(this.продаваемостьТоваровToolStripMenuItem_Click_1);
-            // 
-            // популярностьПоставщиковToolStripMenuItem
-            // 
-            this.популярностьПоставщиковToolStripMenuItem.Name = "популярностьПоставщиковToolStripMenuItem";
-            this.популярностьПоставщиковToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
-            this.популярностьПоставщиковToolStripMenuItem.Text = "Популярность поставщиков";
-            this.популярностьПоставщиковToolStripMenuItem.Click += new System.EventHandler(this.популярностьПоставщиковToolStripMenuItem_Click_1);
-            // 
-            // продаваемостьПоФилиаламToolStripMenuItem
-            // 
-            this.продаваемостьПоФилиаламToolStripMenuItem.Name = "продаваемостьПоФилиаламToolStripMenuItem";
-            this.продаваемостьПоФилиаламToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
-            this.продаваемостьПоФилиаламToolStripMenuItem.Text = "Продаваемость по филиалам";
-            this.продаваемостьПоФилиаламToolStripMenuItem.Click += new System.EventHandler(this.продаваемостьПоФилиаламToolStripMenuItem_Click_1);
-            // 
-            // результативностьМенеджеровToolStripMenuItem
-            // 
-            this.результативностьМенеджеровToolStripMenuItem.Name = "результативностьМенеджеровToolStripMenuItem";
-            this.результативностьМенеджеровToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
-            this.результативностьМенеджеровToolStripMenuItem.Text = "Результативность менеджеров";
-            this.результативностьМенеджеровToolStripMenuItem.Click += new System.EventHandler(this.результативностьМенеджеровToolStripMenuItem_Click_1);
             // 
             // документыToolStripMenuItem
             // 
@@ -174,27 +137,27 @@
             this.перераспределениеТоваровToolStripMenuItem,
             this.заказТоваровToolStripMenuItem});
             this.документыToolStripMenuItem.Name = "документыToolStripMenuItem";
-            this.документыToolStripMenuItem.Size = new System.Drawing.Size(105, 27);
+            this.документыToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
             this.документыToolStripMenuItem.Text = "Документы";
             // 
             // перераспределениеТоваровToolStripMenuItem
             // 
             this.перераспределениеТоваровToolStripMenuItem.Name = "перераспределениеТоваровToolStripMenuItem";
-            this.перераспределениеТоваровToolStripMenuItem.Size = new System.Drawing.Size(288, 26);
+            this.перераспределениеТоваровToolStripMenuItem.Size = new System.Drawing.Size(306, 24);
             this.перераспределениеТоваровToolStripMenuItem.Text = "Перераспределение товаров";
             this.перераспределениеТоваровToolStripMenuItem.Click += new System.EventHandler(this.перераспределениеТоваровToolStripMenuItem_Click_1);
             // 
             // заказТоваровToolStripMenuItem
             // 
             this.заказТоваровToolStripMenuItem.Name = "заказТоваровToolStripMenuItem";
-            this.заказТоваровToolStripMenuItem.Size = new System.Drawing.Size(288, 26);
+            this.заказТоваровToolStripMenuItem.Size = new System.Drawing.Size(306, 24);
             this.заказТоваровToolStripMenuItem.Text = "Заказ товаров";
             this.заказТоваровToolStripMenuItem.Click += new System.EventHandler(this.заказТоваровToolStripMenuItem_Click_1);
             // 
             // бонусToolStripMenuItem
             // 
             this.бонусToolStripMenuItem.Name = "бонусToolStripMenuItem";
-            this.бонусToolStripMenuItem.Size = new System.Drawing.Size(64, 27);
+            this.бонусToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.бонусToolStripMenuItem.Text = "Бонус";
             this.бонусToolStripMenuItem.Click += new System.EventHandler(this.бонусToolStripMenuItem_Click_1);
             // 
@@ -203,13 +166,13 @@
             this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.почтаToolStripMenuItem1});
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(99, 27);
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
             this.настройкиToolStripMenuItem.Text = "Настройки";
             // 
             // почтаToolStripMenuItem1
             // 
             this.почтаToolStripMenuItem1.Name = "почтаToolStripMenuItem1";
-            this.почтаToolStripMenuItem1.Size = new System.Drawing.Size(123, 26);
+            this.почтаToolStripMenuItem1.Size = new System.Drawing.Size(121, 24);
             this.почтаToolStripMenuItem1.Text = "Почта";
             this.почтаToolStripMenuItem1.Click += new System.EventHandler(this.почтаToolStripMenuItem1_Click_1);
             // 
@@ -218,31 +181,30 @@
             this.всеToolStripMenuItem.Name = "всеToolStripMenuItem";
             this.всеToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
-            // listBox1
+            // listBox_allmess
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 17;
-            this.listBox1.Location = new System.Drawing.Point(6, 6);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(837, 531);
-            this.listBox1.TabIndex = 2;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
+            this.listBox_allmess.FormattingEnabled = true;
+            this.listBox_allmess.ItemHeight = 17;
+            this.listBox_allmess.Location = new System.Drawing.Point(6, 6);
+            this.listBox_allmess.Name = "listBox_allmess";
+            this.listBox_allmess.Size = new System.Drawing.Size(837, 514);
+            this.listBox_allmess.TabIndex = 2;
+            this.listBox_allmess.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_allmess_MouseDoubleClick);
             // 
-            // tabControl1
+            // tabControlMessages
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(13, 48);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(857, 581);
-            this.tabControl1.TabIndex = 3;
+            this.tabControlMessages.Controls.Add(this.tabPage1);
+            this.tabControlMessages.Controls.Add(this.tabPage2);
+            this.tabControlMessages.Controls.Add(this.tabPage3);
+            this.tabControlMessages.Location = new System.Drawing.Point(13, 48);
+            this.tabControlMessages.Name = "tabControlMessages";
+            this.tabControlMessages.SelectedIndex = 0;
+            this.tabControlMessages.Size = new System.Drawing.Size(857, 581);
+            this.tabControlMessages.TabIndex = 3;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.listBox1);
+            this.tabPage1.Controls.Add(this.listBox_allmess);
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -253,7 +215,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.listBox2);
+            this.tabPage2.Controls.Add(this.listBox_providers);
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -262,19 +224,19 @@
             this.tabPage2.Text = "Поставщики";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // listBox2
+            // listBox_providers
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 17;
-            this.listBox2.Location = new System.Drawing.Point(7, 7);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(836, 531);
-            this.listBox2.TabIndex = 0;
-            this.listBox2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox2_MouseDoubleClick);
+            this.listBox_providers.FormattingEnabled = true;
+            this.listBox_providers.ItemHeight = 17;
+            this.listBox_providers.Location = new System.Drawing.Point(7, 7);
+            this.listBox_providers.Name = "listBox_providers";
+            this.listBox_providers.Size = new System.Drawing.Size(836, 514);
+            this.listBox_providers.TabIndex = 0;
+            this.listBox_providers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_providers_MouseDoubleClick);
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.listBox3);
+            this.tabPage3.Controls.Add(this.listBox_filials);
             this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -283,15 +245,15 @@
             this.tabPage3.Text = "Филиалы";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // listBox3
+            // listBox_filials
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 17;
-            this.listBox3.Location = new System.Drawing.Point(7, 4);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(836, 531);
-            this.listBox3.TabIndex = 0;
-            this.listBox3.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox3_MouseDoubleClick);
+            this.listBox_filials.FormattingEnabled = true;
+            this.listBox_filials.ItemHeight = 17;
+            this.listBox_filials.Location = new System.Drawing.Point(7, 4);
+            this.listBox_filials.Name = "listBox_filials";
+            this.listBox_filials.Size = new System.Drawing.Size(836, 514);
+            this.listBox_filials.TabIndex = 0;
+            this.listBox_filials.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_filials_MouseDoubleClick);
             // 
             // backgroundWorker1
             // 
@@ -313,7 +275,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(882, 641);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControlMessages);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -324,7 +286,7 @@
             this.Load += new System.EventHandler(this.InputMessages_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlMessages.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -343,10 +305,6 @@
         private System.Windows.Forms.ToolStripMenuItem контактыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem бДToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem продаваемостьТоваровToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem популярностьПоставщиковToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem продаваемостьПоФилиаламToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem результативностьМенеджеровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem документыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem перераспределениеТоваровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem заказТоваровToolStripMenuItem;
@@ -354,13 +312,13 @@
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem почтаToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem главноеОкноToolStripMenuItem;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.ListBox listBox_allmess;
+        private System.Windows.Forms.TabControl tabControlMessages;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox listBox_providers;
+        private System.Windows.Forms.ListBox listBox_filials;
         private System.Windows.Forms.Timer timer1;
         public System.ComponentModel.BackgroundWorker backgroundWorker1;
     }

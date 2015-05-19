@@ -9,6 +9,8 @@ using System.Threading;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml.Serialization;
+using System.Diagnostics;
+
 
 namespace FirstPartKursov
 {
@@ -78,6 +80,9 @@ namespace FirstPartKursov
         private void бонусToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //запуск программы Альматеи
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName = @"idz-guitar.exe";
+            p.Start();
         }
 
         private void почтаToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -97,11 +102,19 @@ namespace FirstPartKursov
                 ClassForms.sf.client = new Client();
                 NastroikiPochty np = new NastroikiPochty();
                 np.ShowDialog();
-                ClassForms.sf.client.password = np.Password;
-                ClassForms.sf.client.login = np.Email.Split('@')[0];
-                ClassForms.sf.client.popserver = "pop." + np.Email.Split('@')[1];
-                ClassForms.sf.client.smtpserver = "smtp." + np.Email.Split('@')[1];
-                ser(ClassForms.sf.client);
+                try
+                {
+                    ClassForms.sf.client.password = np.Password;
+                    ClassForms.sf.client.login = np.Email.Split('@')[0];
+                    ClassForms.sf.client.popserver = "pop." + np.Email.Split('@')[1];
+                    ClassForms.sf.client.smtpserver = "smtp." + np.Email.Split('@')[1];
+                    ser(ClassForms.sf.client);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Проверьте входные данные и попробуйте снова!");
+                    Client_r();
+                }
             }
         }
         public FilePathUser filePath;
@@ -125,13 +138,12 @@ namespace FirstPartKursov
                 serPath(ClassForms.sf.filePath);
                 createPath(ClassForms.sf.filePath.filepathUser + "Документы на заказ товаров");
                 createPath(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров");
-                createPath(ClassForms.sf.filePath.filepathUser + "Отчеты о продажах");
-                createPath(ClassForms.sf.filePath.filepathUser + "Неопределенные документы");
+                createPath(ClassForms.sf.filePath.filepathUser + "Отчеты");
                     
             }
            
         }
-       
+        Create_bd bd = new Create_bd();
         public void StartForm_Load(object sender, EventArgs e)
         {
             Client_r();
@@ -139,6 +151,15 @@ namespace FirstPartKursov
             
             label1.Text += Environment.NewLine + "Добро пожаловать, " + ClassForms.sf.client.login + "!";
             label1.Refresh();
+            if (File.Exists(@"bd_kursov.sqlite") != true)
+            {
+                bd.table_create();
+                bd.triggers();
+                bd.table_insert();
+                label1.Text += Environment.NewLine + "База данных создана.";
+                label1.Refresh();
+
+            }
         }
 
         public void ser(Client client)
@@ -193,8 +214,11 @@ namespace FirstPartKursov
         {
             Application.Exit();
         }
-
-        public void createPath(string path) ///создает папку, которой нет на компьютере
+        /// <summary>
+        /// создаст папку, которой нет на компьютере
+        /// </summary>
+        /// <param name="path"></param>
+        public void createPath(string path) 
         {
             if (!(Directory.Exists(path)))
             {
@@ -207,6 +231,12 @@ namespace FirstPartKursov
                     MessageBox.Show(error.Message);
                 }
             }
+        }
+
+        private void отчетыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.otchety.Show();
+            this.Hide();
         }
     }
 }

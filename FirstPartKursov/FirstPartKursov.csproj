@@ -97,6 +97,7 @@
     <Compile Include="Document_Redistribution.Designer.cs">
       <DependentUpon>Document_Redistribution.cs</DependentUpon>
     </Compile>
+    <Compile Include="Excel_document.cs" />
     <Compile Include="FilePathUser.cs" />
     <Compile Include="InputMessages.cs">
       <SubType>Form</SubType>

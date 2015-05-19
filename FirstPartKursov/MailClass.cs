@@ -63,61 +63,43 @@ namespace FirstPartKursov
                     {
                         allMessages.Add(client.GetMessage(i));
                     }
-                }
-                return result = "Ok";
-            }
-            catch (Exception ex)
-            {
-                return result = "Fail";
-            }
-        }
-
-
-        public static void downloadAttachments(List<Message> allMessages)
-        {
-            try
-            {
-                string text = "";
-                foreach (Message message in allMessages)
+                    foreach (Message message in allMessages)
                     {
                         var att = message.FindAllAttachments();
                         MessagePart mpPlain = message.FindFirstPlainTextVersion();
-                        string mpTheme = message.Headers.Subject.ToString();
                         if (mpPlain != null)
                         {
                             Encoding enc = mpPlain.BodyEncoding;
                             text = enc.GetString(mpPlain.Body);
                         }
-                        text += " " + mpTheme;
+                        text += message.Headers.Subject;
                         string[] text_ot = text.Split(' ');
-                        bool check = false;
                         for (int i = 0; i < text_ot.Count(); i++)
                         {
-                            if (text_ot[i].ToLower() == "отчет" || text_ot[i].ToLower() == "продажах" || text_ot[i].ToLower() == "продаже")
+                            if (text_ot[i].ToLower() == "отчет" || text_ot[i].ToLower() == "продажа" || text_ot[i].ToLower() == "отчеты")
                             {
                                 foreach (var ado in att)
                                 {
-                                    ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(ClassForms.sf.filePath.filepathUser + "Отчеты о продажах", ado.FileName)));
-                                    check = true;
+                                    ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(@"Отчеты о продажах", ado.FileName)));
                                 }
                             }
                             else
                             {
                                 foreach (var ado in att)
                                 {
-                                    ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(ClassForms.sf.filePath.filepathUser + "Неопределенные документы", ado.FileName)));
+                                    ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(@"Неопределенные документы", ado.FileName)));
                                 }
                             }
                         }
                     }
 
                 }
-            catch (Exception ex)
+                return result = "Ok";
+            }
+            catch
             {
-                
+                return result = "Fail";
             }
         }
-
-
     }
 }

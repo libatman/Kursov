@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace FirstPartKursov
@@ -78,6 +79,9 @@ namespace FirstPartKursov
         private void бонусToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             //запуск программы Альматеи
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName = @"idz-guitar.exe";
+            p.Start();
         }
 
         private void почтаToolStripMenuItem1_Click_1(object sender, EventArgs e)
@@ -93,22 +97,13 @@ namespace FirstPartKursov
         }
 
         List<string> list_message_output = new List<string>();
-        public List<OpenPop.Mime.Message> listmessages = new List<OpenPop.Mime.Message>();
         public List<string> addresses_p;
-
-        //public List<OpenPop.Mime.Message> listmessages;
-        //public List<string> addresses_p; 
+        public List<OpenPop.Mime.Message> listmessages = new List<OpenPop.Mime.Message>();
         Create_bd DataBase = new Create_bd();
         public List<string> addresses_a;
 
         private void InputMessages_Load(object sender, EventArgs e)
         {
-            if (checkFileMail)
-            {
-                listmessages = new List<OpenPop.Mime.Message>();
-                fetchmess();
-            }
-            MailClass.downloadAttachments(listmessages);
             addresses_p = DataBase.addresses_providers();
             addresses_a = DataBase.addresses_filial();
             int countMessages = listmessages.Count;
@@ -119,29 +114,26 @@ namespace FirstPartKursov
                 {
                     if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_p[j].Split('|')[1])
                     {
-                        listBox2.Items.Add(list_message_output[i]);
+                        listBox_providers.Items.Add(list_message_output[i]);
                     }
                 }
                 for (int k = 0; k < addresses_a.Count; k++)
                 {
                     if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_a[k].Split('|')[1])
                     {
-                        listBox3.Items.Add(list_message_output[i]);
+                        listBox_filials.Items.Add(list_message_output[i]);
                     }
                 }
-                listBox1.Items.Add(list_message_output[i]);
+                listBox_allmess.Items.Add(list_message_output[i]);
             }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
         public TheMessage theMessage;
-        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void listBox_allmess_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int selectedIndex = listBox1.SelectedIndex;
-            list_message_output[selectedIndex] = (string)listBox1.SelectedItem;
-            string[] array = list_message_output[listBox1.SelectedIndex].Split(',');
+            int selectedIndex = listBox_allmess.SelectedIndex;
+            list_message_output[selectedIndex] = (string)listBox_allmess.SelectedItem;
+            string[] array = list_message_output[listBox_allmess.SelectedIndex].Split(',');
             selectedIndex = Convert.ToInt32(array[0].Trim()) - 1;
             theMessage = new TheMessage(listmessages[selectedIndex], selectedIndex);
             this.Hide();
@@ -159,44 +151,55 @@ namespace FirstPartKursov
             Application.Exit();
         }
 
-        private void listBox2_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void listBox_providers_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            //int selectedIndex = listBox2.SelectedIndex;
-            //list_message_output[selectedIndex] = (string)listBox2.SelectedItem;
-            //if (list_message_output[listBox2.SelectedIndex][0] == '!')
-            //{
-            //    list_message_output[listBox2.SelectedIndex] = list_message_output[listBox2.SelectedIndex].Remove(0, 1);
-            //}
-            //string[] array = list_message_output[listBox2.SelectedIndex].Split(',');
-            //selectedIndex = Convert.ToInt32(array[0].Trim()) - 1;
-            //theMessage = new TheMessage(listmessages[selectedIndex], selectedIndex);
-            //this.Hide();
-            //theMessage.ShowDialog();
+            int selectedIndex = Convert.ToInt32(list_message_output[listBox_providers.SelectedIndex].Split(',')[0]) - 1;
+            list_message_output[selectedIndex] = (string)listBox_providers.SelectedItem;
+            string[] array = list_message_output[listBox_providers.SelectedIndex].Split(',');
+            selectedIndex = Convert.ToInt32(array[0].Trim()) - 1;
+            theMessage = new TheMessage(listmessages[selectedIndex], selectedIndex);
+            this.Hide();
+            theMessage.ShowDialog();
         }
 
-        private void listBox3_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void listBox_filials_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
+            int selectedIndex = Convert.ToInt32(list_message_output[listBox_filials.SelectedIndex].Split(',')[0]) - 1;
+            list_message_output[selectedIndex] = (string)listBox_filials.SelectedItem;
+            string[] array = list_message_output[listBox_filials.SelectedIndex].Split(',');
+            selectedIndex = Convert.ToInt32(array[0].Trim()) - 1;
+            theMessage = new TheMessage(listmessages[selectedIndex], selectedIndex);
+            this.Hide();
+            theMessage.ShowDialog();
         }
+
         bool checkFileMail = false;
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (File.Exists("@mailinfo.xml"))
+            if (File.Exists(@"mailinfo.xml"))
             {
                 listmessages = new List<OpenPop.Mime.Message>();
                 fetchmess();
                 backgroundWorker1.ReportProgress(100, result);
-                
+
             }
             else
             {
-                checkFileMail = true;
+                Thread.Sleep(3000);
+                if (File.Exists(@"mailinfo.xml"))
+                {
+                    listmessages = new List<OpenPop.Mime.Message>();
+                    fetchmess();
+                    backgroundWorker1.ReportProgress(100, result);
+                    checkFileMail = true;
+                }
+                
             }
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            if (File.Exists("@mailinfo.xml"))
+            if (File.Exists(@"mailinfo.xml"))
             {
                 string result = (string)e.UserState;
                 if (result == "Ok")
@@ -216,37 +219,36 @@ namespace FirstPartKursov
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-
+            backgroundWorker1.CancelAsync();
+            backgroundWorker1.Dispose();
         }
 
         string result;
         public void fetchmess()
         {
             StartForm s = new StartForm();
-            if (File.Exists("mailinfo.xml"))
+            if (File.Exists(@"mailinfo.xml"))
             {
                 ClassForms.sf.client = ClassForms.sf.des(ClassForms.sf.client);
                 result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
-                
             }
             else
             {
-                
+
             }
-            
-            
+
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             listmessages.Clear();
-            listBox1.Items.Clear();
-            listBox2.Items.Clear();
-            listBox3.Items.Clear();
+            listBox_allmess.Items.Clear();
+            listBox_providers.Items.Clear();
+            listBox_filials.Items.Clear();
             list_message_output.Clear();
-            
+
             result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
-            MailClass.downloadAttachments(listmessages);
             if (result == "Ok")
             {
                 MessageBox.Show("Обновлено!");
@@ -269,17 +271,17 @@ namespace FirstPartKursov
                 {
                     if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_p[j].Split('|')[1])
                     {
-                        listBox2.Items.Add(list_message_output[i]);
+                        listBox_providers.Items.Add(list_message_output[i]);
                     }
                 }
                 for (int k = 0; k < addresses_a.Count; k++)
                 {
                     if (listmessages[i].Headers.From.MailAddress.Address.ToString() == addresses_a[k].Split('|')[1])
                     {
-                        listBox3.Items.Add(list_message_output[i]);
+                        listBox_filials.Items.Add(list_message_output[i]);
                     }
                 }
-                listBox1.Items.Add(list_message_output[i]);
+                listBox_allmess.Items.Add(list_message_output[i]);
             }
         }
 

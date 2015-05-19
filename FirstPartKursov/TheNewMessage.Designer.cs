@@ -36,24 +36,20 @@
             this.контактыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.бДToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продаваемостьТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.популярностьПоставщиковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продаваемостьПоФилиаламToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.результативностьМенеджеровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.документыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.перераспределениеТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заказТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.бонусToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.почтаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button_Send = new System.Windows.Forms.Button();
+            this.textBox_Who = new System.Windows.Forms.TextBox();
+            this.textBox_Subject = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button_Attach = new System.Windows.Forms.Button();
+            this.richTextBox_Body = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,42 +120,10 @@
             // 
             // отчетыToolStripMenuItem
             // 
-            this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.продаваемостьТоваровToolStripMenuItem,
-            this.популярностьПоставщиковToolStripMenuItem,
-            this.продаваемостьПоФилиаламToolStripMenuItem,
-            this.результативностьМенеджеровToolStripMenuItem});
             this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
             this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.отчетыToolStripMenuItem.Text = "Отчеты";
-            // 
-            // продаваемостьТоваровToolStripMenuItem
-            // 
-            this.продаваемостьТоваровToolStripMenuItem.Name = "продаваемостьТоваровToolStripMenuItem";
-            this.продаваемостьТоваровToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.продаваемостьТоваровToolStripMenuItem.Text = "Продаваемость товаров";
-            this.продаваемостьТоваровToolStripMenuItem.Click += new System.EventHandler(this.продаваемостьТоваровToolStripMenuItem_Click);
-            // 
-            // популярностьПоставщиковToolStripMenuItem
-            // 
-            this.популярностьПоставщиковToolStripMenuItem.Name = "популярностьПоставщиковToolStripMenuItem";
-            this.популярностьПоставщиковToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.популярностьПоставщиковToolStripMenuItem.Text = "Популярность поставщиков";
-            this.популярностьПоставщиковToolStripMenuItem.Click += new System.EventHandler(this.популярностьПоставщиковToolStripMenuItem_Click);
-            // 
-            // продаваемостьПоФилиаламToolStripMenuItem
-            // 
-            this.продаваемостьПоФилиаламToolStripMenuItem.Name = "продаваемостьПоФилиаламToolStripMenuItem";
-            this.продаваемостьПоФилиаламToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.продаваемостьПоФилиаламToolStripMenuItem.Text = "Продаваемость по филиалам";
-            this.продаваемостьПоФилиаламToolStripMenuItem.Click += new System.EventHandler(this.продаваемостьПоФилиаламToolStripMenuItem_Click);
-            // 
-            // результативностьМенеджеровToolStripMenuItem
-            // 
-            this.результативностьМенеджеровToolStripMenuItem.Name = "результативностьМенеджеровToolStripMenuItem";
-            this.результативностьМенеджеровToolStripMenuItem.Size = new System.Drawing.Size(310, 24);
-            this.результативностьМенеджеровToolStripMenuItem.Text = "Результативность менеджеров";
-            this.результативностьМенеджеровToolStripMenuItem.Click += new System.EventHandler(this.результативностьМенеджеровToolStripMenuItem_Click);
+            this.отчетыToolStripMenuItem.Click += new System.EventHandler(this.отчетыToolStripMenuItem_Click);
             // 
             // документыToolStripMenuItem
             // 
@@ -206,29 +170,29 @@
             this.почтаToolStripMenuItem1.Text = "Почта";
             this.почтаToolStripMenuItem1.Click += new System.EventHandler(this.почтаToolStripMenuItem1_Click);
             // 
-            // button1
+            // button_Send
             // 
-            this.button1.Location = new System.Drawing.Point(657, 561);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(213, 30);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Отправить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_Send.Location = new System.Drawing.Point(657, 561);
+            this.button_Send.Name = "button_Send";
+            this.button_Send.Size = new System.Drawing.Size(213, 30);
+            this.button_Send.TabIndex = 2;
+            this.button_Send.Text = "Отправить";
+            this.button_Send.UseVisualStyleBackColor = true;
+            this.button_Send.Click += new System.EventHandler(this.button_Send_Click);
             // 
-            // textBox1
+            // textBox_Who
             // 
-            this.textBox1.Location = new System.Drawing.Point(119, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(751, 23);
-            this.textBox1.TabIndex = 3;
+            this.textBox_Who.Location = new System.Drawing.Point(119, 115);
+            this.textBox_Who.Name = "textBox_Who";
+            this.textBox_Who.Size = new System.Drawing.Size(751, 23);
+            this.textBox_Who.TabIndex = 3;
             // 
-            // textBox2
+            // textBox_Subject
             // 
-            this.textBox2.Location = new System.Drawing.Point(119, 177);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(751, 23);
-            this.textBox2.TabIndex = 4;
+            this.textBox_Subject.Location = new System.Drawing.Point(119, 177);
+            this.textBox_Subject.Name = "textBox_Subject";
+            this.textBox_Subject.Size = new System.Drawing.Size(751, 23);
+            this.textBox_Subject.TabIndex = 4;
             // 
             // label1
             // 
@@ -257,23 +221,23 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Сообщение:";
             // 
-            // button2
+            // button_Attach
             // 
-            this.button2.Location = new System.Drawing.Point(119, 562);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(196, 29);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Прикрепить";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button_Attach.Location = new System.Drawing.Point(119, 562);
+            this.button_Attach.Name = "button_Attach";
+            this.button_Attach.Size = new System.Drawing.Size(196, 29);
+            this.button_Attach.TabIndex = 9;
+            this.button_Attach.Text = "Прикрепить";
+            this.button_Attach.UseVisualStyleBackColor = true;
+            this.button_Attach.Click += new System.EventHandler(this.button_Attach_Click);
             // 
-            // richTextBox1
+            // richTextBox_Body
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(119, 232);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(751, 323);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
+            this.richTextBox_Body.Location = new System.Drawing.Point(119, 232);
+            this.richTextBox_Body.Name = "richTextBox_Body";
+            this.richTextBox_Body.Size = new System.Drawing.Size(751, 323);
+            this.richTextBox_Body.TabIndex = 10;
+            this.richTextBox_Body.Text = "";
             // 
             // TheNewMessage
             // 
@@ -281,14 +245,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(882, 641);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.richTextBox_Body);
+            this.Controls.Add(this.button_Attach);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox_Subject);
+            this.Controls.Add(this.textBox_Who);
+            this.Controls.Add(this.button_Send);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -312,10 +276,6 @@
         private System.Windows.Forms.ToolStripMenuItem контактыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem бДToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem продаваемостьТоваровToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem популярностьПоставщиковToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem продаваемостьПоФилиаламToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem результативностьМенеджеровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem документыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem перераспределениеТоваровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem заказТоваровToolStripMenuItem;
@@ -323,14 +283,14 @@
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem почтаToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem вернутьсяНаГлавнуюСтраницуToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        public System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button_Send;
+        public System.Windows.Forms.TextBox textBox_Who;
+        private System.Windows.Forms.TextBox textBox_Subject;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button_Attach;
+        private System.Windows.Forms.RichTextBox richTextBox_Body;
 
     }
 }

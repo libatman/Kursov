@@ -194,9 +194,9 @@ namespace FirstPartKursov
             for (int i = 0; i < goods.Count; i++)
             {
 
-                paragraphFirst = ParagraphBuilder.CreateStandardTextParagraph(document_Command);
-                paragraphFirst.TextContent.Add(new SimpleText(document_Command, "1." + (i + 1).ToString() + ". " + goods[i].Split('|')[0] + ". Количество: " + goods[i].Split('|')[2] + " шт."));
-                document_Command.Content.Add(paragraphFirst);
+                newParagraph = ParagraphBuilder.CreateStandardTextParagraph(document_Command);
+                newParagraph.TextContent.Add(new SimpleText(document_Command, "1." + (i + 1).ToString() + ". " + goods[i].Split('|')[0] + ". Количество: " + goods[i].Split('|')[2] + " шт."));
+                document_Command.Content.Add(newParagraph);
                 
             }
 

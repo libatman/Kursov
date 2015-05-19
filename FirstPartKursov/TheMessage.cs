@@ -98,36 +98,36 @@ namespace FirstPartKursov
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button_Back_Click(object sender, EventArgs e)
         {
             ClassForms.inputmessages.Show();
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button_Answer_Click(object sender, EventArgs e)
         {
-            ClassForms.newmess.textBox1.Text = message.Headers.From.Address;
+            ClassForms.newmess.textBox_Who.Text = message.Headers.From.Address;
             ClassForms.newmess.Show();
             this.Close();
 
         }
 
-        private void TheMessage_Load_1(object sender, EventArgs e)
+        private void TheMessage_Load(object sender, EventArgs e)
         {
-            textBox1.Text = message.Headers.Subject;
+            textBox_Subject.Text = message.Headers.Subject;
             MessagePart mpPlain = message.FindFirstPlainTextVersion();
             message.FindAllAttachments();
 
             if (mpPlain != null)
             {
                 Encoding enc = mpPlain.BodyEncoding;
-                textBox2.Text = enc.GetString(mpPlain.Body);
+                textBox_Body.Text = enc.GetString(mpPlain.Body);
             }
-            label4.Text = message.Headers.From.Address;
-            label4.Text += Environment.NewLine;
-            label4.Text += message.Headers.From.DisplayName;
-            label4.Text += Environment.NewLine;
-            label4.Text += message.Headers.DateSent.ToLocalTime();
+            label_From.Text = message.Headers.From.Address;
+            label_From.Text += Environment.NewLine;
+            label_From.Text += message.Headers.From.DisplayName;
+            label_From.Text += Environment.NewLine;
+            label_From.Text += message.Headers.DateSent.ToLocalTime();
             list_att = new List<string>();
             attachments = message.FindAllAttachments();
             bool hadattach = attachments.Count > 0;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 namespace FirstPartKursov
 {
@@ -75,6 +76,9 @@ namespace FirstPartKursov
         private void бонусToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //запуск программы Альматеи
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName = @"idz-guitar.exe";
+            p.Start();
         }
 
         private void почтаToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -91,9 +95,9 @@ namespace FirstPartKursov
         List<string> fileName = new List<string>();
         private void fresh()
         {
-            textBox1.Clear();
-            textBox2.Clear();
-            richTextBox1.Clear();
+            textBox_Who.Clear();
+            textBox_Subject.Clear();
+            richTextBox_Body.Clear();
             if (fileName != null)
             {
                 mylistatt.Items.Clear();
@@ -103,23 +107,23 @@ namespace FirstPartKursov
         string theme;
         string body;
         string[] addresses;
-        private void button1_Click(object sender, EventArgs e)
+        private void button_Send_Click(object sender, EventArgs e)
         {
             try
             {
-                theme = textBox2.Text;
-                body = richTextBox1.Text;
-                if (textBox1.Text.Contains(','))
+                theme = textBox_Subject.Text;
+                body = richTextBox_Body.Text;
+                if (textBox_Who.Text.Contains(','))
                 {
-                    addresses = textBox1.Text.Split(',');
+                    addresses = textBox_Who.Text.Split(',');
                     for (int i = 0; i < addresses.Count(); i++)
                     {
-                        MailClass.SendMail_Click1(addresses[i], ClassForms.sf.client.login, textBox2.Text, richTextBox1.Text, ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, fileName);
+                        MailClass.SendMail_Click1(addresses[i], ClassForms.sf.client.login, textBox_Subject.Text, richTextBox_Body.Text, ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, fileName);
                     }
                 }
                 else
                 {
-                    MailClass.SendMail_Click1(textBox1.Text, ClassForms.sf.client.login, textBox2.Text, richTextBox1.Text, ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, fileName);
+                    MailClass.SendMail_Click1(textBox_Who.Text, ClassForms.sf.client.login, textBox_Subject.Text, richTextBox_Body.Text, ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, fileName);
                 }
                 MessageBox.Show("Ваше сообщение отправлено!");
                 fresh();
@@ -136,7 +140,7 @@ namespace FirstPartKursov
         int l = 0;
         List<string> items_f = new List<string>();
         ListBox mylistatt = new ListBox();
-        private void button2_Click(object sender, EventArgs e)
+        private void button_Attach_Click(object sender, EventArgs e)
         {
             OpenFileDialog myFile = new OpenFileDialog();
             myFile.Title = " ";
@@ -185,6 +189,12 @@ namespace FirstPartKursov
         private void TheNewMessage_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void отчетыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.otchety.Show();
+            this.Hide();
         }
 
         private void входящиеToolStripMenuItem_Click(object sender, EventArgs e)

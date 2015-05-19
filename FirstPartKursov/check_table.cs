@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Threading.Tasks;
+
 namespace FirstPartKursov
 {
     class Check_table
     {
+        CreateDocument doc_new = new CreateDocument();
         public void sell_goods()
         {
             List<string> addresses_a = new List<string>();
@@ -30,13 +32,11 @@ namespace FirstPartKursov
             }
 
         }
-        public string[,] array_sell_excel()
+        public string[,] array_sell_excel(string file_name)
         {
-            //D:\универ\hello\Новая папка\Kursov\FirstPartKursov\bin\Debug\
 
             Excel.Application ObjWorkExcel = new Excel.Application();
-            // Напиши свой путь на файл, что лежит в папке проекта :)
-            Excel.Workbook ObjWorkBook = ObjWorkExcel.Workbooks.Open(@"C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\FirstPartKursov\FirstPartKursov\a1.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            Excel.Workbook ObjWorkBook = ObjWorkExcel.Workbooks.Open(ClassForms.sf.filePath.filepathUser+@"Отчеты о продажах\"+file_name +".xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             Excel.Worksheet ObjWorkSheet = (Excel.Worksheet)ObjWorkBook.Sheets[1];
             var lastCell = ObjWorkSheet.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell);
             string[,] list = new string[lastCell.Column, lastCell.Row];
@@ -48,21 +48,19 @@ namespace FirstPartKursov
             GC.Collect();
             return list;
         }
-        public void read_selling()
+        public void read_selling(string file_name)
         {
-            //Encoding enc = Encoding.GetEncoding(1251);
-            //string[] array_selling = File.ReadAllLines(@"sell.txt",enc);
-            string[,] array_selling = array_sell_excel();
-            var id_storage=0;
+    
+            string[,] array_selling = array_sell_excel(file_name);
+            var id_storage = 0;
             for (int i = 0; i < array_selling.GetLength(1); i++)
-            {
-                //string[] array_selling_string = i.Split(' ');               
+            {        
                 using (SQLiteConnection connect = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3;New=False;Compress=True;"))
                 {
                     connect.Open();
                     using (SQLiteCommand fmd = connect.CreateCommand())
                     {
-                        fmd.CommandText = @"SELECT id_storage FROM storage WHERE id_goods =" + array_selling[5, i].ToString() + " and id_office=(SELECT id_office FROM manager WHERE id_manager=" + array_selling[6, i].ToString() + ");";
+                        fmd.CommandText = @"SELECT id_storage FROM storage WHERE id_goods =" + array_selling[7, i].ToString() + " and id_office=(SELECT id_office FROM manager WHERE id_manager=" + array_selling[8, i].ToString() + ");";
                         fmd.CommandType = CommandType.Text;
                         SQLiteDataReader r = fmd.ExecuteReader();
 
@@ -70,21 +68,24 @@ namespace FirstPartKursov
                     }
 
 
-                    if (count_goods(array_selling[5, i].ToString(), id_storage.ToString()) >= Convert.ToInt32(array_selling[1, i]))
+                    if (count_goods(array_selling[7, i].ToString(), id_storage.ToString()) >= Convert.ToInt32(array_selling[3, i]))
                     {
                         SQLiteCommand sc;
                         sc = connect.CreateCommand();
-                        sc.CommandText = "INSERT INTO 'selling'('date','amount','sum_of_sale','comment','number_of_disk','id_goods','id_manager') VALUES ('" + array_selling[0, i] + "' , " + array_selling[1, i] + " , " + array_selling[2, i].ToString() + " , '" + array_selling[3, i] + "' , " + array_selling[4, i] + " , " + array_selling[5, i] + " , " + array_selling[6, i] + ");";
+                        sc.CommandText = "INSERT INTO 'selling'('day','month','year','amount','sum_of_sale','comment','number_of_disk','id_goods','id_manager') VALUES (" + array_selling[0, i].ToString() + " , '" + array_selling[1, i].ToString() + "' , " + array_selling[2, i].ToString() + " , " + array_selling[3, i].ToString() + " , " + array_selling[4, i].ToString() + " , '" + array_selling[5, i].ToString() + "' , " + array_selling[6, i].ToString() + " , " + array_selling[7, i].ToString() + " , " + array_selling[8, i].ToString() + ");";
                         sc.ExecuteNonQuery();
-                        if (count_goods(array_selling[5, i].ToString(), id_storage.ToString()) == 0)
+                        if (count_goods(array_selling[7, i].ToString(), id_storage.ToString()) == 0)
                         {
-                            ordering_or_redistribution(array_selling[5, i].ToString(), id_storage.ToString(), connect);
+                            ordering_or_redistribution(array_selling[7, i].ToString(), id_storage.ToString(), connect);
                         }
                     }
                 }
 
 
             }
+
+            ClassForms.sf.label1.Text += Environment.NewLine + "База данных обновлена. Добавлены данные о продажах.";
+            ClassForms.sf.label1.Refresh();
         }
         public int count_goods(string id_goods, string id_storage)
         {
@@ -110,18 +111,38 @@ namespace FirstPartKursov
             if (count_goods(id_goods, id_storage) == 0)
             {
                 var id_storage_donor = 0;
+                string name_goods1;
+                string email_out;
+                string email_in;
+                string currency;
+                string price1;
 
                 using (SQLiteCommand fmd = connect.CreateCommand())
                 {
-                    fmd.CommandText = @"SELECT id_storage FROM storage WHERE id_goods =" + id_goods.ToString() + " and amount_goods=(SELECT MAX(amount_goods) FROM storage);";
+                    fmd.CommandText = @"SELECT id_storage, name_goods, price, currency FROM storage,goods WHERE storage.id_goods =" + id_goods.ToString() + " and amount_goods=(SELECT MAX(amount_goods) FROM storage);";
                     fmd.CommandType = CommandType.Text;
                     SQLiteDataReader r = fmd.ExecuteReader();
                     id_storage_donor = Convert.ToInt32((r["id_storage"] is DBNull) ? null : r["id_storage"]);
                     //id_storage_donor= Convert.ToInt32(r["id_storage"]);
+                    name_goods1 = r["name_goods"].ToString();
+                    price1 = r["price"].ToString();
+                    currency = r["currency"].ToString();
+                    r.Close();
+
+                    fmd.CommandText = @"SELECT email from office where id_office=( select id_office from storage where id_storage=" + id_storage.ToString() + ");";
+                    fmd.CommandType = CommandType.Text;
+                    SQLiteDataReader r1 = fmd.ExecuteReader();
+                    email_in = r1["email"].ToString();
+                    r1.Close();
+
+                    fmd.CommandText = @"SELECT email from office where id_office=( select id_office from storage where id_storage=" + id_storage_donor.ToString() + ");";
+                    fmd.CommandType = CommandType.Text;
+                    SQLiteDataReader r2 = fmd.ExecuteReader();
+                    email_out = r2["email"].ToString();
 
                 }
 
-                if (count_goods(id_goods, id_storage_donor.ToString()) > 1)
+                if (count_goods(id_goods, id_storage_donor.ToString()) > 5)
                 {
                     SQLiteCommand sc;
                     sc = connect.CreateCommand();
@@ -129,17 +150,37 @@ namespace FirstPartKursov
                     sc.ExecuteNonQuery();
 
                     // вызов функций печати документов распределения.
+                    List<string> goods = new List<string>();
+                    goods.Add(name_goods1.ToString() + "|шт|" + "3"+"|"+currency.ToString()+"|"+price1.ToString());
+                    doc_new.createDocument_Command(goods, email_out, email_in);
+                    doc_new.createDocument_Invoice(goods, id_storage_donor);
                 }
                 else if (count_goods(id_goods, id_storage_donor.ToString()) < 2)
                 {
                     int id_provider;
+                    string name_goods;
+                    string price;
+                    string amount_goods;
+                    string currency_goods;
+                    string email_provider;
+                    string name_provider;
                     using (SQLiteCommand fmd = connect.CreateCommand())
                     {
-                        fmd.CommandText = @"SELECT id_provider FROM goods WHERE id_goods =" + id_goods.ToString() + ";";
+                        fmd.CommandText = @"SELECT id_provider, name_goods, price,currency FROM goods WHERE id_goods =" + id_goods.ToString() + ";";
                         fmd.CommandType = CommandType.Text;
                         SQLiteDataReader r = fmd.ExecuteReader();
 
                         id_provider = Convert.ToInt32(r["id_provider"]);
+                        name_goods = r["name_goods"].ToString();
+                        price = r["price"].ToString();
+                        currency_goods = r["currency"].ToString();
+                        r.Close();
+
+                        fmd.CommandText = @"SELECT email_provider, name_provider FROM provider WHERE id_provider =" + id_provider.ToString() + ";";
+                        fmd.CommandType = CommandType.Text;
+                        SQLiteDataReader r1 = fmd.ExecuteReader();
+                        email_provider = r1["email_provider"].ToString();
+                        name_provider = r1["name_provider"].ToString();
 
                     }
 
@@ -148,6 +189,9 @@ namespace FirstPartKursov
                     sc = connect.CreateCommand();
                     sc.CommandText = "INSERT INTO 'ordering_goods' ( 'amount_goods','id_goods','id_provider','id_storage_in') VALUES (15," + id_goods.ToString() + "," + id_provider.ToString() + "," + id_storage + ");";
                     sc.ExecuteNonQuery();
+                    List<string> goods = new List<string>();
+                    goods.Add(name_goods + "|" + currency_goods + "|" + price);
+                    doc_new.createDocument_order(goods, email_provider, name_provider);
                 }
 
 

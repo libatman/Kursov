@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace FirstPartKursov
 {
@@ -77,6 +78,9 @@ namespace FirstPartKursov
         private void бонусToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             //запуск программы Альматеи
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName = @"idz-guitar.exe";
+            p.Start();
         }
 
         private void почтаToolStripMenuItem1_Click_1(object sender, EventArgs e)
@@ -93,34 +97,19 @@ namespace FirstPartKursov
 
         private void DataBase_Load(object sender, EventArgs e)
         {
-            Create_bd bd = new Create_bd();
-            //SQLiteConnection.CreateFile(@"D:\универ\kursovaya\Kursov\FirstPartKursov\bd_kursov.sqlite");
-
-            if(File.Exists(@"Data Source=bd_kursov.sqlite")!=true)
-
-            {
-                bd.table_create(); 
-                bd.triggers();
-                bd.table_insert();
-                MessageBox.Show("база данных создана"); 
-               
-            }
-
+            
             SQLiteConnection sql = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3");
 
             SQLiteCommand sc;
             sql.Open();//  ПОДКЛЮЧЕНИЕ ОТКРЫТО
-            Check_table check = new Check_table();
-            check.read_selling();
+            //Check_table check = new Check_table();
+            //check.read_selling();
             sc = sql.CreateCommand();
             sc.CommandText = @"SELECT * FROM office;";
             SQLiteDataReader sdr = sc.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(sdr);
             dataGridView8.DataSource = dt;
-
-            //sc.CommandText = "INSERT INTO 'selling' ('id_selling', 'date','amount','sum_of_sale','comment','number_of_disk','id_goods','id_manager') VALUES (1,'22/02/15',1,4999,'скидки нет',1,1,1);";
-            //sc.ExecuteNonQuery();
 
             sc.CommandText = @"SELECT * FROM manager;";
             sdr = sc.ExecuteReader();
@@ -167,8 +156,6 @@ namespace FirstPartKursov
             sdr.Close();
             sql.Close(); //ПОДКЛЮЧЕНИЕ ЗАКРЫТО
 
-                       
-            //MessageBox.Show(bd.ordering_or_redistribution(1,id).ToString());
             
         }
 
@@ -189,7 +176,7 @@ namespace FirstPartKursov
                 Thread.Sleep(500);
                 backgroundWorker1.ReportProgress(100, result);
             }
-            catch (Exception ex)
+            catch
             {
                 result = "Error";
             }
@@ -206,10 +193,21 @@ namespace FirstPartKursov
 
         }
 
+        private void отчетыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.otchety.Show();
+            this.Hide();
+        }
+
         private void входящиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClassForms.inputmessages.Show();
             this.Hide();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
     }
