@@ -74,13 +74,26 @@ namespace FirstPartKursov
                         }
                         text += message.Headers.Subject;
                         string[] text_ot = text.Split(' ');
+                        string date_mes;
+                        date_mes = message.Headers.DateSent.ToShortDateString();
                         for (int i = 0; i < text_ot.Count(); i++)
                         {
-                            if (text_ot[i].ToLower() == "отчет" || text_ot[i].ToLower() == "продажа" || text_ot[i].ToLower() == "отчеты")
+                            if (text_ot[i].ToLower() == "отчет" || text_ot[i].ToLower() == "продажа" || text_ot[i].ToLower() == "отчеты" || text_ot[i].ToLower() == "продажах")
                             {
-                                foreach (var ado in att)
+                                if (File.Exists(@"Отчеты о продажах\" + date_mes + "_" + "отчет" + ".xlsx") == false)
                                 {
-                                    ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(@"Отчеты о продажах", ado.FileName)));
+
+                                    foreach (var ado in att)
+                                    {
+                                        if (ado.FileName.EndsWith(".xlsx") || ado.FileName.EndsWith(".xls"))
+                                        {
+                                            ado.Save(new System.IO.FileInfo(System.IO.Path.Combine(@"Отчеты о продажах", date_mes + "_отчет.xlsx")));
+                                            Check_table check = new Check_table();
+                                            check.read_selling(date_mes + "_" + "отчет" + ".xlsx");
+                                        }
+
+
+                                    }
                                 }
                             }
                             else

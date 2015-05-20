@@ -94,68 +94,28 @@ namespace FirstPartKursov
             ClassForms.sf.Show();
             this.Hide();
         }
+        SQLiteConnection sql = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3");
+
+        SQLiteCommand sc;
 
         private void DataBase_Load(object sender, EventArgs e)
         {
-            
-            SQLiteConnection sql = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3");
 
-            SQLiteCommand sc;
-            sql.Open();//  ПОДКЛЮЧЕНИЕ ОТКРЫТО
-            //Check_table check = new Check_table();
-            //check.read_selling();
-            sc = sql.CreateCommand();
-            sc.CommandText = @"SELECT * FROM office;";
-            SQLiteDataReader sdr = sc.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(sdr);
-            dataGridView8.DataSource = dt;
+            b_cancel_office_Click(sender, e);
 
-            sc.CommandText = @"SELECT * FROM manager;";
-            sdr = sc.ExecuteReader();
-            dt = new DataTable();
-            dt.Load(sdr);
-            dataGridView2.DataSource = dt;
+            button9_Click(sender, e);
 
-            sc.CommandText = @"SELECT * FROM provider;";
-            sdr = sc.ExecuteReader();
-            dt = new DataTable();
-            dt.Load(sdr);
-            dataGridView3.DataSource = dt;
+            button10_Click(sender, e);
 
-            sc.CommandText = @"SELECT * FROM goods;";
-            sdr = sc.ExecuteReader();
-            dt = new DataTable();
-            dt.Load(sdr);
-            dataGridView4.DataSource = dt;
+            button11_Click(sender, e);
 
-            sc.CommandText = @"SELECT * FROM storage;";
-            sdr = sc.ExecuteReader();
-            dt = new DataTable();
-            dt.Load(sdr);
-            dataGridView5.DataSource = dt;
+            button12_Click(sender, e);
 
-            sc.CommandText = @"SELECT * FROM ordering_goods;";
-            sdr = sc.ExecuteReader();
-            dt = new DataTable();
-            dt.Load(sdr);
-            dataGridView6.DataSource = dt;
+            button13_Click(sender, e);
 
-            sc.CommandText = @"SELECT * FROM redistribution_goods;";
-            sdr = sc.ExecuteReader();
-            dt = new DataTable();
-            dt.Load(sdr);
-            dataGridView7.DataSource = dt;
+            button14_Click(sender, e);
 
-            sc.CommandText = @"SELECT * FROM selling;";
-            sdr = sc.ExecuteReader();
-            dt = new DataTable();
-            dt.Load(sdr);
-            dataGridView1.DataSource = dt;
-
-            sdr.Close();
-            sql.Close(); //ПОДКЛЮЧЕНИЕ ЗАКРЫТО
-
+            button15_Click(sender, e);
             
         }
 
@@ -209,6 +169,316 @@ namespace FirstPartKursov
         {
 
         }
+
+        private void textBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox1.Text == "Введите  ключевое слово для поиска")
+                textBox1.Clear();
+        }
+
+        private void textBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox2.Text == "Введите  ключевое слово для поиска")
+                textBox2.Clear();
+        }
+
+        private void textBox3_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox3.Text == "Введите  ключевое слово для поиска")
+                textBox3.Clear();
+        }
+
+        private void textBox4_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox4.Text == "Введите  ключевое слово для поиска")
+                textBox4.Clear();
+        }
+
+        private void textBox5_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox5.Text == "Введите  ключевое слово для поиска")
+                textBox5.Clear();
+        }
+
+        private void textBox6_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox6.Text == "Введите  ключевое слово для поиска")
+                textBox6.Clear();
+        }
+
+        private void textBox7_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox7.Text == "Введите  ключевое слово для поиска")
+                textBox7.Clear();
+        }
+
+        private void textBox8_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (textBox8.Text == "Введите  ключевое слово для поиска")
+                textBox8.Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_office as 'id_филиала', address as 'Адрес', email as 'Электронная почта' FROM office where address like '%" + textBox1.Text + "%'or email like'%" + textBox1.Text + "%';";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView8.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_manager as 'id_менеджера', FIO as 'ФИО', id_office as 'id_филиала' FROM manager where FIO like '%" + textBox2.Text + "%'or id_office like'%" + textBox2.Text + "%';";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView2.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_provider as 'id_поставщика', name_provider as 'Название фирмы', email_provider as 'Электронная почта' FROM provider where name_provider like '%" + textBox3.Text + "%'or email_provider like'%" + textBox3.Text + "%';";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView3.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_goods as 'id_товара', name_goods as'Наименование',currency as'Валюта', price as'Цена', id_provider as'id_поставщика' FROM goods where name_goods like '%" + textBox4.Text + "%'or currency like'%" + textBox4.Text + "%' or price like '%" + textBox4.Text + "%'or id_provider like'%" + textBox4.Text + "%';";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView4.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_storage as'id_склада',id_goods as'id_товара', amount_goods as'Количество товара' FROM storage where id_office like '%" + textBox5.Text + "%'or id_goods like'%" + textBox5.Text + "%' or amount_goods like '%" + textBox5.Text + "%';";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView5.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_selling as 'id_продажи', day as 'День', month as 'Месяц', year as'Год', id_goods as 'id_товара', amount as'Количество товара', sum_of_sale as'Стоимость', comment as 'Комментарий',number_of_disk as'Количество дисков с генератором аккордов', id_manager as 'id_менеджера' FROM selling where day like '%" + textBox8.Text + "%'or month like'%" + textBox8.Text + "%' or year like '%" + textBox8.Text + "%' or id_goods like '%" + textBox8.Text + "%' or id_manager like'%" + textBox8.Text + "%' or comment like '%" + textBox8.Text + "%' or sum_of_sale like '%" + textBox8.Text + "%' or number_of_disk like '%" + textBox8.Text + "%';";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView1.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_redistribution as'id_перераспределения', id_goods as'id_товара', amount_goods as'Количество товара', id_storage_old as'id_старого_склада', id_storage_new as'id_нового_склада' FROM redistribution_goods where amount_goods like '%" + textBox7.Text + "%'or id_goods like'%" + textBox7.Text + "%' or id_storage_old like '%" + textBox7.Text + "%'or id_storage_new like'%" + textBox7.Text + "%';";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView7.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_ordering as 'id_заказа', id_goods as 'id_товара', amount_goods as 'Количество товара',id_storage_in as 'id_склада' FROM ordering_goods where amount_goods like '%" + textBox6.Text + "%'or id_goods like'%" + textBox6.Text + "%' or id_storage_in like '%" + textBox6.Text + "%'or id_provider like'%" + textBox6.Text + "%';";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView6.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void b_cancel_office_Click(object sender, EventArgs e)
+        {
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_office as 'id_филиала', address as 'Адрес', email as 'Электронная почта' FROM office;";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView8.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_manager as 'id_менеджера', FIO as 'ФИО', id_office as 'id_филиала' FROM manager;";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView2.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_provider as 'id_поставщика', name_provider as 'Название фирмы', email_provider as 'Электронная почта' FROM provider;";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView3.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_goods as 'id_товара', name_goods as'Наименование',currency as'Валюта', price as'Цена', id_provider as'id_поставщика'  FROM goods;";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView4.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_storage as'id_склада',id_goods as'id_товара', amount_goods as'Количество товара' FROM storage;";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView5.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_ordering as 'id_заказа', id_goods as 'id_товара', amount_goods as 'Количество товара',id_storage_in as 'id_склада'  FROM ordering_goods;";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView6.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_redistribution as'id_перераспределения', id_goods as'id_товара', amount_goods as'Количество товара', id_storage_old as'id_старого_склада', id_storage_new as'id_нового_склада' FROM redistribution_goods;";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView7.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+
+            sql.Open();
+            sc = sql.CreateCommand();
+            sc.CommandText = @"SELECT id_selling as 'id_продажи', day as 'День', month as 'Месяц', year as'Год', id_goods as 'id_товара', amount as'Количество товара', sum_of_sale as'Стоимость', comment as 'Комментарий',number_of_disk as'Количество дисков с генератором аккордов', id_manager as 'id_менеджера'  FROM selling;";
+            SQLiteDataReader sdr = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            dataGridView1.DataSource = dt;
+            sdr.Close();
+            sql.Close();
+        }
+
+        private void tabPage1_Leave(object sender, EventArgs e)
+        {
+            textBox1.Text = "Введите  ключевое слово для поиска";
+        }
+
+        private void tabPage2_Leave(object sender, EventArgs e)
+        {
+            textBox2.Text = "Введите  ключевое слово для поиска";
+        }
+
+        private void tabPage3_Leave(object sender, EventArgs e)
+        {
+            textBox3.Text = "Введите  ключевое слово для поиска";
+        }
+
+        private void tabPage4_Leave(object sender, EventArgs e)
+        {
+            textBox4.Text = "Введите  ключевое слово для поиска";
+        }
+
+        private void tabPage5_Leave(object sender, EventArgs e)
+        {
+            textBox5.Text = "Введите  ключевое слово для поиска";
+        }
+
+        private void tabPage6_Leave(object sender, EventArgs e)
+        {
+            textBox6.Text = "Введите  ключевое слово для поиска";
+        }
+
+        private void tabPage7_Leave(object sender, EventArgs e)
+        {
+            textBox7.Text = "Введите  ключевое слово для поиска";
+        }
+
+        private void tabPage8_Leave(object sender, EventArgs e)
+        {
+            textBox8.Text = "Введите  ключевое слово для поиска";
+        }
+
+        
+
+       
 
     }
 }

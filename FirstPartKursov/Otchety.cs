@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Diagnostics;
+using System.Data.SQLite;
 
 namespace FirstPartKursov
 {
@@ -94,6 +95,31 @@ namespace FirstPartKursov
         {
             button1.Visible = false;
         }
+
+        string find_path_file(string type)
+        {
+            string max_id;
+            string name;
+            using (SQLiteConnection connect = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3;New=False;Compress=True;"))
+            {
+                connect.Open();
+                using (SQLiteCommand fmd = connect.CreateCommand())
+                {
+                    fmd.CommandText = @"SELECT MAX(id_otchety) as m from otchety where otchety.type=" + type + ";";
+                    fmd.CommandType = CommandType.Text;
+                    SQLiteDataReader r = fmd.ExecuteReader();
+                    max_id = r["m"].ToString();
+                    r.Close();
+                    fmd.CommandText = @"SELECT file_name as n from otchety where otchety.id_otchety=" + max_id + ";";
+                    fmd.CommandType = CommandType.Text;
+                    SQLiteDataReader r1 = fmd.ExecuteReader();
+                    name = r1["n"].ToString();
+
+                }
+            }
+            return name;
+        }
+
         Excel_document excel1 = new Excel_document();
         int flag = 0;
         private void button1_Click(object sender, EventArgs e)
@@ -103,7 +129,7 @@ namespace FirstPartKursov
                 case 1:
                     {
                         Excel.Application excelapp = new Excel.Application();
-                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + "Otchet1_" + DateTime.Now.ToShortDateString() + ".xls");
+                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet1_" + DateTime.Now.ToShortDateString() + ".xls");
                         excelapp.Visible = true;
                         //excelapp.Quit();
                     }
@@ -111,26 +137,26 @@ namespace FirstPartKursov
                 case 2:
                     {
                         Excel.Application excelapp = new Excel.Application();
-                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + "Otchet2_" + DateTime.Now.ToShortDateString() + ".xls");
+                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet2_" + DateTime.Now.ToShortDateString() + ".xls");
                         excelapp.Visible = true;
                         //excelapp.Quit();
                     } break;
                 case 3:
                     {
                         Excel.Application excelapp = new Excel.Application();
-                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + "Otchet3_" + DateTime.Now.ToShortDateString() + ".xls");
+                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet3_" + DateTime.Now.ToShortDateString() + ".xls");
                         excelapp.Visible = true;
                     } break;
                 case 4:
                     {
                         Excel.Application excelapp = new Excel.Application();
-                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + "Otchet4_" + DateTime.Now.ToShortDateString() + ".xls");
+                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet4_" + DateTime.Now.ToShortDateString() + ".xls");
                         excelapp.Visible = true;
                     } break;
                 case 5:
                     {
                         Excel.Application excelapp = new Excel.Application();
-                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + "Otchet5_" + DateTime.Now.ToShortDateString() + ".xls");
+                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet5_" + DateTime.Now.ToShortDateString() + ".xls");
                         excelapp.Visible = true;
                     } break;
                 default: MessageBox.Show("Файл не был создан"); break;
@@ -138,56 +164,87 @@ namespace FirstPartKursov
 
 
         }
-
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
-            switch (comboBox1.Text)
+            try
             {
-                case "Продаваемость товаров":
-                    {
-                        button1.Visible = false;
-                        excel1.set_table_excel(excel1.sell_goods(), "Наименование товара", "Количество проданных, шт", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet1_" + DateTime.Now.ToShortDateString() + ".xls", "1");
-                        flag = 1;
-                        pictureBox1.Image = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + "1_" + DateTime.Now.ToShortDateString() + ".bmp");
-                        button1.Visible = true;
-                    }
-                    break;
-                case "Популярность поставщиков":
-                    {
-                        button1.Visible = false;
-                        excel1.set_table_excel(excel1.popular_providers(), "Наименование провайдера", "Количество заказов", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet2_" + DateTime.Now.ToShortDateString() + ".xls", "2");
-                        flag = 2;
-                        pictureBox1.Image = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + "2_" + DateTime.Now.ToShortDateString() + ".bmp");
-                        button1.Visible = true;
-                    }
-                    break;
-                case "Продаваемость по филиалам":
-                    {
-                        button1.Visible = false;
-                        excel1.set_table_excel(excel1.sell_offices(), "Адрес филиала", "Количество продаж", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet3_" + DateTime.Now.ToShortDateString() + ".xls", "3");
-                        flag = 3;
-                        pictureBox1.Image = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + "3_" + DateTime.Now.ToShortDateString() + ".bmp");
-                        button1.Visible = true;
-                    }
-                    break;
-                case "Результативность менеджеров":
-                    {
-                        button1.Visible = false;
-                        excel1.set_table_excel(excel1.result_manager(), "ФИО менеджера", "Количество осуществленных продаж", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet4_" + DateTime.Now.ToShortDateString() + ".xls", "4");
-                        flag = 4;
-                        pictureBox1.Image = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + "4_" + DateTime.Now.ToShortDateString() + ".bmp");
-                        button1.Visible = true;
-                    }
-                    break;
-                case "Продаваемость дисков":
-                    {
-                        button1.Visible = false;
-                        excel1.set_table_excel(excel1.sell_disks(), "месяц", "Количество проданных дисков, шт.", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet5_" + DateTime.Now.ToShortDateString() + ".xls", "5");
-                        flag = 5;
-                        pictureBox1.Image = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + "5_" + DateTime.Now.ToShortDateString() + ".bmp");
-                        button1.Visible = true;
-                    }
-                    break;
+                Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                switch (comboBox1.Text)
+                {
+                    case "Продаваемость товаров":
+                        {
+                            button1.Visible = false;
+                            //bmp.Dispose();
+                            excel1.set_table_excel(excel1.sell_goods(), "Наименование товара", "Количество проданных, шт", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet1_" + DateTime.Now.ToShortDateString() + ".xls", "1", "Продаваемость товаров");
+                            flag = 1;
+                            bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\" + find_path_file("1"));
+                            pictureBox1.Image = bmp;
+                            button1.Visible = true;
+                            ClassForms.sf.label1.Text += Environment.NewLine + "Построен отчет 'Продаваемость товаров' ( " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " )";
+                            ClassForms.sf.label1.Refresh();
+                        }
+                        break;
+                    case "Популярность поставщиков":
+                        {
+                            button1.Visible = false;
+                            //bmp.Dispose();
+                            excel1.set_table_excel(excel1.popular_providers(), "Наименование провайдера", "Количество заказов", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet2_" + DateTime.Now.ToShortDateString() + ".xls", "2", "Популярность поставщиков");
+                            flag = 2;
+                            //bmp=new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + "2_" + DateTime.Now.ToShortDateString() + ".bmp");
+                            bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\" + find_path_file("2"));
+                            pictureBox1.Image = bmp;
+                            button1.Visible = true;
+                            ClassForms.sf.label1.Text += Environment.NewLine + "Построен отчет 'Популярность поставщиков' ( " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " )";
+                            ClassForms.sf.label1.Refresh();
+                        }
+                        break;
+                    case "Продаваемость по филиалам":
+                        {
+                            button1.Visible = false;
+                            //bmp.Dispose();
+                            excel1.set_table_excel(excel1.sell_offices(), "Адрес филиала", "Количество продаж", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet3_" + DateTime.Now.ToShortDateString() + ".xls", "3", "Продаваемость по филиалам");
+                            flag = 3;
+                            //bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + "3_" + DateTime.Now.ToShortDateString() + ".bmp");
+                            bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\" + find_path_file("3"));
+                            pictureBox1.Image = bmp;
+                            button1.Visible = true;
+                            ClassForms.sf.label1.Text += Environment.NewLine + "Построен отчет 'Продаваемость по филиалам' ( " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " )";
+                            ClassForms.sf.label1.Refresh();
+                        }
+                        break;
+                    case "Результативность менеджеров":
+                        {
+                            button1.Visible = false;
+                            //bmp.Dispose();
+                            excel1.set_table_excel(excel1.result_manager(), "ФИО менеджера", "Количество осуществленных продаж", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet4_" + DateTime.Now.ToShortDateString() + ".xls", "4", "Результативность менеджеров");
+                            flag = 4;
+                            //bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + "4_" + DateTime.Now.ToShortDateString() + ".bmp");
+                            bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\" + find_path_file("4"));
+                            pictureBox1.Image = bmp;
+                            button1.Visible = true;
+                            ClassForms.sf.label1.Text += Environment.NewLine + "Построен отчет 'Результативность менеджеров' ( " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " )";
+                            ClassForms.sf.label1.Refresh();
+                        }
+                        break;
+                    case "Продаваемость дисков":
+                        {
+                            button1.Visible = false;
+                            //bmp.Dispose();
+                            excel1.set_table_excel(excel1.sell_disks(), "месяц", "Количество проданных дисков, шт.", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet5_" + DateTime.Now.ToShortDateString() + ".xls", "5", "Продаваемость дисков");
+                            flag = 5;
+                            //bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + "5_" + DateTime.Now.ToShortDateString() + ".bmp");
+                            bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\" + find_path_file("5"));
+                            pictureBox1.Image = bmp;
+                            button1.Visible = true;
+                            ClassForms.sf.label1.Text += Environment.NewLine + "Построен отчет 'Продаваемость дисков' ( " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " )";
+                            ClassForms.sf.label1.Refresh();
+                        }
+                        break;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Отчет не был построен.");
             }
         }
 

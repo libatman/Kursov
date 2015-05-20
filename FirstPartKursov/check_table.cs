@@ -36,7 +36,7 @@ namespace FirstPartKursov
         {
 
             Excel.Application ObjWorkExcel = new Excel.Application();
-            Excel.Workbook ObjWorkBook = ObjWorkExcel.Workbooks.Open(ClassForms.sf.filePath.filepathUser+@"Отчеты о продажах\"+file_name +".xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            Excel.Workbook ObjWorkBook = ObjWorkExcel.Workbooks.Open(System.Windows.Forms.Application.StartupPath + @"\Отчеты о продажах\" + file_name, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             Excel.Worksheet ObjWorkSheet = (Excel.Worksheet)ObjWorkBook.Sheets[1];
             var lastCell = ObjWorkSheet.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell);
             string[,] list = new string[lastCell.Column, lastCell.Row];
@@ -50,11 +50,11 @@ namespace FirstPartKursov
         }
         public void read_selling(string file_name)
         {
-    
+
             string[,] array_selling = array_sell_excel(file_name);
             var id_storage = 0;
             for (int i = 0; i < array_selling.GetLength(1); i++)
-            {        
+            {
                 using (SQLiteConnection connect = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3;New=False;Compress=True;"))
                 {
                     connect.Open();
@@ -151,7 +151,7 @@ namespace FirstPartKursov
 
                     // вызов функций печати документов распределения.
                     List<string> goods = new List<string>();
-                    goods.Add(name_goods1.ToString() + "|шт|" + "3"+"|"+currency.ToString()+"|"+price1.ToString());
+                    goods.Add(name_goods1.ToString() + "|шт|" + "3" + "|" + currency.ToString() + "|" + price1.ToString());
                     doc_new.createDocument_Command(goods, email_out, email_in);
                     doc_new.createDocument_Invoice(goods, id_storage_donor);
                 }

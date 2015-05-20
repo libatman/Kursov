@@ -59,7 +59,7 @@ namespace FirstPartKursov
                     fmd.CommandText = @"SELECT provider.name_provider as np, 
                                       COUNT(ordering_goods.id_ordering)  as s
                                       FROM provider
-                                      JOIN ordering_goods on ordering_goods.id_provider=provider.id_provider
+                                      LEFT JOIN ordering_goods on ordering_goods.id_provider=provider.id_provider
                                       GROUP BY provider.name_provider;";
 
                     fmd.CommandType = CommandType.Text;
@@ -119,7 +119,7 @@ namespace FirstPartKursov
                     // имя менеджера и кол-во осуществленных им продаж
                     fmd.CommandText = @"SELECT m.FIO as name, m.id_manager as id, COUNT(selling.id_selling) as ss
                                         FROM manager AS m 
-                                        JOIN selling 
+                                        LEFT JOIN selling 
                                         ON selling.id_manager = id                                       
                                         GROUP BY m.FIO";
 
@@ -160,49 +160,70 @@ namespace FirstPartKursov
             return disk;
         }
 
-         public void set_table_excel(List<string> list, string name_col1, string name_col2,string path,string otchet)
+        public void set_table_excel(List<string> list, string name_col1, string name_col2, string path, string otchet, string name_graph)
         {
-           Excel.Application ObjExcel = new Microsoft.Office.Interop.Excel.Application();
-           Excel.Workbook ObjWorkBook;
-           Excel.Worksheet ObjWorkSheet;
-            //Книга.
-            ObjWorkBook = ObjExcel.Workbooks.Add(Type.Missing);
-            //Таблица.
-            ObjWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ObjWorkBook.Worksheets[1];
-            ObjWorkSheet.Cells.ColumnWidth = 30;
-            ObjWorkSheet.Cells[1, 1] = name_col1;           
-            ObjWorkSheet.Cells[1, 2] = name_col2;
-            int j = 2;
-            foreach( string i in list)
-            {
-               string[] row= i.Split('|');
-               ObjWorkSheet.Cells[j, 1] = row[0];
-               ObjWorkSheet.Cells[j, 2] = row[1];
-               j++;
+            
+                Excel.Application ObjExcel = new Microsoft.Office.Interop.Excel.Application();
+                Excel.Workbook ObjWorkBook;
+                Excel.Worksheet ObjWorkSheet;
+                //Книга.
+                ObjWorkBook = ObjExcel.Workbooks.Add(Type.Missing);
+                //Таблица.
+                ObjWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ObjWorkBook.Worksheets[1];
+                ObjWorkSheet.Cells.ColumnWidth = 30;
+                ObjWorkSheet.Cells[1, 1] = name_col1;
+                ObjWorkSheet.Cells[1, 2] = name_col2;
+                int j = 2;
+                foreach (string i in list)
+                {
+                    string[] row = i.Split('|');
+                    ObjWorkSheet.Cells[j, 1] = row[0];
+                    ObjWorkSheet.Cells[j, 2] = row[1];
+                    j++;
+                }
+                int len = list.Count() + 1;
+                Excel.Range chartRange;
+                Excel.ChartObjects xlCharts = (Excel.ChartObjects)ObjWorkSheet.ChartObjects(Type.Missing);
+                Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(10, 80, 300, 250);
+                Excel.Chart chartPage = myChart.Chart;
+
+                chartRange = ObjWorkSheet.get_Range("A1", "B" + len.ToString());
+
+                chartPage.HasTitle = true;
+                chartPage.ChartTitle.Text = name_graph;
+                chartPage.SetSourceData(chartRange, System.Reflection.Missing.Value);
+                chartPage.ChartType = Excel.XlChartType.xlLineMarkers;
+                string path_file = otchet + "_" + DateTime.Now.Minute.ToString() + "_" + DateTime.Now.Second.ToString() + "_" + DateTime.Now.ToShortDateString() + ".bmp";
+                chartPage.Export(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + path_file, "BMP", System.Reflection.Missing.Value);
+                ObjWorkBook.SaveAs(path);
+                ObjExcel.ActiveWorkbook.Close(false);
+                ObjExcel.CheckAbort(Type.Missing);
+                ObjExcel.Quit();
+                ObjExcel = null;
+                ObjWorkBook = null;
+                ObjWorkSheet = null;
+                chartPage = null;
+                GC.Collect();
+                using (SQLiteConnection connect = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3;New=False;Compress=True;"))
+                {
+                    connect.Open();
+                    using (SQLiteCommand fmd = connect.CreateCommand())
+                    {
+                        SQLiteCommand sc;
+                        sc = connect.CreateCommand();
+                        sc.CommandText = "INSERT INTO 'otchety'('type','file_name') VALUES ('" + otchet + "'," + "'otchet_" + path_file + "');";
+                        sc.ExecuteNonQuery();
+                    }
+
+                }
+
             }
-            int len = list.Count()+1;
-            Excel.Range chartRange;
-            Excel.ChartObjects xlCharts = (Excel.ChartObjects)ObjWorkSheet.ChartObjects(Type.Missing);
-            Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(10, 80, 300, 250);
-            Excel.Chart chartPage = myChart.Chart;
-
-            chartRange = ObjWorkSheet.get_Range("A1", "B"+len.ToString());
-            chartPage.SetSourceData(chartRange, System.Reflection.Missing.Value);
-            chartPage.ChartType = Excel.XlChartType.xlLineMarkers;
-
-            //xlColumnClustered;
-
-            chartPage.Export(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + otchet + "_" + DateTime.Now.ToShortDateString() + ".bmp", "BMP", System.Reflection.Missing.Value);
- 
-
-            ObjWorkBook.SaveAs(path);
-            ObjExcel.Quit();
-
+           
 
         }
 
         
-    }
+    
 
 
      

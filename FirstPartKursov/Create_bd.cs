@@ -66,6 +66,9 @@ namespace FirstPartKursov
             sc = sql.CreateCommand();
             sc.CommandText = "create table info(main_email TEXT NOT NULL)";
             sc.ExecuteNonQuery();
+            sc = sql.CreateCommand();
+            sc.CommandText = "create table otchety(id_otchety INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, type integer NOT NULL, file_name TEXT NOT NULL)";
+            sc.ExecuteNonQuery();
             sql.Close();
 
         }
@@ -134,19 +137,19 @@ namespace FirstPartKursov
             sc.CommandText = "insert into 'goods' ( 'name_goods','currency','price','id_provider') values ( 'Синтезатор','RUB',21390,5);";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
-            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (1, 3,21);";
+            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (1, 3,6);";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
-            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (1, 4,18);";
+            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (1, 4,5);";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
-            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (2, 5,80);";
+            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (2, 5,5);";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
-            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (3, 1,31);";
+            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (3, 1,2);";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
-            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (4, 2,38);";
+            sc.CommandText = "INSERT INTO 'storage' ('id_office', 'id_goods','amount_goods') VALUES (4, 2,3);";
             sc.ExecuteNonQuery();
             sc = sql.CreateCommand();
             sc.CommandText = "INSERT INTO 'info' ('main_email') VALUES ('ofis_tsentralnyy@mail.ru');";
