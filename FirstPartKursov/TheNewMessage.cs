@@ -158,7 +158,7 @@ namespace FirstPartKursov
                 string[] sec_array = array[count - 1].Split('.');
                 mylistatt.HorizontalScrollbar = true;
                 mylistatt.Size = new System.Drawing.Size(220, 172);
-                mylistatt.Location = new Point(30, 224);
+                mylistatt.Location = new Point(30, 262);
                 Controls.Add(mylistatt);
             }
             l++;
@@ -168,8 +168,8 @@ namespace FirstPartKursov
         {
             selindex = mylistatt.SelectedIndex;
             Button b = new Button();
-            b.Location = new Point(30, 400);
-            b.Size = new Size(100, 25);
+            b.Location = new Point(30, 440);
+            b.Size = new Size(120, 50);
             b.Text = "Удалить вложение";
             Controls.Add(b);
             b.Click += b_Click;

@@ -223,7 +223,7 @@
             // 
             // button_Attach
             // 
-            this.button_Attach.Location = new System.Drawing.Point(119, 562);
+            this.button_Attach.Location = new System.Drawing.Point(317, 562);
             this.button_Attach.Name = "button_Attach";
             this.button_Attach.Size = new System.Drawing.Size(196, 29);
             this.button_Attach.TabIndex = 9;
@@ -233,9 +233,9 @@
             // 
             // richTextBox_Body
             // 
-            this.richTextBox_Body.Location = new System.Drawing.Point(119, 232);
+            this.richTextBox_Body.Location = new System.Drawing.Point(317, 232);
             this.richTextBox_Body.Name = "richTextBox_Body";
-            this.richTextBox_Body.Size = new System.Drawing.Size(751, 323);
+            this.richTextBox_Body.Size = new System.Drawing.Size(553, 323);
             this.richTextBox_Body.TabIndex = 10;
             this.richTextBox_Body.Text = "";
             // 
