@@ -143,23 +143,26 @@ namespace FirstPartKursov
             }
            
         }
+        
         Create_bd bd = new Create_bd();
         public void StartForm_Load(object sender, EventArgs e)
         {
             Client_r();
             Path_Check();
-            
+            label1.Text = "";
             label1.Text += Environment.NewLine + "Добро пожаловать, " + ClassForms.sf.client.login + "!";
             label1.Refresh();
+         
             if (File.Exists(@"bd_kursov.sqlite") != true)
             {
+
                 bd.table_create();
                 bd.triggers();
                 bd.table_insert();
                 label1.Text += Environment.NewLine + "База данных создана.";
                 label1.Refresh();
-
             }
+          
         }
 
         public void ser(Client client)

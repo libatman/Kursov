@@ -14,15 +14,21 @@ namespace FirstPartKursov
         private SQLiteDataAdapter DB;
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
+        /// <summary>
+        /// Этот метод создает файл базы данных
+        /// </summary>
         public void CreateBase()
         {
             SQLiteConnection.CreateFile(@"bd_kursov.sqlite");
         }
+        /// <summary>
+        /// Этот метод устанавливает соединение с ранее созданной базой данных
+        /// </summary>
         private void SetConnection()
         {
             sql = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3;New=False;Compress=True;");
         }
-        public void ExecuteQuery(string txtQuery)// любой запрос.
+        public void ExecuteQuery(string txtQuery)
         {
             SetConnection();
             sql.Open();
@@ -31,6 +37,9 @@ namespace FirstPartKursov
             sc.ExecuteNonQuery();
             sql.Close();
         }
+        /// <summary>
+        /// Этот метод создает таблицы: office,manager,provider,goods,storage,ordering_goods,redistribution_goods,selling,info, otchety
+        /// </summary>
         public void table_create()
         {
             CreateBase();
@@ -72,6 +81,9 @@ namespace FirstPartKursov
             sql.Close();
 
         }
+        /// <summary>
+        /// Этот метод заполняет таблицы стартовыми данными.
+        /// </summary>
         public void table_insert()
         {
             SetConnection();
@@ -156,42 +168,37 @@ namespace FirstPartKursov
             sc.ExecuteNonQuery();
             sql.Close();
         }
-        public DataTable table_select(string name_table)
-        {
-            SetConnection();
-            sql.Open();
-            SQLiteCommand sc = new SQLiteCommand();
-            sc.CommandText = @"SELECT * FROM " + name_table + ";";
-            SQLiteDataReader sdr = sc.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(sdr);
-            sdr.Close();
-            sql.Close();
-            return dt;
+        
 
-        }
-
-
+        /// <summary>
+        /// Этот метод запускает триггеры:
+        /// 1)триггер редактирует кол-во товара на складе storage при добавлении записи о продаже товара в таблице selling
+        /// 2)триггер редактирует кол-во товара на складе при перераспределении  какого-либо товара в таблице redistribution_goods
+        /// 3) триггер редактирует кол-во товара на складе при заказе какого-либо товара в таблице ordering_goods
+        /// </summary>
         public void triggers()
         {
             SetConnection();
             sql.Open();
             sc = sql.CreateCommand();
-            //триггер редактирует кол-во товара на складе storage при добавлении записи о продаже товара в таблице selling
+        
             sc.CommandText = "CREATE TRIGGER sale_good BEFORE INSERT ON selling BEGIN UPDATE storage SET amount_goods = amount_goods-new.amount WHERE id_goods=new.id_goods and id_office=(SELECT id_office from manager where new.id_manager=id_manager); END;";
             sc.ExecuteNonQuery();
-            // триггер редактирует кол-во товара на складе при перераспределении  какого-либо товара в таблице redistribution_goods
+       
             sc.CommandText = "CREATE TRIGGER redistribution BEFORE INSERT ON redistribution_goods BEGIN UPDATE storage SET amount_goods = amount_goods+new.amount_goods WHERE id_goods=new.id_goods and id_storage=new.id_storage_new; UPDATE storage SET amount_goods = amount_goods-new.amount_goods WHERE id_goods=new.id_goods and id_storage=new.id_storage_old;  END;";
             sc.ExecuteNonQuery();
 
-            // триггер редактирует кол-во товара на складе при заказе какого-либо товара в таблице ordering_goods
+  
             sc.CommandText = "CREATE TRIGGER ordering BEFORE INSERT ON ordering_goods BEGIN UPDATE storage SET amount_goods = amount_goods+new.amount_goods WHERE id_goods=new.id_goods and id_storage=new.id_storage_in; END;";
             sc.ExecuteNonQuery();
            
 
 
         }
-
+        /// <summary>
+        /// Этот метод предоставляет список поставщиков 
+        /// </summary>
+        /// <returns></returns>
         public List<string> addresses_providers()
         {
             List<string> addresses_p = new List<string>();
@@ -213,7 +220,10 @@ namespace FirstPartKursov
             return addresses_p;
 
         }
-
+        /// <summary>
+        /// Этот метод предоставляет список филиалов сети магазинов музыкальных инструментов.
+        /// </summary>
+        /// <returns></returns>
         public List<string> addresses_filial()
         {
             List<string> addresses_a = new List<string>();
@@ -235,7 +245,11 @@ namespace FirstPartKursov
             return addresses_a;
 
         }
-
+        /// <summary>
+        /// Этот метод предоставляет список список товаров на всех складах сети музыкальных магазинов у определенного поставщика.
+        /// </summary>
+        /// <param name="id_pro">идентификатор поставщика</param>
+        /// <returns></returns>
         public List<string> goods(int id_pro)
         {
             List<string> goods = new List<string>();
@@ -257,7 +271,11 @@ namespace FirstPartKursov
             return goods;
 
         }
-
+        /// <summary>
+        /// Этот метод формирует строку для составления документа о перераспределении товара с одного склада на другой.
+        /// </summary>
+        /// <param name="id_off">идентификатор склада</param>
+        /// <returns></returns>
         public List<string> goods_storage(int id_off)
         {
             List<string> goods = new List<string>();

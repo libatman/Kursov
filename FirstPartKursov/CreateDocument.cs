@@ -140,7 +140,7 @@ namespace FirstPartKursov
             doc.Add(paragraph11);
             doc.Add(paragraph9);
             doc.Add(paragraph10);
-            ClassForms.sf.label1.Text += Environment.NewLine + "Сформирован и отправлен документ-заявки на товар от: " + DateTime.Now.ToShortDateString() +  "." + " Кому: " + nameProvider;
+            ClassForms.sf.label1.Text += Environment.NewLine +"Сформирован и отправлен документ-заявки на товар от: " + DateTime.Now.ToShortDateString() + "." + " Кому: " + nameProvider;
             ClassForms.sf.label1.Refresh();
             doc.Close();
         }
@@ -214,7 +214,7 @@ namespace FirstPartKursov
             AODL.Document.Content.Text.Paragraph paragraphBoss = ParagraphBuilder.CreateStandardTextParagraph(document_Command);
             paragraphBoss.TextContent.Add(new SimpleText(document_Command, "Генеральный директор: _____________________________ Щербакова А.А."));
             document_Command.Content.Add(paragraphBoss);
-            ClassForms.sf.label1.Text += Environment.NewLine + "Сформирован и отправлен приказ генеральному директору о перераспределении товаров от: " + DateTime.Now.ToShortDateString() + ".";
+            ClassForms.sf.label1.Text += Environment.NewLine +"Сформирован и отправлен приказ генеральному директору о перераспределении товаров от: " + DateTime.Now.ToShortDateString() + ".";
             ClassForms.sf.label1.Refresh();
             document_Command.SaveTo(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров\\" + "Document_Command." + DateTime.Now.ToShortDateString() + ".odt");
 

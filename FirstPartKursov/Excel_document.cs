@@ -12,6 +12,10 @@ namespace FirstPartKursov
 {
     class Excel_document
     {
+        /// <summary>
+        /// Этот метод вычисляет продаваемость товаров.
+        /// </summary>
+        /// <returns> список товаров и количество их продаж</returns>
         public List<string> sell_goods()
         {
             List<string> goods_count = new List<string>();
@@ -38,7 +42,10 @@ namespace FirstPartKursov
             return goods_count;
 
         }
-
+        /// <summary>
+        /// Этот метод вычисляет популярность поставщиков.
+        /// </summary>
+        /// <returns>сисок поставщиков и количество заказов у каждого из них</returns>
         public List<string> popular_providers()
         {
             List<string> popular_p = new List<string>();
@@ -73,7 +80,10 @@ namespace FirstPartKursov
             return popular_p;
 
         }
-
+        /// <summary>
+        /// Это метод вычисляет продаваемость по офисам.
+        /// </summary>
+        /// <returns>Список филиалов и количество продаж в каждом из них.</returns>
         public List<string> sell_offices()
         {
             List<string> offices = new List<string>();
@@ -107,7 +117,10 @@ namespace FirstPartKursov
 
             return offices;
         }
-
+        /// <summary>
+        /// Это метод вычисляет результативность менеджеров.
+        /// </summary>
+        /// <returns>Список менеджеров и количество продаж , осуществленных каждым из них.</returns>
         public List<string> result_manager()
         {
             List<string> result = new List<string>();
@@ -134,7 +147,10 @@ namespace FirstPartKursov
 
             return result;
         }
-
+        /// <summary>
+        /// Этот метод вычисляет продаваемость дисков по месяцам.
+        /// </summary>
+        /// <returns>Список месяцев и количество продаж жисков в каждый из них. </returns>
         public List<string> sell_disks()
         {
             List<string> disk = new List<string>();
@@ -144,22 +160,30 @@ namespace FirstPartKursov
                 using (SQLiteCommand fmd = connect.CreateCommand())
                 {
                     // месяцы и проданные диски за эти месяцы
-                    fmd.CommandText = @"SELECT s.month as m,SUM(s.number_of_disk) as ss
+                    fmd.CommandText = @"SELECT s.month as m,s.year as y,SUM(s.number_of_disk) as ss
                                         FROM selling AS s                         
-                                        GROUP BY s.month";
+                                        GROUP BY s.month and s.year";
 
                     fmd.CommandType = CommandType.Text;
                     SQLiteDataReader r = fmd.ExecuteReader();
                     while (r.Read())
                     {
-                        disk.Add(Convert.ToString(r["m"]) + "|" + Convert.ToString(r["ss"]));
+                        disk.Add(Convert.ToString(r["m"]) +" "+ Convert.ToString(r["y"]) + "|" + Convert.ToString(r["ss"]));
                     }
                 }
             }
 
             return disk;
         }
-
+        /// <summary>
+        /// Этот метод записывает информацию отчетов в excel файлы и строит график по полученной информации.
+        /// </summary>
+        /// <param name="list">список данных</param>
+        /// <param name="name_col1">наименование первого стобца в таблице отчета</param>
+        /// <param name="name_col2">наименование второго стобца в таблице отчета</param>
+        /// <param name="path">путь для сохранения файла</param>
+        /// <param name="otchet">тип отчета:1,2,3,4,5</param>
+        /// <param name="name_graph">Имя графика(отчета)</param>
         public void set_table_excel(List<string> list, string name_col1, string name_col2, string path, string otchet, string name_graph)
         {
             
