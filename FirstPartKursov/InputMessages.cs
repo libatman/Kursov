@@ -18,7 +18,6 @@ namespace FirstPartKursov
         public InputMessages()
         {
             InitializeComponent();
-            backgroundWorker1.RunWorkerAsync();
         }
 
         private void написатьНовоеСообщениеToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -140,6 +139,11 @@ namespace FirstPartKursov
             theMessage.ShowDialog();
         }
 
+        public void runThread()
+        {
+            backgroundWorker1.RunWorkerAsync();
+        }
+
         private void входящиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClassForms.inputmessages.Show();
@@ -232,12 +236,6 @@ namespace FirstPartKursov
                 ClassForms.sf.client = ClassForms.sf.des(ClassForms.sf.client);
                 result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
             }
-            else
-            {
-
-            }
-
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)

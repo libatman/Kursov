@@ -118,12 +118,12 @@ namespace FirstPartKursov
                     addresses = textBox_Who.Text.Split(',');
                     for (int i = 0; i < addresses.Count(); i++)
                     {
-                        MailClass.SendMail_Click1(addresses[i], ClassForms.sf.client.login, textBox_Subject.Text, richTextBox_Body.Text, ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, fileName);
+                        MailClass.SendMail_Click(addresses[i], ClassForms.sf.client.login, textBox_Subject.Text, richTextBox_Body.Text, ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, fileName);
                     }
                 }
                 else
                 {
-                    MailClass.SendMail_Click1(textBox_Who.Text, ClassForms.sf.client.login, textBox_Subject.Text, richTextBox_Body.Text, ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, fileName);
+                    MailClass.SendMail_Click(textBox_Who.Text, ClassForms.sf.client.login, textBox_Subject.Text, richTextBox_Body.Text, ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, fileName);
                 }
                 MessageBox.Show("Ваше сообщение отправлено!");
                 fresh();

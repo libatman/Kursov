@@ -15,23 +15,32 @@ namespace FirstPartKursov
         public static double usd;
         public static double euro;
 
+        /// <summary>
+        /// функция скачивания содержимого с сайта цбр
+        /// </summary>
+        /// <returns></returns>
         public string download_site()
         {
             string content = "";
-                HttpWebRequest req;
-                HttpWebResponse resp;
-                StreamReader sr;
-                
-                req = (HttpWebRequest)WebRequest.Create("http://www.cbr.ru/scripts/XML_daily.asp");
-                resp = (HttpWebResponse)req.GetResponse();
-                sr = new StreamReader(resp.GetResponseStream(), Encoding.GetEncoding("windows-1251"));
-                content = sr.ReadToEnd();
-                sr.Close();
+            HttpWebRequest req;
+            HttpWebResponse resp;
+            StreamReader sr;
+
+            req = (HttpWebRequest)WebRequest.Create("http://www.cbr.ru/scripts/XML_daily.asp");
+            resp = (HttpWebResponse)req.GetResponse();
+            sr = new StreamReader(resp.GetResponseStream(), Encoding.GetEncoding("windows-1251"));
+            content = sr.ReadToEnd();
+            sr.Close();
             return content;
 
 
         }
 
+        /// <summary>
+        /// функция поиска нужных курсов (евро, доллар)
+        /// </summary>
+        /// <param name="html"></param>
+        /// <returns></returns>
         public string get_valute(string html)
         {
             string valute = "";
@@ -42,10 +51,6 @@ namespace FirstPartKursov
                 {
                     switch (reader.NodeType)
                     {
-                        //case XmlNodeType.Element:
-                        //    if (reader.Name.Equals("Value"))
-                        //    valute += reader.Name+ Environment.NewLine;
-                        //    break;
                         case XmlNodeType.Text:
                             if (check)
                             {
@@ -61,19 +66,12 @@ namespace FirstPartKursov
                             break;
                     }
                 }
-                //valute = id;
-                //    }
-                //}
             }
             valute = valute.Replace("\r\n", "|");
             usd = Convert.ToDouble(valute.Split('|')[1]);
             euro = Convert.ToDouble(valute.Split('|')[3]);
             valute = valute.TrimEnd('|');
             return valute;
-           }
-                
-
-            }
         }
-//    }
-//}
+    }
+}

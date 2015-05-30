@@ -109,7 +109,7 @@ namespace FirstPartKursov
                 createDocument.createDocument_order(goodsChecked, comboBox_filials.SelectedItem.ToString(), comboBox_providers.SelectedItem.ToString());
                 List<string> filename = new List<string>();
                 filename.Add(ClassForms.sf.filePath.filepathUser + "Документы на заказ товаров\\" + "Document_Order." + DateTime.Now.ToShortDateString() + ".pdf");
-                MailClass.SendMail_Click1(comboBox_providers.SelectedItem.ToString().Split('|')[1], ClassForms.sf.client.login, "Документ-заявка на товар", "", ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, filename);
+                MailClass.SendMail_Click(comboBox_providers.SelectedItem.ToString().Split('|')[1], ClassForms.sf.client.login, "Документ-заявка на товар", "", ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, filename);
                 MessageBox.Show("Done!");
             }
             else

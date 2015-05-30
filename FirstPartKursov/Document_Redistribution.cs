@@ -146,7 +146,7 @@ namespace FirstPartKursov
                 List<string> filename = new List<string>();
                 filename.Add(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров\\" + "Document_Command." + DateTime.Now.ToShortDateString() + ".odt");
                 filename.Add(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров\\" + "Document_Invoice." + DateTime.Now.ToShortDateString() + ".pdf");
-                MailClass.SendMail_Click1(comboBox_filialsTO.SelectedItem.ToString().Split('|')[1], ClassForms.sf.client.login, "Перераспределение товаров", "", ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, filename);
+                MailClass.SendMail_Click(comboBox_filialsTO.SelectedItem.ToString().Split('|')[1], ClassForms.sf.client.login, "Перераспределение товаров", "", ClassForms.sf.client.password, ClassForms.sf.client.smtpserver, filename);
                 MessageBox.Show("Отправлено!");
             }
             else

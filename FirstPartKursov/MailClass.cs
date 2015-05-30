@@ -12,8 +12,17 @@ namespace FirstPartKursov
 {
     class MailClass
     {
-        //функция отправления сообщений 
-        public static void SendMail_Click1(string emailreceiver, string myemailadd, string theme, string messbody, string password, string server, List<string> fileName)
+       /// <summary>
+        /// функция отправления сообщений 
+       /// </summary>
+       /// <param name="emailreceiver"></param>
+       /// <param name="myemailadd"></param>
+       /// <param name="theme"></param>
+       /// <param name="messbody"></param>
+       /// <param name="password"></param>
+       /// <param name="server"></param>
+       /// <param name="fileName"></param>
+        public static void SendMail_Click(string emailreceiver, string myemailadd, string theme, string messbody, string password, string server, List<string> fileName)
         {
             SmtpClient clientSMTP = new SmtpClient(server, 587);
 
@@ -46,7 +55,16 @@ namespace FirstPartKursov
             ClassForms.sf.label1.Text += emailreceiver + ".";
             ClassForms.sf.label1.Refresh();
         }
-        //функция скачивания сообщения с сервера
+        /// <summary>
+        /// функция скачивания сообщения с сервера
+        /// </summary>
+        /// <param name="hostname"></param>
+        /// <param name="port"></param>
+        /// <param name="useSsl"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="allMessages"></param>
+        /// <returns></returns>
         public static string FetchAllMessages(string hostname, int port, bool useSsl, string username, string password, List<Message> allMessages)
         {
             string result;

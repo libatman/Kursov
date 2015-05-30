@@ -96,6 +96,7 @@ namespace FirstPartKursov
             if (File.Exists("mailinfo.xml"))
             {
                 ClassForms.sf.client = des(client);
+                ClassForms.inputmessages.runThread();
             }
             else
             {
@@ -109,6 +110,7 @@ namespace FirstPartKursov
                     ClassForms.sf.client.popserver = "pop." + np.Email.Split('@')[1];
                     ClassForms.sf.client.smtpserver = "smtp." + np.Email.Split('@')[1];
                     ser(ClassForms.sf.client);
+                    ClassForms.inputmessages.runThread();
                 }
                 catch (Exception ex)
                 {

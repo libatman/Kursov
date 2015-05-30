@@ -19,6 +19,12 @@ namespace FirstPartKursov
 {
     class CreateDocument
     {
+        /// <summary>
+        /// документ - заявка
+        /// </summary>
+        /// <param name="goods"></param>
+        /// <param name="filialAddress"></param>
+        /// <param name="nameProvider"></param>
         public void createDocument_order(List<string> goods, string filialAddress, string nameProvider)
         {
             var doc = new Document();
@@ -145,6 +151,12 @@ namespace FirstPartKursov
             doc.Close();
         }
 
+        /// <summary>
+        /// документ - приказ
+        /// </summary>
+        /// <param name="goods"></param>
+        /// <param name="oldFilialAddress"></param>
+        /// <param name="newFilialAddress"></param>
         public void createDocument_Command(List<string> goods, string oldFilialAddress, string newFilialAddress)
         {
 
@@ -219,7 +231,11 @@ namespace FirstPartKursov
             document_Command.SaveTo(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров\\" + "Document_Command." + DateTime.Now.ToShortDateString() + ".odt");
 
         }
-
+        /// <summary>
+        /// документ - накладная
+        /// </summary>
+        /// <param name="goods"></param>
+        /// <param name="numberStorage"></param>
         public void createDocument_Invoice(List<string> goods, int numberStorage)
         {
            
