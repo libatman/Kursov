@@ -13,25 +13,11 @@ namespace FirstPartKursov
     class Check_table
     {
         CreateDocument doc_new = new CreateDocument();
-        public void sell_goods()
-        {
-            List<string> addresses_a = new List<string>();
-            using (SQLiteConnection connect = new SQLiteConnection(@"Data Source=bd_kursov.sqlite;Version=3;New=False;Compress=True;"))
-            {
-                connect.Open();
-                using (SQLiteCommand fmd = connect.CreateCommand())
-                {
-                    fmd.CommandText = @"SELECT name_goods, Sum(amount FROM selling where id_goods=(select id_goods from goods where name_goods=name_goods) FROM goods GROUP BY Sum;";
-                    fmd.CommandType = CommandType.Text;
-                    SQLiteDataReader r = fmd.ExecuteReader();
-                    while (r.Read())
-                    {
-                        addresses_a.Add(Convert.ToString(r["address"]) + "|" + Convert.ToString(r["email"]));
-                    }
-                }
-            }
-
-        }
+/// <summary>
+/// Этот метод предоставляет массив данных о продажах товаров, полученных из excel файла. Этот файл приходит почтой.
+/// </summary>
+/// <param name="file_name"> Имя excel файла</param>
+/// <returns></returns>
         public string[,] array_sell_excel(string file_name)
         {
 
@@ -48,6 +34,10 @@ namespace FirstPartKursov
             GC.Collect();
             return list;
         }
+        /// <summary>
+        /// Эта функция обрабатывает массив данных из excel файла о продажах и вносит изменения в базу данных,при необходимости вызывая методы заказа или перераспределения товаров.
+        /// </summary>
+        /// <param name="file_name"> Имя excel файла </param>
         public void read_selling(string file_name)
         {
 
@@ -84,9 +74,15 @@ namespace FirstPartKursov
 
             }
 
-            ClassForms.sf.label1.Text += Environment.NewLine + "База данных обновлена. Добавлены данные о продажах.";
-            ClassForms.sf.label1.Refresh();
+            ClassForms.sf.label1.Text += Environment.NewLine + "База данных обновлена. Добавлены данные о продажах.  ";
+           // ClassForms.sf.label1.Refresh();
         }
+        /// <summary>
+        /// Этот метод возвращает количество определенного товара на определенном складе.
+        /// </summary>
+        /// <param name="id_goods">Идентификатор товара</param>
+        /// <param name="id_storage">Идентификатор склада</param>
+        /// <returns></returns>
         public int count_goods(string id_goods, string id_storage)
         {
 
@@ -100,12 +96,17 @@ namespace FirstPartKursov
                     fmd.CommandType = CommandType.Text;
                     SQLiteDataReader r = fmd.ExecuteReader();
                     amount = Convert.ToInt32((r["amount_goods"] is DBNull) ? null : r["amount_goods"]);
-                    //amount = Convert.ToInt32(r["amount_goods"]);
                     return amount;
                 }
             }
 
         }
+        /// <summary>
+        /// Этот метод определяет нужно ли заказывать определенный товар на склад или же можно перевезти его с другого склада.
+        /// </summary>
+        /// <param name="id_goods"> Идентификатор товара</param>
+        /// <param name="id_storage">Идентификатор склада</param>
+        /// <param name="connect">SQLiteConnection</param>
         public void ordering_or_redistribution(string id_goods, string id_storage, SQLiteConnection connect)
         {
             if (count_goods(id_goods, id_storage) == 0)

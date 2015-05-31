@@ -42,67 +42,67 @@
             this.бонусToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.почтаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tc_table = new System.Windows.Forms.TabControl();
+            this.offices = new System.Windows.Forms.TabPage();
             this.b_cancel_office = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView8 = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.dataGridView6 = new System.Windows.Forms.DataGridView();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.dataGridView7 = new System.Windows.Forms.DataGridView();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.b_find_office = new System.Windows.Forms.Button();
+            this.textB_find_office = new System.Windows.Forms.TextBox();
+            this.dgv_office = new System.Windows.Forms.DataGridView();
+            this.managers = new System.Windows.Forms.TabPage();
+            this.b_cancel_manager = new System.Windows.Forms.Button();
+            this.b_find_manager = new System.Windows.Forms.Button();
+            this.textB_find_manager = new System.Windows.Forms.TextBox();
+            this.dgv_manager = new System.Windows.Forms.DataGridView();
+            this.providers = new System.Windows.Forms.TabPage();
+            this.b_cancel_provider = new System.Windows.Forms.Button();
+            this.b_find_provider = new System.Windows.Forms.Button();
+            this.textB_find_provider = new System.Windows.Forms.TextBox();
+            this.dgv_provider = new System.Windows.Forms.DataGridView();
+            this.goods = new System.Windows.Forms.TabPage();
+            this.b_cancel_goods = new System.Windows.Forms.Button();
+            this.b_find_goods = new System.Windows.Forms.Button();
+            this.textB_find_goods = new System.Windows.Forms.TextBox();
+            this.dgv_goods = new System.Windows.Forms.DataGridView();
+            this.storages = new System.Windows.Forms.TabPage();
+            this.b_cancel_storage = new System.Windows.Forms.Button();
+            this.b_find_storage = new System.Windows.Forms.Button();
+            this.textB_find_storage = new System.Windows.Forms.TextBox();
+            this.dgv_storage = new System.Windows.Forms.DataGridView();
+            this.ordering = new System.Windows.Forms.TabPage();
+            this.b_cancel_order = new System.Windows.Forms.Button();
+            this.b_find_order = new System.Windows.Forms.Button();
+            this.textB_find_order = new System.Windows.Forms.TextBox();
+            this.dgv_order = new System.Windows.Forms.DataGridView();
+            this.restribution = new System.Windows.Forms.TabPage();
+            this.b_cancel_restr = new System.Windows.Forms.Button();
+            this.b_find_restr = new System.Windows.Forms.Button();
+            this.textB_find_restr = new System.Windows.Forms.TextBox();
+            this.dgv_restr = new System.Windows.Forms.DataGridView();
+            this.selling = new System.Windows.Forms.TabPage();
+            this.b_cancel_selling = new System.Windows.Forms.Button();
+            this.b_find_selling = new System.Windows.Forms.Button();
+            this.textB_find_selling = new System.Windows.Forms.TextBox();
+            this.dgv_selling = new System.Windows.Forms.DataGridView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.l_valuta = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
-            this.tabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
-            this.tabPage8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tc_table.SuspendLayout();
+            this.offices.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_office)).BeginInit();
+            this.managers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_manager)).BeginInit();
+            this.providers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_provider)).BeginInit();
+            this.goods.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_goods)).BeginInit();
+            this.storages.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_storage)).BeginInit();
+            this.ordering.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_order)).BeginInit();
+            this.restribution.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_restr)).BeginInit();
+            this.selling.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_selling)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -223,38 +223,38 @@
             this.почтаToolStripMenuItem1.Text = "Почта";
             this.почтаToolStripMenuItem1.Click += new System.EventHandler(this.почтаToolStripMenuItem1_Click_1);
             // 
-            // tabControl1
+            // tc_table
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Controls.Add(this.tabPage8);
-            this.tabControl1.Location = new System.Drawing.Point(0, 45);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(883, 545);
-            this.tabControl1.TabIndex = 2;
+            this.tc_table.Controls.Add(this.offices);
+            this.tc_table.Controls.Add(this.managers);
+            this.tc_table.Controls.Add(this.providers);
+            this.tc_table.Controls.Add(this.goods);
+            this.tc_table.Controls.Add(this.storages);
+            this.tc_table.Controls.Add(this.ordering);
+            this.tc_table.Controls.Add(this.restribution);
+            this.tc_table.Controls.Add(this.selling);
+            this.tc_table.Location = new System.Drawing.Point(0, 45);
+            this.tc_table.Margin = new System.Windows.Forms.Padding(4);
+            this.tc_table.Name = "tc_table";
+            this.tc_table.SelectedIndex = 0;
+            this.tc_table.Size = new System.Drawing.Size(883, 545);
+            this.tc_table.TabIndex = 2;
             // 
-            // tabPage1
+            // offices
             // 
-            this.tabPage1.Controls.Add(this.b_cancel_office);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.dataGridView8);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(875, 517);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Филиалы";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Leave += new System.EventHandler(this.tabPage1_Leave);
+            this.offices.Controls.Add(this.b_cancel_office);
+            this.offices.Controls.Add(this.b_find_office);
+            this.offices.Controls.Add(this.textB_find_office);
+            this.offices.Controls.Add(this.dgv_office);
+            this.offices.Location = new System.Drawing.Point(4, 24);
+            this.offices.Margin = new System.Windows.Forms.Padding(4);
+            this.offices.Name = "offices";
+            this.offices.Padding = new System.Windows.Forms.Padding(4);
+            this.offices.Size = new System.Drawing.Size(875, 517);
+            this.offices.TabIndex = 0;
+            this.offices.Text = "Филиалы";
+            this.offices.UseVisualStyleBackColor = true;
+            this.offices.Leave += new System.EventHandler(this.tabPage1_Leave);
             // 
             // b_cancel_office
             // 
@@ -266,419 +266,419 @@
             this.b_cancel_office.UseVisualStyleBackColor = true;
             this.b_cancel_office.Click += new System.EventHandler(this.b_cancel_office_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(278, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "поиск";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(8, 17);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "Введите  ключевое слово для поиска";
-            this.textBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
-            // 
-            // dataGridView8
-            // 
-            this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView8.Location = new System.Drawing.Point(3, 51);
-            this.dataGridView8.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView8.Name = "dataGridView8";
-            this.dataGridView8.Size = new System.Drawing.Size(862, 419);
-            this.dataGridView8.TabIndex = 1;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.button9);
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(875, 517);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Менеджеры";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Leave += new System.EventHandler(this.tabPage2_Leave);
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(375, 16);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 6;
-            this.button9.Text = "отмена";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(278, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "поиск";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(8, 17);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 20);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.Text = "Введите  ключевое слово для поиска";
-            this.textBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox2_MouseClick);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 51);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(868, 419);
-            this.dataGridView2.TabIndex = 1;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.button10);
-            this.tabPage3.Controls.Add(this.button3);
-            this.tabPage3.Controls.Add(this.textBox3);
-            this.tabPage3.Controls.Add(this.dataGridView3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(875, 517);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Поставщики";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Leave += new System.EventHandler(this.tabPage3_Leave);
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(375, 16);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 7;
-            this.button10.Text = "отмена";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(278, 16);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "поиск";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(8, 17);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(250, 20);
-            this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "Введите  ключевое слово для поиска";
-            this.textBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox3_MouseClick);
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(3, 51);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(868, 419);
-            this.dataGridView3.TabIndex = 1;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.button11);
-            this.tabPage4.Controls.Add(this.button4);
-            this.tabPage4.Controls.Add(this.textBox4);
-            this.tabPage4.Controls.Add(this.dataGridView4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Size = new System.Drawing.Size(875, 517);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Товары";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            this.tabPage4.Leave += new System.EventHandler(this.tabPage4_Leave);
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(375, 16);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 7;
-            this.button11.Text = "отмена";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(278, 16);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "поиск";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(8, 17);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(250, 20);
-            this.textBox4.TabIndex = 4;
-            this.textBox4.Text = "Введите  ключевое слово для поиска";
-            this.textBox4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox4_MouseClick);
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(3, 51);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(868, 419);
-            this.dataGridView4.TabIndex = 1;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.button12);
-            this.tabPage5.Controls.Add(this.button5);
-            this.tabPage5.Controls.Add(this.textBox5);
-            this.tabPage5.Controls.Add(this.dataGridView5);
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage5.Size = new System.Drawing.Size(875, 517);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Склады";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            this.tabPage5.Leave += new System.EventHandler(this.tabPage5_Leave);
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(375, 16);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 7;
-            this.button12.Text = "отмена";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(278, 16);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "поиск";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(8, 17);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(250, 20);
-            this.textBox5.TabIndex = 4;
-            this.textBox5.Text = "Введите  ключевое слово для поиска";
-            this.textBox5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox5_MouseClick);
-            // 
-            // dataGridView5
-            // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(3, 51);
-            this.dataGridView5.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(868, 419);
-            this.dataGridView5.TabIndex = 1;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.button13);
-            this.tabPage6.Controls.Add(this.button6);
-            this.tabPage6.Controls.Add(this.textBox6);
-            this.tabPage6.Controls.Add(this.dataGridView6);
-            this.tabPage6.Location = new System.Drawing.Point(4, 24);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage6.Size = new System.Drawing.Size(875, 517);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Заказ товаров";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            this.tabPage6.Leave += new System.EventHandler(this.tabPage6_Leave);
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(375, 16);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 7;
-            this.button13.Text = "отмена";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(278, 16);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "поиск";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(8, 17);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(250, 20);
-            this.textBox6.TabIndex = 4;
-            this.textBox6.Text = "Введите  ключевое слово для поиска";
-            this.textBox6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox6_MouseClick);
-            // 
-            // dataGridView6
-            // 
-            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.Location = new System.Drawing.Point(3, 51);
-            this.dataGridView6.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.Size = new System.Drawing.Size(868, 419);
-            this.dataGridView6.TabIndex = 1;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.button14);
-            this.tabPage7.Controls.Add(this.button7);
-            this.tabPage7.Controls.Add(this.textBox7);
-            this.tabPage7.Controls.Add(this.dataGridView7);
-            this.tabPage7.Location = new System.Drawing.Point(4, 24);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage7.Size = new System.Drawing.Size(875, 517);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Перераспределение товаров";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            this.tabPage7.Leave += new System.EventHandler(this.tabPage7_Leave);
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(375, 16);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(75, 23);
-            this.button14.TabIndex = 7;
-            this.button14.Text = "отмена";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(278, 16);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "поиск";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(8, 17);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(250, 20);
-            this.textBox7.TabIndex = 4;
-            this.textBox7.Text = "Введите  ключевое слово для поиска";
-            this.textBox7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox7_MouseClick);
-            // 
-            // dataGridView7
-            // 
-            this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView7.Location = new System.Drawing.Point(3, 51);
-            this.dataGridView7.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView7.Name = "dataGridView7";
-            this.dataGridView7.Size = new System.Drawing.Size(868, 419);
-            this.dataGridView7.TabIndex = 1;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.button15);
-            this.tabPage8.Controls.Add(this.button8);
-            this.tabPage8.Controls.Add(this.textBox8);
-            this.tabPage8.Controls.Add(this.dataGridView1);
-            this.tabPage8.Location = new System.Drawing.Point(4, 24);
-            this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage8.Size = new System.Drawing.Size(875, 517);
-            this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "Продажи";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            this.tabPage8.Leave += new System.EventHandler(this.tabPage8_Leave);
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(375, 16);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(75, 23);
-            this.button15.TabIndex = 7;
-            this.button15.Text = "отмена";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(278, 16);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 5;
-            this.button8.Text = "поиск";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(8, 17);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(250, 20);
-            this.textBox8.TabIndex = 4;
-            this.textBox8.Text = "Введите  ключевое слово для поиска";
-            this.textBox8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox8_MouseClick);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 51);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(868, 419);
-            this.dataGridView1.TabIndex = 0;
+            // b_find_office
+            // 
+            this.b_find_office.Location = new System.Drawing.Point(278, 16);
+            this.b_find_office.Name = "b_find_office";
+            this.b_find_office.Size = new System.Drawing.Size(75, 23);
+            this.b_find_office.TabIndex = 5;
+            this.b_find_office.Text = "поиск";
+            this.b_find_office.UseVisualStyleBackColor = true;
+            this.b_find_office.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textB_find_office
+            // 
+            this.textB_find_office.Location = new System.Drawing.Point(8, 17);
+            this.textB_find_office.Multiline = true;
+            this.textB_find_office.Name = "textB_find_office";
+            this.textB_find_office.Size = new System.Drawing.Size(250, 20);
+            this.textB_find_office.TabIndex = 4;
+            this.textB_find_office.Text = "Введите  ключевое слово для поиска";
+            this.textB_find_office.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
+            // 
+            // dgv_office
+            // 
+            this.dgv_office.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_office.Location = new System.Drawing.Point(3, 51);
+            this.dgv_office.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_office.Name = "dgv_office";
+            this.dgv_office.Size = new System.Drawing.Size(862, 419);
+            this.dgv_office.TabIndex = 1;
+            // 
+            // managers
+            // 
+            this.managers.Controls.Add(this.b_cancel_manager);
+            this.managers.Controls.Add(this.b_find_manager);
+            this.managers.Controls.Add(this.textB_find_manager);
+            this.managers.Controls.Add(this.dgv_manager);
+            this.managers.Location = new System.Drawing.Point(4, 24);
+            this.managers.Margin = new System.Windows.Forms.Padding(4);
+            this.managers.Name = "managers";
+            this.managers.Padding = new System.Windows.Forms.Padding(4);
+            this.managers.Size = new System.Drawing.Size(875, 517);
+            this.managers.TabIndex = 1;
+            this.managers.Text = "Менеджеры";
+            this.managers.UseVisualStyleBackColor = true;
+            this.managers.Leave += new System.EventHandler(this.tabPage2_Leave);
+            // 
+            // b_cancel_manager
+            // 
+            this.b_cancel_manager.Location = new System.Drawing.Point(375, 16);
+            this.b_cancel_manager.Name = "b_cancel_manager";
+            this.b_cancel_manager.Size = new System.Drawing.Size(75, 23);
+            this.b_cancel_manager.TabIndex = 6;
+            this.b_cancel_manager.Text = "отмена";
+            this.b_cancel_manager.UseVisualStyleBackColor = true;
+            this.b_cancel_manager.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // b_find_manager
+            // 
+            this.b_find_manager.Location = new System.Drawing.Point(278, 16);
+            this.b_find_manager.Name = "b_find_manager";
+            this.b_find_manager.Size = new System.Drawing.Size(75, 23);
+            this.b_find_manager.TabIndex = 5;
+            this.b_find_manager.Text = "поиск";
+            this.b_find_manager.UseVisualStyleBackColor = true;
+            this.b_find_manager.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textB_find_manager
+            // 
+            this.textB_find_manager.Location = new System.Drawing.Point(8, 17);
+            this.textB_find_manager.Multiline = true;
+            this.textB_find_manager.Name = "textB_find_manager";
+            this.textB_find_manager.Size = new System.Drawing.Size(250, 20);
+            this.textB_find_manager.TabIndex = 4;
+            this.textB_find_manager.Text = "Введите  ключевое слово для поиска";
+            this.textB_find_manager.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox2_MouseClick);
+            // 
+            // dgv_manager
+            // 
+            this.dgv_manager.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_manager.Location = new System.Drawing.Point(3, 51);
+            this.dgv_manager.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_manager.Name = "dgv_manager";
+            this.dgv_manager.Size = new System.Drawing.Size(868, 419);
+            this.dgv_manager.TabIndex = 1;
+            // 
+            // providers
+            // 
+            this.providers.Controls.Add(this.b_cancel_provider);
+            this.providers.Controls.Add(this.b_find_provider);
+            this.providers.Controls.Add(this.textB_find_provider);
+            this.providers.Controls.Add(this.dgv_provider);
+            this.providers.Location = new System.Drawing.Point(4, 24);
+            this.providers.Margin = new System.Windows.Forms.Padding(4);
+            this.providers.Name = "providers";
+            this.providers.Padding = new System.Windows.Forms.Padding(4);
+            this.providers.Size = new System.Drawing.Size(875, 517);
+            this.providers.TabIndex = 2;
+            this.providers.Text = "Поставщики";
+            this.providers.UseVisualStyleBackColor = true;
+            this.providers.Leave += new System.EventHandler(this.tabPage3_Leave);
+            // 
+            // b_cancel_provider
+            // 
+            this.b_cancel_provider.Location = new System.Drawing.Point(375, 16);
+            this.b_cancel_provider.Name = "b_cancel_provider";
+            this.b_cancel_provider.Size = new System.Drawing.Size(75, 23);
+            this.b_cancel_provider.TabIndex = 7;
+            this.b_cancel_provider.Text = "отмена";
+            this.b_cancel_provider.UseVisualStyleBackColor = true;
+            this.b_cancel_provider.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // b_find_provider
+            // 
+            this.b_find_provider.Location = new System.Drawing.Point(278, 16);
+            this.b_find_provider.Name = "b_find_provider";
+            this.b_find_provider.Size = new System.Drawing.Size(75, 23);
+            this.b_find_provider.TabIndex = 5;
+            this.b_find_provider.Text = "поиск";
+            this.b_find_provider.UseVisualStyleBackColor = true;
+            this.b_find_provider.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // textB_find_provider
+            // 
+            this.textB_find_provider.Location = new System.Drawing.Point(8, 17);
+            this.textB_find_provider.Multiline = true;
+            this.textB_find_provider.Name = "textB_find_provider";
+            this.textB_find_provider.Size = new System.Drawing.Size(250, 20);
+            this.textB_find_provider.TabIndex = 4;
+            this.textB_find_provider.Text = "Введите  ключевое слово для поиска";
+            this.textB_find_provider.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox3_MouseClick);
+            // 
+            // dgv_provider
+            // 
+            this.dgv_provider.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_provider.Location = new System.Drawing.Point(3, 51);
+            this.dgv_provider.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_provider.Name = "dgv_provider";
+            this.dgv_provider.Size = new System.Drawing.Size(868, 419);
+            this.dgv_provider.TabIndex = 1;
+            // 
+            // goods
+            // 
+            this.goods.Controls.Add(this.b_cancel_goods);
+            this.goods.Controls.Add(this.b_find_goods);
+            this.goods.Controls.Add(this.textB_find_goods);
+            this.goods.Controls.Add(this.dgv_goods);
+            this.goods.Location = new System.Drawing.Point(4, 24);
+            this.goods.Margin = new System.Windows.Forms.Padding(4);
+            this.goods.Name = "goods";
+            this.goods.Padding = new System.Windows.Forms.Padding(4);
+            this.goods.Size = new System.Drawing.Size(875, 517);
+            this.goods.TabIndex = 3;
+            this.goods.Text = "Товары";
+            this.goods.UseVisualStyleBackColor = true;
+            this.goods.Leave += new System.EventHandler(this.tabPage4_Leave);
+            // 
+            // b_cancel_goods
+            // 
+            this.b_cancel_goods.Location = new System.Drawing.Point(375, 16);
+            this.b_cancel_goods.Name = "b_cancel_goods";
+            this.b_cancel_goods.Size = new System.Drawing.Size(75, 23);
+            this.b_cancel_goods.TabIndex = 7;
+            this.b_cancel_goods.Text = "отмена";
+            this.b_cancel_goods.UseVisualStyleBackColor = true;
+            this.b_cancel_goods.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // b_find_goods
+            // 
+            this.b_find_goods.Location = new System.Drawing.Point(278, 16);
+            this.b_find_goods.Name = "b_find_goods";
+            this.b_find_goods.Size = new System.Drawing.Size(75, 23);
+            this.b_find_goods.TabIndex = 5;
+            this.b_find_goods.Text = "поиск";
+            this.b_find_goods.UseVisualStyleBackColor = true;
+            this.b_find_goods.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // textB_find_goods
+            // 
+            this.textB_find_goods.Location = new System.Drawing.Point(8, 17);
+            this.textB_find_goods.Multiline = true;
+            this.textB_find_goods.Name = "textB_find_goods";
+            this.textB_find_goods.Size = new System.Drawing.Size(250, 20);
+            this.textB_find_goods.TabIndex = 4;
+            this.textB_find_goods.Text = "Введите  ключевое слово для поиска";
+            this.textB_find_goods.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox4_MouseClick);
+            // 
+            // dgv_goods
+            // 
+            this.dgv_goods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_goods.Location = new System.Drawing.Point(3, 51);
+            this.dgv_goods.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_goods.Name = "dgv_goods";
+            this.dgv_goods.Size = new System.Drawing.Size(868, 419);
+            this.dgv_goods.TabIndex = 1;
+            // 
+            // storages
+            // 
+            this.storages.Controls.Add(this.b_cancel_storage);
+            this.storages.Controls.Add(this.b_find_storage);
+            this.storages.Controls.Add(this.textB_find_storage);
+            this.storages.Controls.Add(this.dgv_storage);
+            this.storages.Location = new System.Drawing.Point(4, 24);
+            this.storages.Margin = new System.Windows.Forms.Padding(4);
+            this.storages.Name = "storages";
+            this.storages.Padding = new System.Windows.Forms.Padding(4);
+            this.storages.Size = new System.Drawing.Size(875, 517);
+            this.storages.TabIndex = 4;
+            this.storages.Text = "Склады";
+            this.storages.UseVisualStyleBackColor = true;
+            this.storages.Leave += new System.EventHandler(this.tabPage5_Leave);
+            // 
+            // b_cancel_storage
+            // 
+            this.b_cancel_storage.Location = new System.Drawing.Point(375, 16);
+            this.b_cancel_storage.Name = "b_cancel_storage";
+            this.b_cancel_storage.Size = new System.Drawing.Size(75, 23);
+            this.b_cancel_storage.TabIndex = 7;
+            this.b_cancel_storage.Text = "отмена";
+            this.b_cancel_storage.UseVisualStyleBackColor = true;
+            this.b_cancel_storage.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // b_find_storage
+            // 
+            this.b_find_storage.Location = new System.Drawing.Point(278, 16);
+            this.b_find_storage.Name = "b_find_storage";
+            this.b_find_storage.Size = new System.Drawing.Size(75, 23);
+            this.b_find_storage.TabIndex = 5;
+            this.b_find_storage.Text = "поиск";
+            this.b_find_storage.UseVisualStyleBackColor = true;
+            this.b_find_storage.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // textB_find_storage
+            // 
+            this.textB_find_storage.Location = new System.Drawing.Point(8, 17);
+            this.textB_find_storage.Multiline = true;
+            this.textB_find_storage.Name = "textB_find_storage";
+            this.textB_find_storage.Size = new System.Drawing.Size(250, 20);
+            this.textB_find_storage.TabIndex = 4;
+            this.textB_find_storage.Text = "Введите  ключевое слово для поиска";
+            this.textB_find_storage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox5_MouseClick);
+            // 
+            // dgv_storage
+            // 
+            this.dgv_storage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_storage.Location = new System.Drawing.Point(3, 51);
+            this.dgv_storage.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_storage.Name = "dgv_storage";
+            this.dgv_storage.Size = new System.Drawing.Size(868, 419);
+            this.dgv_storage.TabIndex = 1;
+            // 
+            // ordering
+            // 
+            this.ordering.Controls.Add(this.b_cancel_order);
+            this.ordering.Controls.Add(this.b_find_order);
+            this.ordering.Controls.Add(this.textB_find_order);
+            this.ordering.Controls.Add(this.dgv_order);
+            this.ordering.Location = new System.Drawing.Point(4, 24);
+            this.ordering.Margin = new System.Windows.Forms.Padding(4);
+            this.ordering.Name = "ordering";
+            this.ordering.Padding = new System.Windows.Forms.Padding(4);
+            this.ordering.Size = new System.Drawing.Size(875, 517);
+            this.ordering.TabIndex = 5;
+            this.ordering.Text = "Заказ товаров";
+            this.ordering.UseVisualStyleBackColor = true;
+            this.ordering.Leave += new System.EventHandler(this.tabPage6_Leave);
+            // 
+            // b_cancel_order
+            // 
+            this.b_cancel_order.Location = new System.Drawing.Point(375, 16);
+            this.b_cancel_order.Name = "b_cancel_order";
+            this.b_cancel_order.Size = new System.Drawing.Size(75, 23);
+            this.b_cancel_order.TabIndex = 7;
+            this.b_cancel_order.Text = "отмена";
+            this.b_cancel_order.UseVisualStyleBackColor = true;
+            this.b_cancel_order.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // b_find_order
+            // 
+            this.b_find_order.Location = new System.Drawing.Point(278, 16);
+            this.b_find_order.Name = "b_find_order";
+            this.b_find_order.Size = new System.Drawing.Size(75, 23);
+            this.b_find_order.TabIndex = 5;
+            this.b_find_order.Text = "поиск";
+            this.b_find_order.UseVisualStyleBackColor = true;
+            this.b_find_order.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // textB_find_order
+            // 
+            this.textB_find_order.Location = new System.Drawing.Point(8, 17);
+            this.textB_find_order.Multiline = true;
+            this.textB_find_order.Name = "textB_find_order";
+            this.textB_find_order.Size = new System.Drawing.Size(250, 20);
+            this.textB_find_order.TabIndex = 4;
+            this.textB_find_order.Text = "Введите  ключевое слово для поиска";
+            this.textB_find_order.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox6_MouseClick);
+            // 
+            // dgv_order
+            // 
+            this.dgv_order.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_order.Location = new System.Drawing.Point(3, 51);
+            this.dgv_order.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_order.Name = "dgv_order";
+            this.dgv_order.Size = new System.Drawing.Size(868, 419);
+            this.dgv_order.TabIndex = 1;
+            // 
+            // restribution
+            // 
+            this.restribution.Controls.Add(this.b_cancel_restr);
+            this.restribution.Controls.Add(this.b_find_restr);
+            this.restribution.Controls.Add(this.textB_find_restr);
+            this.restribution.Controls.Add(this.dgv_restr);
+            this.restribution.Location = new System.Drawing.Point(4, 24);
+            this.restribution.Margin = new System.Windows.Forms.Padding(4);
+            this.restribution.Name = "restribution";
+            this.restribution.Padding = new System.Windows.Forms.Padding(4);
+            this.restribution.Size = new System.Drawing.Size(875, 517);
+            this.restribution.TabIndex = 6;
+            this.restribution.Text = "Перераспределение товаров";
+            this.restribution.UseVisualStyleBackColor = true;
+            this.restribution.Leave += new System.EventHandler(this.tabPage7_Leave);
+            // 
+            // b_cancel_restr
+            // 
+            this.b_cancel_restr.Location = new System.Drawing.Point(375, 16);
+            this.b_cancel_restr.Name = "b_cancel_restr";
+            this.b_cancel_restr.Size = new System.Drawing.Size(75, 23);
+            this.b_cancel_restr.TabIndex = 7;
+            this.b_cancel_restr.Text = "отмена";
+            this.b_cancel_restr.UseVisualStyleBackColor = true;
+            this.b_cancel_restr.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // b_find_restr
+            // 
+            this.b_find_restr.Location = new System.Drawing.Point(278, 16);
+            this.b_find_restr.Name = "b_find_restr";
+            this.b_find_restr.Size = new System.Drawing.Size(75, 23);
+            this.b_find_restr.TabIndex = 5;
+            this.b_find_restr.Text = "поиск";
+            this.b_find_restr.UseVisualStyleBackColor = true;
+            this.b_find_restr.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // textB_find_restr
+            // 
+            this.textB_find_restr.Location = new System.Drawing.Point(8, 17);
+            this.textB_find_restr.Multiline = true;
+            this.textB_find_restr.Name = "textB_find_restr";
+            this.textB_find_restr.Size = new System.Drawing.Size(250, 20);
+            this.textB_find_restr.TabIndex = 4;
+            this.textB_find_restr.Text = "Введите  ключевое слово для поиска";
+            this.textB_find_restr.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox7_MouseClick);
+            // 
+            // dgv_restr
+            // 
+            this.dgv_restr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_restr.Location = new System.Drawing.Point(3, 51);
+            this.dgv_restr.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_restr.Name = "dgv_restr";
+            this.dgv_restr.Size = new System.Drawing.Size(868, 419);
+            this.dgv_restr.TabIndex = 1;
+            // 
+            // selling
+            // 
+            this.selling.Controls.Add(this.b_cancel_selling);
+            this.selling.Controls.Add(this.b_find_selling);
+            this.selling.Controls.Add(this.textB_find_selling);
+            this.selling.Controls.Add(this.dgv_selling);
+            this.selling.Location = new System.Drawing.Point(4, 24);
+            this.selling.Margin = new System.Windows.Forms.Padding(4);
+            this.selling.Name = "selling";
+            this.selling.Padding = new System.Windows.Forms.Padding(4);
+            this.selling.Size = new System.Drawing.Size(875, 517);
+            this.selling.TabIndex = 7;
+            this.selling.Text = "Продажи";
+            this.selling.UseVisualStyleBackColor = true;
+            this.selling.Leave += new System.EventHandler(this.tabPage8_Leave);
+            // 
+            // b_cancel_selling
+            // 
+            this.b_cancel_selling.Location = new System.Drawing.Point(375, 16);
+            this.b_cancel_selling.Name = "b_cancel_selling";
+            this.b_cancel_selling.Size = new System.Drawing.Size(75, 23);
+            this.b_cancel_selling.TabIndex = 7;
+            this.b_cancel_selling.Text = "отмена";
+            this.b_cancel_selling.UseVisualStyleBackColor = true;
+            this.b_cancel_selling.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // b_find_selling
+            // 
+            this.b_find_selling.Location = new System.Drawing.Point(278, 16);
+            this.b_find_selling.Name = "b_find_selling";
+            this.b_find_selling.Size = new System.Drawing.Size(75, 23);
+            this.b_find_selling.TabIndex = 5;
+            this.b_find_selling.Text = "поиск";
+            this.b_find_selling.UseVisualStyleBackColor = true;
+            this.b_find_selling.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // textB_find_selling
+            // 
+            this.textB_find_selling.Location = new System.Drawing.Point(8, 17);
+            this.textB_find_selling.Multiline = true;
+            this.textB_find_selling.Name = "textB_find_selling";
+            this.textB_find_selling.Size = new System.Drawing.Size(250, 20);
+            this.textB_find_selling.TabIndex = 4;
+            this.textB_find_selling.Text = "Введите  ключевое слово для поиска";
+            this.textB_find_selling.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox8_MouseClick);
+            // 
+            // dgv_selling
+            // 
+            this.dgv_selling.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_selling.Location = new System.Drawing.Point(4, 51);
+            this.dgv_selling.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_selling.Name = "dgv_selling";
+            this.dgv_selling.Size = new System.Drawing.Size(868, 419);
+            this.dgv_selling.TabIndex = 0;
             // 
             // backgroundWorker1
             // 
@@ -688,14 +688,14 @@
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
-            // label1
+            // l_valuta
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 612);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.l_valuta.AutoSize = true;
+            this.l_valuta.Location = new System.Drawing.Point(37, 612);
+            this.l_valuta.Name = "l_valuta";
+            this.l_valuta.Size = new System.Drawing.Size(45, 16);
+            this.l_valuta.TabIndex = 3;
+            this.l_valuta.Text = "valuta";
             // 
             // DataBase
             // 
@@ -703,8 +703,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(882, 641);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.l_valuta);
+            this.Controls.Add(this.tc_table);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -716,31 +716,31 @@
             this.Load += new System.EventHandler(this.DataBase_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tc_table.ResumeLayout(false);
+            this.offices.ResumeLayout(false);
+            this.offices.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_office)).EndInit();
+            this.managers.ResumeLayout(false);
+            this.managers.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_manager)).EndInit();
+            this.providers.ResumeLayout(false);
+            this.providers.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_provider)).EndInit();
+            this.goods.ResumeLayout(false);
+            this.goods.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_goods)).EndInit();
+            this.storages.ResumeLayout(false);
+            this.storages.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_storage)).EndInit();
+            this.ordering.ResumeLayout(false);
+            this.ordering.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_order)).EndInit();
+            this.restribution.ResumeLayout(false);
+            this.restribution.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_restr)).EndInit();
+            this.selling.ResumeLayout(false);
+            this.selling.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_selling)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -762,48 +762,48 @@
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem почтаToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem главноеОкноToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataGridView dataGridView8;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.DataGridView dataGridView5;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.DataGridView dataGridView6;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.DataGridView dataGridView7;
-        private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TabControl tc_table;
+        private System.Windows.Forms.TabPage offices;
+        private System.Windows.Forms.DataGridView dgv_office;
+        private System.Windows.Forms.TabPage managers;
+        private System.Windows.Forms.DataGridView dgv_manager;
+        private System.Windows.Forms.TabPage providers;
+        private System.Windows.Forms.DataGridView dgv_provider;
+        private System.Windows.Forms.TabPage goods;
+        private System.Windows.Forms.DataGridView dgv_goods;
+        private System.Windows.Forms.TabPage storages;
+        private System.Windows.Forms.DataGridView dgv_storage;
+        private System.Windows.Forms.TabPage ordering;
+        private System.Windows.Forms.DataGridView dgv_order;
+        private System.Windows.Forms.TabPage restribution;
+        private System.Windows.Forms.DataGridView dgv_restr;
+        private System.Windows.Forms.TabPage selling;
+        private System.Windows.Forms.DataGridView dgv_selling;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label l_valuta;
+        private System.Windows.Forms.Button b_find_office;
+        private System.Windows.Forms.TextBox textB_find_office;
         private System.Windows.Forms.Button b_cancel_office;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button b_cancel_manager;
+        private System.Windows.Forms.Button b_find_manager;
+        private System.Windows.Forms.TextBox textB_find_manager;
+        private System.Windows.Forms.Button b_cancel_provider;
+        private System.Windows.Forms.Button b_find_provider;
+        private System.Windows.Forms.TextBox textB_find_provider;
+        private System.Windows.Forms.Button b_cancel_goods;
+        private System.Windows.Forms.Button b_find_goods;
+        private System.Windows.Forms.TextBox textB_find_goods;
+        private System.Windows.Forms.Button b_cancel_storage;
+        private System.Windows.Forms.Button b_find_storage;
+        private System.Windows.Forms.TextBox textB_find_storage;
+        private System.Windows.Forms.Button b_cancel_order;
+        private System.Windows.Forms.Button b_find_order;
+        private System.Windows.Forms.TextBox textB_find_order;
+        private System.Windows.Forms.Button b_cancel_restr;
+        private System.Windows.Forms.Button b_find_restr;
+        private System.Windows.Forms.TextBox textB_find_restr;
+        private System.Windows.Forms.Button b_cancel_selling;
+        private System.Windows.Forms.Button b_find_selling;
+        private System.Windows.Forms.TextBox textB_find_selling;
     }
 }

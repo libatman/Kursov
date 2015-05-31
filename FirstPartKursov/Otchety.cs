@@ -93,9 +93,13 @@ namespace FirstPartKursov
 
         private void Otchety_Load(object sender, EventArgs e)
         {
-            button1.Visible = false;
+            bt_open_file.Visible = false;
         }
-
+        /// <summary>
+        /// Этот метод ищет путь к последнему созданному отчету из определенной категории
+        /// </summary>
+        /// <param name="type">Категория отчета: 1-продаваемость товаров, 2- популярность поставщиков, 3- продаваемость по филиалам, 4- результативность менеджеров, 5- продаваемость дисков</param>
+        /// <returns></returns>
         string find_path_file(string type)
         {
             string max_id;
@@ -124,42 +128,47 @@ namespace FirstPartKursov
         int flag = 0;
         private void button1_Click(object sender, EventArgs e)
         {
-            switch (flag)
+            try
             {
-                case 1:
-                    {
-                        Excel.Application excelapp = new Excel.Application();
-                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet1_" + DateTime.Now.ToShortDateString() + ".xls");
-                        excelapp.Visible = true;
-                        //excelapp.Quit();
-                    }
-                    break;
-                case 2:
-                    {
-                        Excel.Application excelapp = new Excel.Application();
-                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet2_" + DateTime.Now.ToShortDateString() + ".xls");
-                        excelapp.Visible = true;
-                        //excelapp.Quit();
-                    } break;
-                case 3:
-                    {
-                        Excel.Application excelapp = new Excel.Application();
-                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet3_" + DateTime.Now.ToShortDateString() + ".xls");
-                        excelapp.Visible = true;
-                    } break;
-                case 4:
-                    {
-                        Excel.Application excelapp = new Excel.Application();
-                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet4_" + DateTime.Now.ToShortDateString() + ".xls");
-                        excelapp.Visible = true;
-                    } break;
-                case 5:
-                    {
-                        Excel.Application excelapp = new Excel.Application();
-                        excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet5_" + DateTime.Now.ToShortDateString() + ".xls");
-                        excelapp.Visible = true;
-                    } break;
-                default: MessageBox.Show("Файл не был создан"); break;
+                switch (flag)
+                {
+                    case 1:
+                        {
+                            Excel.Application excelapp = new Excel.Application();
+                            excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet1_" + DateTime.Now.ToShortDateString() + ".xls");
+                            excelapp.Visible = true;
+                        }
+                        break;
+                    case 2:
+                        {
+                            Excel.Application excelapp = new Excel.Application();
+                            excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet2_" + DateTime.Now.ToShortDateString() + ".xls");
+                            excelapp.Visible = true;
+                        } break;
+                    case 3:
+                        {
+                            Excel.Application excelapp = new Excel.Application();
+                            excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet3_" + DateTime.Now.ToShortDateString() + ".xls");
+                            excelapp.Visible = true;
+                        } break;
+                    case 4:
+                        {
+                            Excel.Application excelapp = new Excel.Application();
+                            excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet4_" + DateTime.Now.ToShortDateString() + ".xls");
+                            excelapp.Visible = true;
+                        } break;
+                    case 5:
+                        {
+                            Excel.Application excelapp = new Excel.Application();
+                            excelapp.Workbooks.Open(ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet5_" + DateTime.Now.ToShortDateString() + ".xls");
+                            excelapp.Visible = true;
+                        } break;
+                    default: MessageBox.Show("Файл не был создан"); break;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно открыть файл.");
             }
 
 
@@ -168,74 +177,68 @@ namespace FirstPartKursov
         {
             try
             {
-                Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                switch (comboBox1.Text)
+                Bitmap bmp = new Bitmap(pb_otchet.Width, pb_otchet.Height);
+                switch (cb_otchet.Text)
                 {
                     case "Продаваемость товаров":
                         {
-                            button1.Visible = false;
-                            //bmp.Dispose();
+                            bt_open_file.Visible = false;
                             excel1.set_table_excel(excel1.sell_goods(), "Наименование товара", "Количество проданных, шт", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet1_" + DateTime.Now.ToShortDateString() + ".xls", "1", "Продаваемость товаров");
                             flag = 1;
                             bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\" + find_path_file("1"));
-                            pictureBox1.Image = bmp;
-                            button1.Visible = true;
-                            ClassForms.sf.label1.Text += Environment.NewLine + "Построен отчет 'Продаваемость товаров' ( " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " )";
+                            pb_otchet.Image = bmp;
+                            bt_open_file.Visible = true;
+                            ClassForms.sf.label1.Text += Environment.NewLine+"Построен отчет 'Продаваемость товаров' ( " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " )";
                             ClassForms.sf.label1.Refresh();
+                            
                         }
                         break;
                     case "Популярность поставщиков":
                         {
-                            button1.Visible = false;
-                            //bmp.Dispose();
+                            bt_open_file.Visible = false;
                             excel1.set_table_excel(excel1.popular_providers(), "Наименование провайдера", "Количество заказов", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet2_" + DateTime.Now.ToShortDateString() + ".xls", "2", "Популярность поставщиков");
                             flag = 2;
-                            //bmp=new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + "2_" + DateTime.Now.ToShortDateString() + ".bmp");
                             bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\" + find_path_file("2"));
-                            pictureBox1.Image = bmp;
-                            button1.Visible = true;
+                            pb_otchet.Image = bmp;
+                            bt_open_file.Visible = true;
                             ClassForms.sf.label1.Text += Environment.NewLine + "Построен отчет 'Популярность поставщиков' ( " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " )";
                             ClassForms.sf.label1.Refresh();
                         }
                         break;
                     case "Продаваемость по филиалам":
                         {
-                            button1.Visible = false;
-                            //bmp.Dispose();
+                            bt_open_file.Visible = false;
+
                             excel1.set_table_excel(excel1.sell_offices(), "Адрес филиала", "Количество продаж", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet3_" + DateTime.Now.ToShortDateString() + ".xls", "3", "Продаваемость по филиалам");
                             flag = 3;
-                            //bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + "3_" + DateTime.Now.ToShortDateString() + ".bmp");
                             bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\" + find_path_file("3"));
-                            pictureBox1.Image = bmp;
-                            button1.Visible = true;
+                            pb_otchet.Image = bmp;
+                            bt_open_file.Visible = true;
                             ClassForms.sf.label1.Text += Environment.NewLine + "Построен отчет 'Продаваемость по филиалам' ( " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " )";
                             ClassForms.sf.label1.Refresh();
                         }
                         break;
                     case "Результативность менеджеров":
                         {
-                            button1.Visible = false;
-                            //bmp.Dispose();
+                            bt_open_file.Visible = false;
+
                             excel1.set_table_excel(excel1.result_manager(), "ФИО менеджера", "Количество осуществленных продаж", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet4_" + DateTime.Now.ToShortDateString() + ".xls", "4", "Результативность менеджеров");
                             flag = 4;
-                            //bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + "4_" + DateTime.Now.ToShortDateString() + ".bmp");
                             bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\" + find_path_file("4"));
-                            pictureBox1.Image = bmp;
-                            button1.Visible = true;
+                            pb_otchet.Image = bmp;
+                            bt_open_file.Visible = true;
                             ClassForms.sf.label1.Text += Environment.NewLine + "Построен отчет 'Результативность менеджеров' ( " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " )";
                             ClassForms.sf.label1.Refresh();
                         }
                         break;
                     case "Продаваемость дисков":
                         {
-                            button1.Visible = false;
-                            //bmp.Dispose();
+                            bt_open_file.Visible = false;
                             excel1.set_table_excel(excel1.sell_disks(), "месяц", "Количество проданных дисков, шт.", ClassForms.sf.filePath.filepathUser + @"Отчеты\Otchet5_" + DateTime.Now.ToShortDateString() + ".xls", "5", "Продаваемость дисков");
                             flag = 5;
-                            //bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\otchet_" + "5_" + DateTime.Now.ToShortDateString() + ".bmp");
                             bmp = new Bitmap(ClassForms.sf.filePath.filepathUser + @"Отчеты\" + find_path_file("5"));
-                            pictureBox1.Image = bmp;
-                            button1.Visible = true;
+                            pb_otchet.Image = bmp;
+                            bt_open_file.Visible = true;
                             ClassForms.sf.label1.Text += Environment.NewLine + "Построен отчет 'Продаваемость дисков' ( " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " )";
                             ClassForms.sf.label1.Refresh();
                         }
@@ -244,7 +247,7 @@ namespace FirstPartKursov
             }
             catch
             {
-                MessageBox.Show("Отчет не был построен.");
+                MessageBox.Show("Ошибка! Отчет не был построен.");
             }
         }
 
