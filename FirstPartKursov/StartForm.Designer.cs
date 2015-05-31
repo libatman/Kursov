@@ -60,7 +60,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(882, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(882, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -72,27 +72,27 @@
             this.контактыToolStripMenuItem});
             this.почтаToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.почтаToolStripMenuItem.Name = "почтаToolStripMenuItem";
-            this.почтаToolStripMenuItem.Size = new System.Drawing.Size(55, 21);
+            this.почтаToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.почтаToolStripMenuItem.Text = "Почта";
             // 
             // написатьНовоеСообщениеToolStripMenuItem
             // 
             this.написатьНовоеСообщениеToolStripMenuItem.Name = "написатьНовоеСообщениеToolStripMenuItem";
-            this.написатьНовоеСообщениеToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.написатьНовоеСообщениеToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
             this.написатьНовоеСообщениеToolStripMenuItem.Text = "Написать новое сообщение";
             this.написатьНовоеСообщениеToolStripMenuItem.Click += new System.EventHandler(this.написатьНовоеСообщениеToolStripMenuItem_Click);
             // 
             // входящиеToolStripMenuItem
             // 
             this.входящиеToolStripMenuItem.Name = "входящиеToolStripMenuItem";
-            this.входящиеToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.входящиеToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
             this.входящиеToolStripMenuItem.Text = "Входящие";
             this.входящиеToolStripMenuItem.Click += new System.EventHandler(this.входящиеToolStripMenuItem_Click);
             // 
             // контактыToolStripMenuItem
             // 
             this.контактыToolStripMenuItem.Name = "контактыToolStripMenuItem";
-            this.контактыToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.контактыToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
             this.контактыToolStripMenuItem.Text = "Контакты";
             this.контактыToolStripMenuItem.Click += new System.EventHandler(this.контактыToolStripMenuItem_Click);
             // 
@@ -100,7 +100,7 @@
             // 
             this.бДToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.бДToolStripMenuItem.Name = "бДToolStripMenuItem";
-            this.бДToolStripMenuItem.Size = new System.Drawing.Size(36, 21);
+            this.бДToolStripMenuItem.Size = new System.Drawing.Size(41, 24);
             this.бДToolStripMenuItem.Text = "БД";
             this.бДToolStripMenuItem.Click += new System.EventHandler(this.бДToolStripMenuItem_Click);
             // 
@@ -108,7 +108,7 @@
             // 
             this.отчетыToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
-            this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(62, 21);
+            this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.отчетыToolStripMenuItem.Text = "Отчеты";
             this.отчетыToolStripMenuItem.Click += new System.EventHandler(this.отчетыToolStripMenuItem_Click);
             // 
@@ -119,20 +119,20 @@
             this.заказТоваровToolStripMenuItem});
             this.документыToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.документыToolStripMenuItem.Name = "документыToolStripMenuItem";
-            this.документыToolStripMenuItem.Size = new System.Drawing.Size(88, 21);
+            this.документыToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
             this.документыToolStripMenuItem.Text = "Документы";
             // 
             // перераспределениеТоваровToolStripMenuItem
             // 
             this.перераспределениеТоваровToolStripMenuItem.Name = "перераспределениеТоваровToolStripMenuItem";
-            this.перераспределениеТоваровToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.перераспределениеТоваровToolStripMenuItem.Size = new System.Drawing.Size(306, 24);
             this.перераспределениеТоваровToolStripMenuItem.Text = "Перераспределение товаров";
             this.перераспределениеТоваровToolStripMenuItem.Click += new System.EventHandler(this.перераспределениеТоваровToolStripMenuItem_Click);
             // 
             // заказТоваровToolStripMenuItem
             // 
             this.заказТоваровToolStripMenuItem.Name = "заказТоваровToolStripMenuItem";
-            this.заказТоваровToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.заказТоваровToolStripMenuItem.Size = new System.Drawing.Size(306, 24);
             this.заказТоваровToolStripMenuItem.Text = "Заказ товаров";
             this.заказТоваровToolStripMenuItem.Click += new System.EventHandler(this.заказТоваровToolStripMenuItem_Click);
             // 
@@ -140,7 +140,7 @@
             // 
             this.бонусToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.бонусToolStripMenuItem.Name = "бонусToolStripMenuItem";
-            this.бонусToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
+            this.бонусToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.бонусToolStripMenuItem.Text = "Бонус";
             this.бонусToolStripMenuItem.Click += new System.EventHandler(this.бонусToolStripMenuItem_Click);
             // 
@@ -150,30 +150,31 @@
             this.почтаToolStripMenuItem1});
             this.настройкиToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(85, 21);
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
             this.настройкиToolStripMenuItem.Text = "Настройки";
             // 
             // почтаToolStripMenuItem1
             // 
             this.почтаToolStripMenuItem1.Name = "почтаToolStripMenuItem1";
-            this.почтаToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
+            this.почтаToolStripMenuItem1.Size = new System.Drawing.Size(121, 24);
             this.почтаToolStripMenuItem1.Text = "Почта";
             this.почтаToolStripMenuItem1.Click += new System.EventHandler(this.почтаToolStripMenuItem1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(25, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.Size = new System.Drawing.Size(0, 22);
             this.label1.TabIndex = 1;
             // 
             // StartForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Snow;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(882, 641);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);

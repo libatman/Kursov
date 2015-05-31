@@ -71,6 +71,8 @@ namespace FirstPartKursov
             usd = Convert.ToDouble(valute.Split('|')[1]);
             euro = Convert.ToDouble(valute.Split('|')[3]);
             valute = valute.TrimEnd('|');
+            ClassForms.sf.label1.Text += Environment.NewLine + "Считан курс валюты за " + DateTime.Now.ToShortDateString() + ": USD: " + usd.ToString() + ", EUR: " + euro.ToString();
+            ClassForms.sf.label1.Refresh();
             return valute;
         }
     }

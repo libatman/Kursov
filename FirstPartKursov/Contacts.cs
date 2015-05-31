@@ -25,8 +25,6 @@ namespace FirstPartKursov
 
         private void контактыToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ClassForms.contacts.Show();
-            this.Hide();
         }
 
         private void бДToolStripMenuItem_Click_1(object sender, EventArgs e)

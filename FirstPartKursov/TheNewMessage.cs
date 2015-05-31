@@ -26,8 +26,6 @@ namespace FirstPartKursov
 
         private void написатьНовоеСообщениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClassForms.newmess.Show();
-            this.Hide();
         }
 
 

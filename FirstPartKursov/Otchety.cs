@@ -256,6 +256,11 @@ namespace FirstPartKursov
             ClassForms.inputmessages.Show();
             this.Hide();
         }
+
+        private void отчетыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }   
 

@@ -141,13 +141,18 @@ namespace FirstPartKursov
 
         public void runThread()
         {
-            backgroundWorker1.RunWorkerAsync();
+            try
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
+            catch
+            {
+                MessageBox.Show("Ожидайте окончания работы программы.");
+            }
         }
 
         private void входящиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClassForms.inputmessages.Show();
-            this.Hide();
         }
 
         private void InputMessages_FormClosing(object sender, FormClosingEventArgs e)

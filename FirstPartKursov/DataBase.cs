@@ -35,8 +35,7 @@ namespace FirstPartKursov
 
         private void бДToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ClassForms.db.Show();
-            this.Hide();
+            
         }
 
         private void продаваемостьТоваровToolStripMenuItem_Click_1(object sender, EventArgs e)

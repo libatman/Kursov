@@ -151,7 +151,6 @@ namespace FirstPartKursov
         {
             Client_r();
             Path_Check();
-            label1.Text = "";
             label1.Text += Environment.NewLine + "Добро пожаловать, " + ClassForms.sf.client.login + "!";
             label1.Refresh();
          
