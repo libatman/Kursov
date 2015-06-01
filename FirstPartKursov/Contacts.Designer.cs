@@ -44,6 +44,7 @@
             this.почтаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox_Groups = new System.Windows.Forms.ComboBox();
             this.label_toSendMessagesGroup = new System.Windows.Forms.Label();
+            this.путиСохраненияДокументовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,7 +153,8 @@
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.почтаToolStripMenuItem1});
+            this.почтаToolStripMenuItem1,
+            this.путиСохраненияДокументовToolStripMenuItem});
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
             this.настройкиToolStripMenuItem.Text = "Настройки";
@@ -160,7 +162,7 @@
             // почтаToolStripMenuItem1
             // 
             this.почтаToolStripMenuItem1.Name = "почтаToolStripMenuItem1";
-            this.почтаToolStripMenuItem1.Size = new System.Drawing.Size(121, 24);
+            this.почтаToolStripMenuItem1.Size = new System.Drawing.Size(300, 24);
             this.почтаToolStripMenuItem1.Text = "Почта";
             this.почтаToolStripMenuItem1.Click += new System.EventHandler(this.почтаToolStripMenuItem1_Click_1);
             // 
@@ -185,6 +187,13 @@
             this.label_toSendMessagesGroup.Click += new System.EventHandler(this.label1_toSendMessagesGroup_Click);
             this.label_toSendMessagesGroup.MouseEnter += new System.EventHandler(this.label_toSendMessagesGroup_MouseEnter);
             this.label_toSendMessagesGroup.MouseLeave += new System.EventHandler(this.label1_toSendMessagesGroup_MouseLeave);
+            // 
+            // путиСохраненияДокументовToolStripMenuItem
+            // 
+            this.путиСохраненияДокументовToolStripMenuItem.Name = "путиСохраненияДокументовToolStripMenuItem";
+            this.путиСохраненияДокументовToolStripMenuItem.Size = new System.Drawing.Size(300, 24);
+            this.путиСохраненияДокументовToolStripMenuItem.Text = "Пути сохранения документов";
+            this.путиСохраненияДокументовToolStripMenuItem.Click += new System.EventHandler(this.путиСохраненияДокументовToolStripMenuItem_Click);
             // 
             // Contacts
             // 
@@ -227,5 +236,6 @@
         private System.Windows.Forms.ToolStripMenuItem главноеОкноToolStripMenuItem;
         private System.Windows.Forms.ComboBox comboBox_Groups;
         private System.Windows.Forms.Label label_toSendMessagesGroup;
+        private System.Windows.Forms.ToolStripMenuItem путиСохраненияДокументовToolStripMenuItem;
     }
 }

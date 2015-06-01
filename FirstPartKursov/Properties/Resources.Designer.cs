@@ -59,15 +59,5 @@ namespace FirstPartKursov.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Безимени_1 {
-            get {
-                object obj = ResourceManager.GetObject("Безимени-1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

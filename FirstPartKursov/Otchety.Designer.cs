@@ -45,6 +45,7 @@
             this.cb_otchet = new System.Windows.Forms.ComboBox();
             this.pb_otchet = new System.Windows.Forms.PictureBox();
             this.bt_open_file = new System.Windows.Forms.Button();
+            this.путиСохраненияДокументовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_otchet)).BeginInit();
             this.SuspendLayout();
@@ -154,7 +155,8 @@
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.почтаToolStripMenuItem1});
+            this.почтаToolStripMenuItem1,
+            this.путиСохраненияДокументовToolStripMenuItem});
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
             this.настройкиToolStripMenuItem.Text = "Настройки";
@@ -162,7 +164,7 @@
             // почтаToolStripMenuItem1
             // 
             this.почтаToolStripMenuItem1.Name = "почтаToolStripMenuItem1";
-            this.почтаToolStripMenuItem1.Size = new System.Drawing.Size(121, 24);
+            this.почтаToolStripMenuItem1.Size = new System.Drawing.Size(300, 24);
             this.почтаToolStripMenuItem1.Text = "Почта";
             this.почтаToolStripMenuItem1.Click += new System.EventHandler(this.почтаToolStripMenuItem1_Click);
             // 
@@ -200,6 +202,13 @@
             this.bt_open_file.Text = "Открыть файл";
             this.bt_open_file.UseVisualStyleBackColor = true;
             this.bt_open_file.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // путиСохраненияДокументовToolStripMenuItem
+            // 
+            this.путиСохраненияДокументовToolStripMenuItem.Name = "путиСохраненияДокументовToolStripMenuItem";
+            this.путиСохраненияДокументовToolStripMenuItem.Size = new System.Drawing.Size(300, 24);
+            this.путиСохраненияДокументовToolStripMenuItem.Text = "Пути сохранения документов";
+            this.путиСохраненияДокументовToolStripMenuItem.Click += new System.EventHandler(this.путиСохраненияДокументовToolStripMenuItem_Click);
             // 
             // Otchety
             // 
@@ -246,5 +255,6 @@
         private System.Windows.Forms.ComboBox cb_otchet;
         private System.Windows.Forms.PictureBox pb_otchet;
         private System.Windows.Forms.Button bt_open_file;
+        private System.Windows.Forms.ToolStripMenuItem путиСохраненияДокументовToolStripMenuItem;
     }
 }

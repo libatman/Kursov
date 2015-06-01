@@ -185,31 +185,13 @@ namespace FirstPartKursov
         bool checkFileMail = false;
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (File.Exists(@"mailinfo.xml"))
-            {
-                listmessages = new List<OpenPop.Mime.Message>();
-                fetchmess();
-                backgroundWorker1.ReportProgress(100, result);
-
-            }
-            else
-            {
-                Thread.Sleep(3000);
-                if (File.Exists(@"mailinfo.xml"))
-                {
-                    listmessages = new List<OpenPop.Mime.Message>();
-                    fetchmess();
-                    backgroundWorker1.ReportProgress(100, result);
-                    checkFileMail = true;
-                }
-                
-            }
+            listmessages = new List<OpenPop.Mime.Message>();
+            fetchmess();
+            backgroundWorker1.ReportProgress(100, result);
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            if (File.Exists(@"mailinfo.xml"))
-            {
                 string result = (string)e.UserState;
                 if (result == "Ok")
                 {
@@ -223,7 +205,6 @@ namespace FirstPartKursov
                     ClassForms.sf.label1.Text += Environment.NewLine + "При обновлении входящих сообщений произошла ошибка.";
                     ClassForms.sf.label1.Refresh();
                 }
-            }
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -235,12 +216,8 @@ namespace FirstPartKursov
         string result;
         public void fetchmess()
         {
-            StartForm s = new StartForm();
-            if (File.Exists(@"mailinfo.xml"))
-            {
-                ClassForms.sf.client = ClassForms.sf.des(ClassForms.sf.client);
-                result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
-            }
+            ClassForms.sf.client = ClassForms.sf.des(ClassForms.sf.client);
+            result = MailClass.FetchAllMessages(ClassForms.sf.client.popserver, 995, true, ClassForms.sf.client.login, ClassForms.sf.client.password, listmessages);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -286,6 +263,11 @@ namespace FirstPartKursov
                 }
                 listBox_allmess.Items.Add(list_message_output[i]);
             }
+        }
+
+        private void путиСохраненияДокументовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.sf.nastroikaFilePath();
         }
 
     }

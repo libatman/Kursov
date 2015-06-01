@@ -50,6 +50,7 @@
             this.checkedListBox_goods = new System.Windows.Forms.CheckedListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button_toSend = new System.Windows.Forms.Button();
+            this.путиСохраненияДокументовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -158,7 +159,8 @@
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.почтаToolStripMenuItem1});
+            this.почтаToolStripMenuItem1,
+            this.путиСохраненияДокументовToolStripMenuItem});
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
             this.настройкиToolStripMenuItem.Text = "Настройки";
@@ -166,7 +168,7 @@
             // почтаToolStripMenuItem1
             // 
             this.почтаToolStripMenuItem1.Name = "почтаToolStripMenuItem1";
-            this.почтаToolStripMenuItem1.Size = new System.Drawing.Size(121, 24);
+            this.почтаToolStripMenuItem1.Size = new System.Drawing.Size(300, 24);
             this.почтаToolStripMenuItem1.Text = "Почта";
             this.почтаToolStripMenuItem1.Click += new System.EventHandler(this.почтаToolStripMenuItem1_Click);
             // 
@@ -245,6 +247,13 @@
             this.button_toSend.UseVisualStyleBackColor = true;
             this.button_toSend.Click += new System.EventHandler(this.button_toSend_Click);
             // 
+            // путиСохраненияДокументовToolStripMenuItem
+            // 
+            this.путиСохраненияДокументовToolStripMenuItem.Name = "путиСохраненияДокументовToolStripMenuItem";
+            this.путиСохраненияДокументовToolStripMenuItem.Size = new System.Drawing.Size(300, 24);
+            this.путиСохраненияДокументовToolStripMenuItem.Text = "Пути сохранения документов";
+            this.путиСохраненияДокументовToolStripMenuItem.Click += new System.EventHandler(this.путиСохраненияДокументовToolStripMenuItem_Click);
+            // 
             // Document_Redistribution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -298,6 +307,7 @@
         private System.Windows.Forms.CheckedListBox checkedListBox_goods;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button_toSend;
+        private System.Windows.Forms.ToolStripMenuItem путиСохраненияДокументовToolStripMenuItem;
 
     }
 }

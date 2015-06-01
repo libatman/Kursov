@@ -261,6 +261,11 @@ namespace FirstPartKursov
         {
 
         }
+
+        private void путиСохраненияДокументовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.sf.nastroikaFilePath();
+        }
     }
 }   
 

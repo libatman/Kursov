@@ -41,7 +41,6 @@ namespace FirstPartKursov
                 password = value;
             }
         }
-        public bool t = false;
         private void button1_Click(object sender, EventArgs e)
         {
             Email = textBox1.Text;
@@ -53,13 +52,13 @@ namespace FirstPartKursov
                 {
                     client.Connect("pop." + Email.Split('@')[1], 995, true);
                     client.Authenticate(Email.Split('@')[0], Password);
+                    rewriteMailInfoXML(Email, Password);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Проверьте входные данные");
             }
-            t = true;
             this.Close();
 
         }
@@ -76,7 +75,10 @@ namespace FirstPartKursov
             ClassForms.sf.client.popserver = "pop." + Email.Split('@')[1];
             ClassForms.sf.client.smtpserver = "smtp." + Email.Split('@')[1];
             ClassForms.sf.ser(ClassForms.sf.client);
+            ClassForms.inputmessages.listmessages.Clear();
             ClassForms.inputmessages.fetchmess();
-        }
+            ClassForms.sf.label1.Text += "Добро пожаловать, " + ClassForms.sf.client.login + "!";
+            ClassForms.sf.label1.Refresh();
+        } 
     }
 }

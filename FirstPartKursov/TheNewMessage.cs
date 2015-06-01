@@ -200,6 +200,11 @@ namespace FirstPartKursov
             ClassForms.inputmessages.Show();
             this.Hide();
         }
+
+        private void путиСохраненияДокументовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.sf.nastroikaFilePath();
+        }
         
     }
 }

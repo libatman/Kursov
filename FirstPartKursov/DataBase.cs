@@ -475,6 +475,11 @@ namespace FirstPartKursov
             textB_find_selling.Text = "Введите  ключевое слово для поиска";
         }
 
+        private void путиСохраненияДокументовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForms.sf.nastroikaFilePath();
+        }
+
         
 
        

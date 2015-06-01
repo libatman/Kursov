@@ -242,5 +242,28 @@ namespace FirstPartKursov
             ClassForms.otchety.Show();
             this.Hide();
         }
+
+        private void путиСохраненияДокументовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            nastroikaFilePath();
+        }
+
+        public void nastroikaFilePath()
+        {
+            SaveFileDialog x = new SaveFileDialog();
+            x.Title = "Выберите путь сохранения для ваших отчетов, прикреплений и т.д.";
+            x.FileName = "proba.txt";
+            DialogResult result = x.ShowDialog();
+            if (result != DialogResult.OK)
+                return;
+            FileInfo file = new FileInfo(x.FileName);
+            ClassForms.sf.filePath.filepathUser = x.FileName.Replace(@"proba.txt", "");
+            serPath(ClassForms.sf.filePath);
+            createPath(ClassForms.sf.filePath.filepathUser + "Документы на заказ товаров");
+            createPath(ClassForms.sf.filePath.filepathUser + "Документы на перераспределение товаров");
+            createPath(ClassForms.sf.filePath.filepathUser + "Отчеты");
+            ClassForms.sf.label1.Text += Environment.NewLine + "Обновлен путь для сохранения документов.";
+            ClassForms.sf.label1.Refresh();
+        }
     }
 }
